@@ -1,0 +1,40 @@
+---
+
+Name: systemd
+
+Area: SSA (SUSE System Administration)
+
+ID: 1001
+
+Sources:
+    - Manual_Page:
+        - man 1 systemctl
+        - man 5 systemd.timer
+    - External_URLs:
+        - https://www2.suse.com/de-de/documentation/sles-12/pdfdoc/book_sle_admin/book_sle_admin.pdf
+        - https://www.suse.com/documentation/sles-12/pdfdoc/book_sle_admin/book_sle_admin.pdf
+        - http://people.redhat.com/bbreard/presos/Summit_Demystifying_systemd.pdf
+
+Documents:
+    - Presentation: modul_systemd_1001_01_slides.odp
+    - Demo: modul_systemd_1001_02_demo.odp
+    - Hands_On: modul_systemd_1001_03_handson.odp
+    - Control_Of_Success: modul_systemd_1001_04_check.odp
+
+Duration: 4h
+
+Description: >
+    Dieses Modul vermittelt einen Einstieg in die Konzepte und Grundlagen von
+    systemd. Es wird vermittelt, wie auf systemd basierten Systemen Diensten,
+    Mounts und zeitgesteuerten Aufgaben verwaltet werden und was für neue best
+    practice Ansätze gelten. Diese Bereiche werden mit Hands-on Aufgaben und
+    Demos vertieft.
+    Die weiterführenden systemd Möglichkeiten (Sockets, Paths, Swap, …) werden
+    theoretisch behandelt.
+
+Requirements:
+    - Installierte Distribution mit systemd >= 210
+    - Bash Bedienung
+    - CLI Editor Bedienung
+
+...

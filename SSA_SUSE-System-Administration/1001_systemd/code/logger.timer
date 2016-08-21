@@ -1,0 +1,13 @@
+[Unit]
+Description=Dummy logger timer
+
+[Timer]
+
+# 50s after booting the machine
+OnBootSec=50s
+
+# Interval
+OnUnitActiveSec=30
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=Dummy service to demonstrate ProtectHome
+DefaultDependencies=no
+After=local-fs.target
+Before=shutdown.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/touch.sh
+ProtectHome=read-only
+
+[Install]
+WantedBy=multi-user.target
