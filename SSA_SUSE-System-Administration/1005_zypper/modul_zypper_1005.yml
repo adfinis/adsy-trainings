@@ -1,0 +1,33 @@
+---
+
+Name: zypper
+
+Area: SSA (SUSE System Administration)
+
+ID: 1005
+
+Sources:
+    - Manual_Page:
+        - man 8 zypper
+    - External_URLs:
+        - https://en.opensuse.org/Portal:Zypper
+
+Documents:
+    - Presentation: modul_zypper_1005_01_slides.odp
+    - Demo: modul_zypper_1005_02_demo.odp
+    - Hands_On: modul_zypper_1005_03_handson.odp
+    - Control_Of_Success: modul_zypper_1005_04_check.odp
+
+Duration: 2h
+
+Description: >
+    Dieses Modul vermittelt einen Einstieg in die Grundlagen und die
+    Verwendung von zypper.
+    Es wird gezeigt, wie Software installiert und deinstalliert wird.
+    Auch werden Repsoitories und das Update-Management behandelt.
+    Die einzelnen Themen werden mit Hands-on Aufgaben und Demos vertieft.
+
+Requirements:
+    - Installierte Distribution mit zypper
+    - Bash Bedienung
+...
