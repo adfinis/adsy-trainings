@@ -85,7 +85,6 @@ sleep 10
 umount /mnt/btrfs1
 btrfs filesystem show
 
-
 #### #### #### ####
 
 dd if=/dev/zero of=/tmp/btrfs/disk1 bs=128M count=1
@@ -94,9 +93,34 @@ mkdir /mnt/btrfs1
 mount /tmp/btrfs/disk1 /mnt/btrfs1
 
 for i in $(seq 1 10); do cp /sbin/httpd /mnt/btrfs1/$i; done
-df -h /mnt/btrfs1
-
+sync
 btrfs filesystem df /mnt/btrfs1
+
+# Dupremove https://github.com/markfasheh/duperemove
 /opt/duperemove -d /mnt/btrfs1
 sync
 btrfs filesystem df /mnt/btrfs1
+
+#### #### #### ####
+
+dd if=/dev/zero of=/tmp/btrfs/disk1 bs=128M count=1
+mkfs.btrfs /tmp/btrfs/disk1
+mkdir /mnt/btrfs1
+mount /tmp/btrfs/disk1 /mnt/btrfs1
+
+btrfs subvolume create /mnt/btrfs1/data
+btrfs subvolume create /mnt/btrfs1/data/backup
+
+echo "Original content" > /mnt/btrfs1/data/file
+cat /mnt/btrfs1/data/file
+
+btrfs subvolume snapshot /mnt/btrfs1/data /mnt/btrfs1/data/backup
+
+echo "Changed content" > /mnt/btrfs1/data/file
+cat /mnt/btrfs1/data/file
+
+btrfs subvolume list /mnt/btrfs1
+btrfs subvolume set-default 258 /mnt/btrfs1
+umount /mnt/btrfs1
+mount /tmp/btrfs/disk1 /mnt/btrfs1
+cat /mnt/btrfs1/file
