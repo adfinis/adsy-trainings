@@ -1,0 +1,31 @@
+---
+
+Name: grub2
+
+Area: SSA (SUSE System Administration)
+
+ID: 1004
+
+Sources:
+    - Manual_Page:
+        - man 8 grub2-mkconfig
+    - External_URLs:
+        - https://www2.suse.com/de-de/documentation/sles-12/pdfdoc/book_sle_admin/book_sle_admin.pdf
+
+Documents:
+    - Presentation: modul_grub2_1004_01_slides.odp
+    - Demo: modul_grub2_1004_02_demo.odp
+    - Hands_On: modul_grub2_1004_03_handson.odp
+    - Control_Of_Success: modul_grub2_1004_04_check.odp
+
+Duration: 2h
+
+Description: >
+    In diesem Modul werden Informationen zum Umgang mit GRUB 2 vermittelt.
+
+Requirements:
+    - Installierte Distribution mit GRUB >= 2
+    - Bash Bedienung
+    - CLI Editor Bedienung
+
+...
