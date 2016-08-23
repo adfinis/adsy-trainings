@@ -1,0 +1,38 @@
+---
+
+Name: snapper
+
+Area: SSA (SUSE System Administration)
+
+ID: 1006
+
+Sources:
+    - Manual_Page:
+        - man 8 snapper
+        - man 5 snapper-configs
+    - External_URLs:
+        - https://www2.suse.com/de-de/documentation/sles-12/pdfdoc/book_sle_admin/book_sle_admin.pdf
+        - https://www.suse.com/documentation/sles-12/pdfdoc/book_sle_admin/book_sle_admin.pdf
+        - http://snapper.io
+
+Documents:
+    - Presentation: modul_snapper_1006_01_slides.odp
+    - Demo: modul_snapper_1006_02_demo.odp
+    - Hands_On: modul_snapper_1006_03_handson.odp
+    - Control_Of_Success: modul_snapper_1006_04_check.odp
+
+Duration: 3h
+
+Description: >
+    Dieses Modul erläutert die Möglichkeiten und Einschränkungen von Snapper.
+    Mit Snapper können Snapshots erstellt und verwaltet werden. Zudem bietet
+    das Tool Möglichkeiten, um Unterschiede zwischen Snapshots anzuzeigen
+    und gezielte Änderungen rückgängig zu machen. Auch System Rollbacks
+    (z.B. nach Updates) können mit von Snapper erstellten Snapshots
+    durchgeführt werden.
+
+Requirements:
+    - Modul „btrfs“ [SSA 1003]
+    - Bash Bedienung
+
+...
