@@ -8,8 +8,7 @@ ID: 1007
 
 Sources:
     - External_URLs:
-        - https://www.suse.com/documentation/sles-12/book_autoyast/data/book_autoyast.html
-        - http://users.suse.com/~ug/autoyast_doc/
+        - https://www.suse.com/documentation/sles-12/singlehtml/book_autoyast/book_autoyast.html
 
 Documents:
     - Presentation: modul_autoyast_1005_01_slides.odp
