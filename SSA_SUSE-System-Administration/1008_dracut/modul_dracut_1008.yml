@@ -1,0 +1,41 @@
+---
+
+Name: dracut
+
+Area: SSA (SUSE System Administration)
+
+ID: 1008
+
+Sources:
+    - Manual_Page:
+        - man 5 journald.conf
+        - man 1 journalctl
+        - man 7 systemd.time
+        - man 7 systemd.journal-fields
+    - External_URLs:
+        - https://www2.suse.com/de-de/documentation/sles-12/pdfdoc/book_sle_admin/book_sle_admin.pdf
+        - https://www.suse.com/documentation/sles-12/pdfdoc/book_sle_admin/book_sle_admin.pdf
+        - http://people.redhat.com/bbreard/presos/Summit_Demystifying_systemd.pdf
+        - https://docs.google.com/document/pub?id=1IC9yOXj7j6cdLLxWEBAGRL6wl97tFxgjLUEHIX3MSTs
+        - https://en.wikipedia.org/wiki/Syslog
+
+Documents:
+    - Presentation: modul_journlad_1002_01_slides.odp
+    - Demo: modul_journlad_1002_02_demo.odp
+    - Hands_On: modul_journlad_1002_03_handson.odp
+    - Control_Of_Success: modul_journlad_1002_04_check.odp
+
+Duration: 4h
+
+Description: >
+    Dieses Modul vermittelt einen Einstieg in die Konzepte und Grundlagen von
+    systemd-journald. Es wird vermittelt, wie auf systemd basierten Systemen
+    Logs gesammelt und analysiert werden und was für neue best practice Ansätze
+    gelten. Diese Bereiche werden mit Hands-on Aufgaben und Demos vertieft.
+
+Requirements:
+    - Modul „systemd“ [SSA 1001]
+    - Bash Bedienung
+    - CLI Editor Bedienung
+
+...
