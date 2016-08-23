@@ -26,7 +26,7 @@ dd if=/dev/zero of=/tmp/btrfs/disk1 bs=128M count=1
 dd if=/dev/zero of=/tmp/btrfs/disk2 bs=128M count=1
 dd if=/dev/zero of=/tmp/btrfs/disk3 bs=128M count=1
 
-mkfs.btrfs -d raid0 /tmp/btrfs/disk1 /tmp/btrfs/disk2 /tmp/btrfs/disk3
+mkfs.btrfs -d raid0 -m raid0 /tmp/btrfs/disk1 /tmp/btrfs/disk2 /tmp/btrfs/disk3
 
 losetup /dev/loop1 /tmp/btrfs/disk1
 losetup /dev/loop2 /tmp/btrfs/disk2
@@ -51,7 +51,7 @@ dd if=/dev/zero of=/tmp/btrfs/disk1 bs=128M count=1
 dd if=/dev/zero of=/tmp/btrfs/disk2 bs=128M count=1
 dd if=/dev/zero of=/tmp/btrfs/disk3 bs=128M count=1
 
-mkfs.btrfs -d raid1 /tmp/btrfs/disk1 /tmp/btrfs/disk2 /tmp/btrfs/disk3
+mkfs.btrfs -d raid1 -m raid1 /tmp/btrfs/disk1 /tmp/btrfs/disk2 /tmp/btrfs/disk3
 
 losetup /dev/loop1 /tmp/btrfs/disk1
 losetup /dev/loop2 /tmp/btrfs/disk2
@@ -108,19 +108,16 @@ mkfs.btrfs /tmp/btrfs/disk1
 mkdir /mnt/btrfs1
 mount /tmp/btrfs/disk1 /mnt/btrfs1
 
-btrfs subvolume create /mnt/btrfs1/data
-btrfs subvolume create /mnt/btrfs1/data/backup
+echo "Original content" > /mnt/btrfs1/file
+cat /mnt/btrfs1/file
 
-echo "Original content" > /mnt/btrfs1/data/file
-cat /mnt/btrfs1/data/file
+btrfs subvolume snapshot /mnt/btrfs1 /mnt/btrfs1/backup
 
-btrfs subvolume snapshot /mnt/btrfs1/data /mnt/btrfs1/data/backup
-
-echo "Changed content" > /mnt/btrfs1/data/file
-cat /mnt/btrfs1/data/file
+echo "Changed content" > /mnt/btrfs1/file
+cat /mnt/btrfs1/file
 
 btrfs subvolume list /mnt/btrfs1
-btrfs subvolume set-default 258 /mnt/btrfs1
+btrfs subvolume set-default 256 /mnt/btrfs1
 umount /mnt/btrfs1
 mount /tmp/btrfs/disk1 /mnt/btrfs1
 cat /mnt/btrfs1/file
