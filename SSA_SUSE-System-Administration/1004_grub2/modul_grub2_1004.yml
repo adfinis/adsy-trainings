@@ -9,6 +9,7 @@ ID: 1004
 Sources:
     - Manual_Page:
         - man 8 grub2-mkconfig
+        - man 1 grub-mkpasswd-pbkdf2
     - External_URLs:
         - https://www2.suse.com/de-de/documentation/sles-12/pdfdoc/book_sle_admin/book_sle_admin.pdf
 
@@ -21,7 +22,13 @@ Documents:
 Duration: 2h
 
 Description: >
-    In diesem Modul werden Informationen zum Umgang mit GRUB 2 vermittelt.
+    Dieses Modul vermittelt Systemadministratoren den Umgang mit dem Bootloader
+    GRUB 2. Ein wichtiges Element ist der Umgang mit den Konfigurations-Dateien
+    sowie häufige Administrations-Aufgaben.
+    In Beispielen wird gezeigt, was nötig ist, um Anpassungen in die GRUB 2
+    Konfiguration zu übernehmen, wie manuell ein neuer Eintrag erstellt werden
+    kann oder wie bei SLE automatisch neu installierte Kernel Versionen in das
+    Menü übernommen werden.
 
 Requirements:
     - Installierte Distribution mit GRUB >= 2
