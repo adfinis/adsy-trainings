@@ -1,0 +1,32 @@
+---
+
+Name: autoyast
+
+Area: SSA (SUSE System Administration)
+
+ID: 1007
+
+Sources:
+    - External_URLs:
+        - https://www.suse.com/documentation/sles-12/book_autoyast/data/book_autoyast.html
+        - http://users.suse.com/~ug/autoyast_doc/
+
+Documents:
+    - Presentation: modul_autoyast_1005_01_slides.odp
+    - Demo: modul_autoyast_1005_02_demo.odp
+    - Hands_On: modul_autoyast_1005_03_handson.odp
+    - Control_Of_Success: modul_autoyast_1005_04_check.odp
+
+Duration: 3h
+
+Description: >
+    Dieses Modul vermittelt einen Einstieg in die Grundlagen und die
+    Verwendung von autoYaST. Es wird gezeigt, wie eine Konfigurations-Datei
+    für autoyast erstellt und damit ein System automatisch installiert
+    werden kann.
+
+Requirements:
+    - Installierte Distribution mit autoyast2
+    - Bash Bedienung
+    - CLI Editor Bedienung
+...

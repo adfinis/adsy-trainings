@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE profile>
+<profile xmlns="http://www.suse.com/1.0/yast2ns" xmlns:config="http://www.suse.com/1.0/configns">
+<general>
+  <mode>
+    <confirm config:type="boolean">false</confirm>
+    <second_stage config:type="boolean">false</second_stage>
+  </mode>
+</general>
+  <partitioning config:type="list">
+    <drive>
+      <device>/dev/sda</device>
+      <partitions config:type="list">
+        <partition>
+          <filesystem config:type="symbol">ext4</filesystem>
+          <size>10G</size>
+          <mount>/</mount>
+        </partition>
+      </partitions>
+    </drive>
+  </partitioning>
+<users config:type="list">
+     <user>
+       <encrypted config:type="boolean">false</encrypted>
+       <uid>0</uid>
+       <gid>0</gid>
+       <user_password>password</user_password>
+       <username>root</username>
+    <forename/>
+    <surname/>
+     </user>
+ </users>
+<software>
+  <packages config:type="list">
+    <package>zypper</package>
+  </packages>
+  <do_online_update config:type="boolean">true</do_online_update>
+</software>
+<services-manager>
+  <default_target>multi-user</default_target>
+  <services>
+    <enable config:type="list">
+      <service>sshd</service>
+    </enable>
+  </services>
+</services-manager>
+  <scripts>
+    <chroot-scripts config:type="list">
+        <script>
+        <chrooted config:type="boolean">true</chrooted>
+        <filename>ssh.sh</filename>
+        <source>
+        <![CDATA[
+        #!/bin/sh
+        umask 077
+        mkdir /root/.ssh
+        echo "SSHKEY" >> /root/.ssh/authorized_keys
+        systemctl enable sshd
+exit 0
+]]>
+        </source>
+      </script>
+  </chroot-scripts>
+  </scripts>
+</profile>
+
