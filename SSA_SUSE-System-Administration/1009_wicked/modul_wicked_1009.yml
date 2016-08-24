@@ -1,0 +1,41 @@
+---
+
+Name: wicked
+
+Area: SSA (SUSE System Administration)
+
+ID: 1009
+
+Sources:
+    - Manual_Page:
+        - man 8 wicked
+        - man 8 wickedd
+        - man 5 wicked-configs
+    - External_URLs:
+        - https://www2.suse.com/de-de/documentation/sles-12/pdfdoc/book_sle_admin/book_sle_admin.pdf
+        - https://www.suse.com/documentation/sles-12/pdfdoc/book_sle_admin/book_sle_admin.pdf
+        - https://www.suse.com/documentation/sles-12/pdfdoc/networking_with_wicked_in_suse_linux_enterprise_12_guide/networking_with_wicked_in_suse_linux_enterprise_12_guide.pdf
+        - https://www.susecon.com/doc/2014/sessions/TUT7562.pdf
+        - https://en.opensuse.org/Portal:Wicked
+
+Documents:
+    - Presentation: modul_wicked_1009_01_slides.odp
+    - Demo: modul_btrfs_1002_02_demo.odp
+    - Hands_On: modul_wicked_1009_03_handson.odp
+    - Control_Of_Success: modul_wicked_1009_04_check.odp
+
+Duration: 3h
+
+Description: >
+    Dieses Modul erklärt, warum wicked eingeführt wurde und was die Vorteile
+    gegenüber den Legacy-Tools wie ifup, ifdown, etc. sind. Die neue Lösung
+    wird auch mit NetworkManager verglichen und erklärt, welches Tool wo seine
+    Stärken hat.
+    In Praxis-Beispielen wird aufgezeigt, wie man Netzwerk-Interfaces mit
+    wicked verwaltet und wie die Konfiguration unter der Haube passiert.
+
+Requirements:
+    - Bash Bedienung
+    - Verständnis zur generellen Netzwerk-Konfiguration unter Linux
+
+...
