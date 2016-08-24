@@ -13,6 +13,7 @@ Sources:
     - External_URLs:
         - https://www2.suse.com/de-de/documentation/sles-12/pdfdoc/book_sle_admin/book_sle_admin.pdf
         - https://www.suse.com/documentation/sles-12/pdfdoc/book_sle_admin/book_sle_admin.pdf
+        - http://linuxplumbersconf.org/2009/slides/Harald-Hoyer-dracut.pdf
 
 Documents:
     - Presentation: modul_dracut_1008_01_slides.odp
