@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Docker Basics</title>
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="css/reveal-adsy.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+          <section><section id="docker-basics" class="titleslide slide level1"><h1>Docker Basics</h1></section><section id="docker-installation" class="slide level2">
+          <h1>Docker Installation</h1>
+          <ul>
+          <li>Debian/Ubuntu
+          <ul>
+          <li>sudo apt-get install docker.io</li>
+          </ul></li>
+          <li>CentOS/Scientific Linux/RHEL
+          <ul>
+          <li>sudo yum install docker-engine</li>
+          </ul></li>
+          <li>Fedora
+          <ul>
+          <li>sudo dnf install docker-engine</li>
+          </ul></li>
+          </ul>
+          <p><a href="https://docs.docker.com/engine/installation/" class="uri">https://docs.docker.com/engine/installation/</a></p>
+          </section><section id="recommendations" class="slide level2">
+          <h1>Recommendations</h1>
+          <p>Use <strong>btrfs</strong> for <strong>/var/lib/docker</strong></p>
+          <pre><code>/dev/vg00/docker /var/lib/docker btrfs rw 0 2</code></pre>
+          <p>Add your user to the docker group</p>
+          <pre><code>sudo usermod -aG docker $USER</code></pre>
+          </section></section>
+          <section><section id="first-steps" class="titleslide slide level1"><h1>First steps</h1></section><section id="your-first-commands" class="slide level2">
+          <h1>Your first commands</h1>
+          <p><strong>Check your docker version</strong></p>
+          <pre><code>docker version</code></pre>
+          <p><strong>Check the available docker options</strong></p>
+          <pre><code>docker</code></pre>
+          <p><strong>Your first hello-world container</strong></p>
+          <pre><code>docker run hello-world</code></pre>
+          <p>This will automatically pull the image <strong>hello-world:latest</strong> in the background if it is not found locally</p>
+          </section><section id="run-commands-in-a-container" class="slide level2">
+          <h1>Run commands in a container</h1>
+          <p><strong>echo &quot;hello world&quot;</strong></p>
+          <pre><code>docker run debian echo &quot;hello world&quot;</code></pre>
+          <p><strong>interactive shell</strong></p>
+          <pre><code>docker run -it debian bash
+          cat /etc/debian_version</code></pre>
+          </section><section id="what-a-mess" class="slide level2">
+          <h1>What a mess!</h1>
+          <p>Look at the mess you've made</p>
+          <pre><code>docker ps -a</code></pre>
+          <p>Luckily you can clean up automagically!</p>
+          <pre><code>docker ps -q -f status=exited | xargs -r docker rm</code></pre>
+          </section></section>
+      </div>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: true,
+        center: true,
+
+        menu: {
+          themes: false,
+          transitions: false,
+          openButton: false,
+          openSlideNumber: true,
+          markers: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true },
+          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>
