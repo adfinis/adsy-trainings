@@ -1,0 +1,37 @@
+---
+
+Name: Basics
+
+Area: Docker
+
+ID: 2001
+
+Sources:
+    - Manual_Page:
+        - man 1 docker
+    - External_URLs:
+        - https://docs.docker.com/engine/installation/
+        - https://docs.docker.com/engine/getstarted/
+        - https://docs.docker.com/engine/reference/builder/
+
+Documents:
+    - Presentation: modul_basics_2001_01_slides.odp
+    - Demo: modul_basics_2001_02_demo.odp
+    - Hands_On: module_basics_2001_03_handson.odp
+    - Control_Of_Success: modul_basics_2001_04_check.odp
+
+Duration: 2h
+
+Description: >
+    Dieses Modul vermittelt einen Einstieg in die Konzepte und Grundlagen von
+    Docker. Es wird vermittelt, wie Docker installiert und konfiguriert wird,
+    wie Dockerfiles strukturiert sind, wie Images verwaltet werden und wie
+    Container gestartet, gestoppt und Prozesse in Containern ausgeführt werden
+    können. Diese Bereiche werden mit Hands-on Aufgaben und Demos vertieft.
+    Weiterführende Themen zu Best-Practices werden in einem weitern Modul
+    behandelt.
+
+Requirements:
+    - Linux Distribution mit aktuellem Kernel >= 3.10
+    - Shell Bedienung
+    - CLI Editor Bedienung
