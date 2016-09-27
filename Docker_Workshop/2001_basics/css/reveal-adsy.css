@@ -19,5 +19,11 @@
   .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
     text-transform: none;
     font-family: "TheSansOffice", sans-serif; }
+  .reveal section.level2 h1 {
+    font-size: 1.6em; }
+  .reveal section.level3 h1 {
+    font-size: 1.3em; }
+  .reveal section.level4 h1 {
+    font-size: 1em; }
   .reveal pre code {
     font-family: "Source Code Pro", monospace; }
