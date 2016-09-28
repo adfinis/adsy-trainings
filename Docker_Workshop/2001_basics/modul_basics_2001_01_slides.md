@@ -93,3 +93,17 @@ Stop a running container
 Kill a running container
 
     docker kill $CONTAINER_ID
+
+Delete a container
+
+    docker rm $CONTAINER_ID
+
+## Interactive shells in containers
+
+Run a interactive shell in a container
+
+    docker run -it foo /bin/bash
+
+Start a interactive shell in a running container
+
+    docker exec -it $CONTAINER_ID /bin/bash

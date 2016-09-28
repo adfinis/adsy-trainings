@@ -88,6 +88,14 @@
           <pre><code>docker stop $CONTAINER_ID</code></pre>
           <p>Kill a running container</p>
           <pre><code>docker kill $CONTAINER_ID</code></pre>
+          <p>Delete a container</p>
+          <pre><code>docker rm $CONTAINER_ID</code></pre>
+          </section><section id="interactive-shells-in-containers" class="slide level2">
+          <h1>Interactive shells in containers</h1>
+          <p>Run a interactive shell in a container</p>
+          <pre><code>docker run -it foo /bin/bash</code></pre>
+          <p>Start a interactive shell in a running container</p>
+          <pre><code>docker exec -it $CONTAINER_ID /bin/bash</code></pre>
           </section></section>
       </div>
     </div>
