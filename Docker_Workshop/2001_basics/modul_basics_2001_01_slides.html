@@ -65,12 +65,29 @@
           <p><strong>interactive shell</strong></p>
           <pre><code>docker run -it debian bash
           cat /etc/debian_version</code></pre>
-          </section><section id="cleanup-your-first-steps" class="slide level2">
-          <h1>Cleanup your first steps</h1>
-          <p>Look at the mess we've made!</p>
-          <pre><code>docker ps -a</code></pre>
-          <p>Luckily you can clean up automagically!</p>
-          <pre><code>docker ps -q -f status=exited | xargs -r docker rm -v</code></pre>
+          </section></section>
+          <section><section id="basic-docker-commands" class="titleslide slide level1"><h1>Basic Docker Commands</h1></section><section id="image-management" class="slide level2">
+          <h1>Image management</h1>
+          <p>Search images on Docker Hub</p>
+          <pre><code>docker search foo</code></pre>
+          <p>Download image to the local repository</p>
+          <pre><code>docker pull bar</code></pre>
+          <p>Delete image from the local repository</p>
+          <pre><code>docker rmi bar</code></pre>
+          </section><section id="container-management" class="slide level2">
+          <h1>Container management</h1>
+          <p>Start a container from the image foo</p>
+          <pre><code>docker run foo</code></pre>
+          <p>Start a container in the background</p>
+          <pre><code>docker run -d foo</code></pre>
+          <p>Show logs from a container</p>
+          <pre><code>docker logs -f $CONTAINER_ID</code></pre>
+          </section><section id="container-management-1" class="slide level2">
+          <h1>Container management</h1>
+          <p>Stop a running container</p>
+          <pre><code>docker stop $CONTAINER_ID</code></pre>
+          <p>Kill a running container</p>
+          <pre><code>docker kill $CONTAINER_ID</code></pre>
           </section></section>
       </div>
     </div>

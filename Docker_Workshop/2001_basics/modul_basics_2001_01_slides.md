@@ -19,15 +19,11 @@
 
 Use **btrfs** for **/var/lib/docker**
 
-```
-/dev/vg00/docker /var/lib/docker btrfs rw 0 2
-```
+    /dev/vg00/docker /var/lib/docker btrfs rw 0 2
 
 Add your user to the docker group
 
-```
-sudo usermod -aG docker $USER
-```
+    sudo usermod -aG docker $USER
 
 # First steps
 
@@ -35,21 +31,15 @@ sudo usermod -aG docker $USER
 
 **Check your docker version**
 
-```
-docker version
-```
+    docker version
 
 **Check the available docker options**
 
-```
-docker
-```
+    docker
 
 **Your first hello-world container**
 
-```
-docker run hello-world
-```
+    docker run hello-world
 
 This pulls the image **hello-world:latest** if it isn't found locally
 
@@ -57,27 +47,49 @@ This pulls the image **hello-world:latest** if it isn't found locally
 
 **echo "hello world"**
 
-```
-docker run debian echo "hello world"
-```
+    docker run debian echo "hello world"
 
 **interactive shell**
 
-```
-docker run -it debian bash
-cat /etc/debian_version
-```
+    docker run -it debian bash
+    cat /etc/debian_version
 
-## Cleanup your first steps
+# Basic Docker Commands
 
-Look at the mess we've made!
+## Image management
 
-```
-docker ps -a
-```
+Search images on Docker Hub
 
-Luckily you can clean up automagically!
+    docker search foo
 
-```
-docker ps -q -f status=exited | xargs -r docker rm -v
-```
+Download image to the local repository
+
+    docker pull bar
+
+Delete image from the local repository
+
+    docker rmi bar
+
+## Container management
+
+Start a container from the image foo
+
+    docker run foo
+
+Start a container in the background
+
+    docker run -d foo
+
+Show logs from a container
+
+    docker logs -f $CONTAINER_ID
+
+## Container management
+
+Stop a running container
+
+    docker stop $CONTAINER_ID
+
+Kill a running container
+
+    docker kill $CONTAINER_ID
