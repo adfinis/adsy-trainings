@@ -25,6 +25,48 @@
   <body>
     <div class="reveal">
       <div class="slides">
+          <section><section id="what-are-containers" class="titleslide slide level1"><h1>What are containers?</h1></section><section id="technically-speaking" class="slide level2">
+          <h1>Technically speaking</h1>
+          <p>isolated user-space processes</p>
+          <p>a.k.a. OS-level virtualization</p>
+          <ul>
+          <li>Process tree isolation</li>
+          <li>File system isolation</li>
+          <li>Network isolation</li>
+          </ul>
+          </section><section class="slide level2">
+          
+          <figure>
+          <img src="static/Docker-linux-interfaces.svg" alt="Docker Linux Interfaces" /><figcaption>Docker Linux Interfaces</figcaption>
+          </figure>
+          </section><section id="goals-of-containerization" class="slide level2">
+          <h1>Goals of containerization</h1>
+          <ul>
+          <li>limited scope</li>
+          <li>self-contained</li>
+          <li>externally managed</li>
+          </ul>
+          </section><section id="os-level-virtualization" class="slide level2">
+          <h1>OS-level virtualization</h1>
+          <p><strong>Which solutions are available?</strong></p>
+          <ul>
+          <li>Docker</li>
+          <li>rkt</li>
+          <li>LXC</li>
+          <li>Solaris Zones</li>
+          <li>FreeBSD jail</li>
+          </ul>
+          </section><section id="whats-the-difference-to-vms" class="slide level2">
+          <h1>What's the difference to VMs?</h1>
+          <section id="containers-are" class="level3">
+          <h3>Containers are</h3>
+          <ul>
+          <li>externally managed</li>
+          <li>no changes during runtime</li>
+          <li>persistence is optional</li>
+          </ul>
+          </section>
+          </section></section>
           <section><section id="docker-basics" class="titleslide slide level1"><h1>Docker Basics</h1></section><section id="docker-installation" class="slide level2">
           <h1>Docker Installation</h1>
           <ul>

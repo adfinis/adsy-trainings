@@ -2,6 +2,45 @@
 % Lukas Grossar
 % September 30, 2016
 
+# What are containers?
+
+## Technically speaking
+
+isolated user-space processes
+
+a.k.a. OS-level virtualization
+
+* Process tree isolation
+* File system isolation
+* Network isolation
+
+---
+![Docker Linux Interfaces](static/Docker-linux-interfaces.svg)
+
+## Goals of containerization
+
+* limited scope
+* self-contained
+* externally managed
+
+## OS-level virtualization
+
+**Which solutions are available?**
+
+* Docker
+* rkt
+* LXC
+* Solaris Zones
+* FreeBSD jail
+
+## What's the difference to VMs?
+
+### Containers are
+
+* externally managed
+* no changes during runtime
+* persistence is optional
+
 # Docker Basics
 
 ## Docker Installation
