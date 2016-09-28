@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Docker Basics</title>
+
+    <link rel="stylesheet" href="../common/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../common/reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="../common/css/reveal-adsy.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../common/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../common/reveal.js/css/print/pdf.css' : '../common/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+          <section><section id="kontrolle-zum-modul-docker-basics" class="titleslide slide level1"><h1>Kontrolle zum Modul Docker Basics</h1></section><section id="ziele-von-containern" class="slide level2">
+          <h1>Ziele von Containern?</h1>
+          <p>Welche Ziele sollen mit Containern erreicht werden?</p>
+          </section><section id="unterschiede-zu-vms" class="slide level2">
+          <h1>Unterschiede zu VMs</h1>
+          <p>Was sind die Unterschiede im Vergleich zu VMs?</p>
+          </section><section id="docker-pakete" class="slide level2">
+          <h1>Docker Pakete</h1>
+          <p>Wie heissen die Docker Pakete in Debian und RHEL basierten Distributionen?</p>
+          </section><section id="container-management" class="slide level2">
+          <h1>Container Management</h1>
+          <p>Was ist der Unterschied zwischen <code>docker run</code> und <code>docker exec</code>?</p>
+          </section><section id="container-management-1" class="slide level2">
+          <h1>Container Management</h1>
+          <p>Mit welcher Option können interaktive Shells gestartet werden?</p>
+          </section></section>
+      </div>
+    </div>
+
+    <script src="../common/reveal.js/lib/js/head.min.js"></script>
+    <script src="../common/reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: true,
+        center: true,
+
+        menu: {
+          themes: false,
+          transitions: false,
+          openButton: false,
+          openSlideNumber: true,
+          markers: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/reveal.js/plugin/notes/notes.js', async: true },
+          { src: '../common/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>
