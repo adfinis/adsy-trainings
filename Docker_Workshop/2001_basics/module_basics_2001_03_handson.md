@@ -33,3 +33,13 @@ Run a interactive shell in the centos image
 Run a interactive shell in the centos image
 
     docker run -it centos /bin/bash
+
+## And now for something completely different
+
+Run the anapsix/nyancat image iteractively
+
+## And now for something completely different
+
+Run the anapsix/nyancat image interactively
+
+    docker run -it anapsix/nyancat
