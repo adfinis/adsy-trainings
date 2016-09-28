@@ -12,13 +12,11 @@ Sources:
     - External_URLs:
         - https://docs.docker.com/engine/installation/
         - https://docs.docker.com/engine/getstarted/
-        - https://docs.docker.com/engine/reference/builder/
 
 Documents:
-    - Presentation: modul_basics_2001_01_slides.odp
-    - Demo: modul_basics_2001_02_demo.odp
-    - Hands_On: module_basics_2001_03_handson.odp
-    - Control_Of_Success: modul_basics_2001_04_check.odp
+    - Presentation: modul_basics_2001_01_slides.html
+    - Hands_On: module_basics_2001_03_handson.html
+    - Control_Of_Success: modul_basics_2001_04_check.html
 
 Duration: 2h
 
