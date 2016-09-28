@@ -20,8 +20,11 @@ a.k.a. OS-level virtualization
 ## Goals of containerization
 
 * limited scope
+    * focus on one task
 * self-contained
+    * include all dependencies
 * externally managed
+    * containers have not control over resources
 
 ## OS-level virtualization
 
