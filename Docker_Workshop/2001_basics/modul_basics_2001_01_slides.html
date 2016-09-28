@@ -119,12 +119,18 @@
           </section></section>
           <section><section id="basic-docker-commands" class="titleslide slide level1"><h1>Basic Docker Commands</h1></section><section id="image-management" class="slide level2">
           <h1>Image management</h1>
-          <p>Search images on Docker Hub</p>
+          <p>Search image foo on Docker Hub</p>
           <pre><code>docker search foo</code></pre>
-          <p>Download image to the local repository</p>
+          <p>Download image bar</p>
           <pre><code>docker pull bar</code></pre>
-          <p>Delete image from the local repository</p>
-          <pre><code>docker rmi bar</code></pre>
+          <p>Delete image baz locally</p>
+          <pre><code>docker rmi baz</code></pre>
+          </section><section id="image-tags" class="slide level2">
+          <h1>Image tags</h1>
+          <p>Download image foo with tag bar</p>
+          <pre><code>docker pull foo:bar</code></pre>
+          <p>Delete image foo with tag bar locally</p>
+          <pre><code>docker rmi foo:bar</code></pre>
           </section><section id="container-management" class="slide level2">
           <h1>Container management</h1>
           <p>Start a container from the image foo</p>

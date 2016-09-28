@@ -10,5 +10,6 @@ all: $(SLIDES)
 	--template ../common/revealjs-template.pandoc \
 	--standalone \
 	--section-divs \
+	--no-highlight \
 	$< \
 	-o $@

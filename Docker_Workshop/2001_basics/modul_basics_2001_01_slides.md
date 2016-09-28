@@ -100,17 +100,27 @@ This pulls the image **hello-world:latest** if it isn't found locally
 
 ## Image management
 
-Search images on Docker Hub
+Search image foo on Docker Hub
 
     docker search foo
 
-Download image to the local repository
+Download image bar
 
     docker pull bar
 
-Delete image from the local repository
+Delete image baz locally
 
-    docker rmi bar
+    docker rmi baz
+
+## Image tags
+
+Download image foo with tag bar
+
+    docker pull foo:bar
+
+Delete image foo with tag bar locally
+
+    docker rmi foo:bar
 
 ## Container management
 

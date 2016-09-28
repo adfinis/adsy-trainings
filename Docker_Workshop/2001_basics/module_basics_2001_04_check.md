@@ -16,6 +16,18 @@ Was sind die Unterschiede im Vergleich zu VMs?
 
 Wie heissen die Docker Pakete in Debian und RHEL basierten Distributionen?
 
+## Docker Images
+
+Wo kann ich nach Docker Images suchen?
+
+## Docker Images
+
+Wie werden Tags bei Docker Images angegeben?
+
+## Docker Images
+
+Woran erkenne ich offizielle Docker Images?
+
 ## Container Management
 
 Was ist der Unterschied zwischen `docker run` und `docker exec`?
