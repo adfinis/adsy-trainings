@@ -6,19 +6,19 @@
 
     <title>$title$</title>
 
-    <link rel="stylesheet" href="reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="reveal.js/css/theme/white.css">
-    <link rel="stylesheet" href="css/reveal-adsy.css">
+    <link rel="stylesheet" href="../common/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../common/reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="../common/css/reveal-adsy.css">
 
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="css/monokai.css">
+    <link rel="stylesheet" href="../common/css/monokai.css">
 
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../common/reveal.js/css/print/pdf.css' : '../common/reveal.js/css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
   </head>
@@ -29,8 +29,8 @@
       </div>
     </div>
 
-    <script src="reveal.js/lib/js/head.min.js"></script>
-    <script src="reveal.js/js/reveal.js"></script>
+    <script src="../common/reveal.js/lib/js/head.min.js"></script>
+    <script src="../common/reveal.js/js/reveal.js"></script>
 
     <script>
       // More info https://github.com/hakimel/reveal.js#configuration
@@ -50,10 +50,10 @@
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'reveal.js/plugin/notes/notes.js', async: true },
-          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: 'reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } }
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/reveal.js/plugin/notes/notes.js', async: true },
+          { src: '../common/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
     </script>

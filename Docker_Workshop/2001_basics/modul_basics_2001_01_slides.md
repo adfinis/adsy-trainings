@@ -51,7 +51,7 @@ docker
 docker run hello-world
 ```
 
-This will automatically pull the image **hello-world:latest** in the background if it is not found locally
+This pulls the image **hello-world:latest** if it isn't found locally
 
 ## Run commands in a container
 
@@ -68,9 +68,9 @@ docker run -it debian bash
 cat /etc/debian_version
 ```
 
-## What a mess!
+## Cleanup your first steps
 
-Look at the mess you've made
+Look at the mess we've made!
 
 ```
 docker ps -a
@@ -79,5 +79,5 @@ docker ps -a
 Luckily you can clean up automagically!
 
 ```
-docker ps -q -f status=exited | xargs -r docker rm
+docker ps -q -f status=exited | xargs -r docker rm -v
 ```
