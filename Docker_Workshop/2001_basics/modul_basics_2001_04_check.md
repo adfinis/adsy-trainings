@@ -35,3 +35,11 @@ Was ist der Unterschied zwischen `docker run` und `docker exec`?
 ## Container Management
 
 Mit welchen Optionen können interaktive Shells gestartet werden?
+
+## Exposed Port Management
+
+Mit welchen Optionen können Container Ports am Host exposed werden?
+
+## Exposed Port Management
+
+Wie können die exposed Ports eines Containers gezeigt werden?

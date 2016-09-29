@@ -53,6 +53,14 @@
 <h1>Run a command in a Docker image</h1>
 <p>Show the CentOS release of the centos image with the tag 7</p>
 <pre><code>docker run centos:7 cat /etc/redhat-release</code></pre>
+</section><section id="expose-a-port-in-a-container" class="slide level2">
+<h1>Expose a port in a container</h1>
+<p>Run the the nginx image and expose port 80</p>
+</section><section id="expose-a-port-in-a-container-1" class="slide level2">
+<h1>Expose a port in a container</h1>
+<p>Run the the nginx image and expose port 80</p>
+<pre><code>docker run -p 8080:80 nginx
+xdg-open http://localhost:8080</code></pre>
 </section><section id="run-a-interactive-shell-in-a-docker-image" class="slide level2">
 <h1>Run a interactive shell in a Docker image</h1>
 <p>Run a interactive shell in the centos image</p>

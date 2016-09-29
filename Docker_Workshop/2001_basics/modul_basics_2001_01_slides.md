@@ -162,6 +162,20 @@ Delete a container
 
     docker rm $CONTAINER_ID
 
+## Exposed port management
+
+Expose a container port on the host
+
+    docker run -p 8080:80 nginx
+
+Expose all configured ports on random ports on the host
+
+    docker run -P nginx
+
+Show exposed ports of a container
+
+    docker port $CONTAINER_ID
+
 ## Interactive shells in containers
 
 Run a interactive shell in a container

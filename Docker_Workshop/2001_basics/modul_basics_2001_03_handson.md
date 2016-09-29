@@ -44,6 +44,17 @@ Show the CentOS release of the centos image with the tag 7
 
     docker run centos:7 cat /etc/redhat-release
 
+## Expose a port in a container
+
+Run the the nginx image and expose port 80
+
+## Expose a port in a container
+
+Run the the nginx image and expose port 80
+
+    docker run -p 8080:80 nginx
+    xdg-open http://localhost:8080
+
 ## Run a interactive shell in a Docker image
 
 Run a interactive shell in the centos image

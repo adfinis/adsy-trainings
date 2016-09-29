@@ -153,6 +153,14 @@
 <pre><code>docker kill $CONTAINER_ID</code></pre>
 <p>Delete a container</p>
 <pre><code>docker rm $CONTAINER_ID</code></pre>
+</section><section id="exposed-port-management" class="slide level2">
+<h1>Exposed port management</h1>
+<p>Expose a container port on the host</p>
+<pre><code>docker run -p 8080:80 nginx</code></pre>
+<p>Expose all configured ports on random ports on the host</p>
+<pre><code>docker run -P nginx</code></pre>
+<p>Show exposed ports of a container</p>
+<pre><code>docker port $CONTAINER_ID</code></pre>
 </section><section id="interactive-shells-in-containers" class="slide level2">
 <h1>Interactive shells in containers</h1>
 <p>Run a interactive shell in a container</p>
