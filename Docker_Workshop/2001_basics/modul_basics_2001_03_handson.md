@@ -4,51 +4,51 @@
 
 # Docker Hands On
 
-## Pull a docker image
+## Pull a Docker image
 
 Pull the centos image from Docker Hub
 
-## Pull a docker image
+## Pull a Docker image
 
 Pull the centos image from Docker Hub
 
     docker pull centos
 
-## Pull a docker image with a tag
+## Pull a Docker image with a tag
 
 Pull the centos image with the tag 7 from Docker Hub
 
-## Pull a docker image with a tag
+## Pull a Docker image with a tag
 
 Pull the centos image with the tag 7 from Docker Hub
 
     docker pull centos:7
 
-## Run a command in a docker image
+## Run a command in a Docker image
 
 Show the CentOS release of the centos image
 
-## Run a command in a docker image
+## Run a command in a Docker image
 
 Show the CentOS release of the centos image
 
     docker run centos cat /etc/redhat-release
 
-## Run a command in a docker image
+## Run a command in a Docker image
 
 Show the CentOS release of the centos image with the tag 7
 
-## Run a command in a docker image
+## Run a command in a Docker image
 
 Show the CentOS release of the centos image with the tag 7
 
     docker run centos:7 cat /etc/redhat-release
 
-## Run a interactive shell in a docker image
+## Run a interactive shell in a Docker image
 
 Run a interactive shell in the centos image
 
-## Run a interactive shell in a docker image
+## Run a interactive shell in a Docker image
 
 Run a interactive shell in the centos image
 
