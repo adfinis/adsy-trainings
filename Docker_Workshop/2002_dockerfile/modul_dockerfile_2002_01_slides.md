@@ -4,9 +4,41 @@
 
 # Dockerfiles
 
-## What's a Dockerfile?
+## What is a Dockerfile?
 
 Build instructions for Docker images
+
+Each command creates a layer in the image
+
+```dockerfile
+FROM centos:7
+MAINTAINER Foo Bar <foo.bar@example.com>
+
+RUN yum install -y \
+      curl \
+      gzip \
+      tar \
+    && yum clean all
+
+COPY docker-entrypoint.sh /usr/local/bin/
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+CMD ["bash"]
+```
+
+## Docker build context
+
+**All** files in the directory where the Dockerfile resides are sent to the Docker daemon as the **build context**
+
+To exclude specific files create a **.dockerignore** file
+
+```
+# exclude README.md
+README.md
+# exclude *.pyc files
+**/*.pyc
+```
 
 ## Which commands are available?
 
@@ -44,6 +76,29 @@ RUN yum install -y \
 
 **Best Practice:** Clean up temporary data at the end of `RUN`
 
+## RUN
+
+Yes this is ugly, but good practice
+
+```dockerfile
+RUN mkdir -p /usr/src/things \
+    && wget http://example.com/big.tar.xz \
+    && tar -xJf big.tar.xz -C /usr/src/things \
+    && make -C /usr/src/things all \
+    && rm -f big.tar.xz
+```
+
+## RUN
+
+Still ugly, but no `rm` required
+
+```dockerfile
+RUN mkdir -p /usr/src/things \
+    && curl -SL http://example.com/big.tar.xz \
+      | tar -xJC /usr/src/things \
+    && make -C /usr/src/things all
+```
+
 ## ENV
 
 Set a environment variable used during build and in the running container
@@ -62,19 +117,88 @@ RUN yum install -y \
     && yum clean all
 ```
 
-**Best Practice:** Use it to control versions of installed packages
+**Best Practice:** Use it to define versions of packages
+
+**Best Practice:** Define app behaviour (e.g. PGDATA)
 
 ## COPY
 
-* Copy a local file to the Docker image
+Copy a file/dir from the **build context** to the Docker image
+
+```dockerfile
+COPY src /var/www/html/
+```
+
+## ADD
+
+Extended variant of **COPY**
+
+Able to e.g. extract tar files and fetch remote sources
+
+```dockerfile
+FROM scratch
+ADD rootfs.tar.xz /
+```
+
+**Best Practice:** Only use it if you really need it
+
+See [ADD or COPY](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#/add-or-copy) for more information!
 
 ## EXPOSE
 
-* Expose a port in the container externally
+Mark a local port in the container for external exposure
+
+```dockerfile
+EXPOSE 80 443
+```
+
+**Best Practice:** Only expose required ports
 
 ## VOLUME
 
-* Create a volume mountpoint for persistent data
+Mark a directory that will contain persistent data
+
+Data in the image will be copied to the volume
+
+```dockerfile
+VOLUME /var/lib/mysql
+```
+
+## USER
+
+Execute all following commands as this user
+
+```dockerfile
+USER tomcat
+```
+
+**Best Practice:** Avoid switching users multiple times
+
+## CMD
+
+Command to be run when the container is being started
+
+```dockerfile
+CMD ["apache2","-DFOREGROUND"]
+```
+
+**Best Practice:** Start the service for service containers, specify a shell for all other purposes
+
+## ENTRYPOINT
+
+Set the main command that the container runs
+
+The command configured in **CMD** will be appended
+
+```dockerfile
+COPY docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["mysqld"]
+```
+
+**Best Practices:** Use for wrapper scripts preparing services (MariaDB, PostgreSQL, ...)
+
+For more information see [ENTRYPOINT](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#/entrypoint)
 
 ## More questions?
 
