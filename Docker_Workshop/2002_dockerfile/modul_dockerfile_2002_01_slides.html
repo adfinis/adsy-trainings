@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Dockerfiles</title>
+
+    <link rel="stylesheet" href="../common/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../common/reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="../common/css/reveal-adsy.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../common/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../common/reveal.js/css/print/pdf.css' : '../common/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+<section><section id="dockerfiles" class="titleslide slide level1"><h1>Dockerfiles</h1></section><section id="whats-a-dockerfile" class="slide level2">
+<h1>What's a Dockerfile?</h1>
+<p>Build instructions for Docker images</p>
+</section><section id="which-commands-are-available" class="slide level2">
+<h1>Which commands are available?</h1>
+</section><section id="from" class="slide level2">
+<h1>FROM</h1>
+<p>Build upon this Docker image</p>
+<pre class="dockerfile"><code>FROM centos:7</code></pre>
+<p><strong>Best Practice:</strong> Always specify a tag!</p>
+</section><section id="maintainer" class="slide level2">
+<h1>MAINTAINER</h1>
+<p>Add maintainer information to your Docker image</p>
+<pre class="dockerfile"><code>MAINTAINER Foo Bar &lt;foo.bar@example.com&gt;</code></pre>
+</section><section id="run" class="slide level2">
+<h1>RUN</h1>
+<p>Run a command in the build container</p>
+<pre class="dockerfile"><code>RUN yum install -y \
+      curl \
+      tar \
+      gzip \
+  &amp;&amp; yum clean all</code></pre>
+<p><strong>Best Practice:</strong> Use as few <code>RUN</code> instructions as possible</p>
+<p><strong>Best Practice:</strong> Clean up temporary data at the end of <code>RUN</code></p>
+</section><section id="env" class="slide level2">
+<h1>ENV</h1>
+<p>Set a environment variable used during build and in the running container</p>
+<pre class="dockerfile"><code>ENV MARIADB_MAJOR 10.1
+ENV MARIADB_VERSION 10.1.17
+RUN { echo &#39;[mariadb]&#39;; \
+      echo &#39;name = MariaDB&#39;; \
+      echo &quot;baseurl = http://yum.mariadb.org/$MARIADB_MAJOR/centos7-amd64&quot;; \
+      echo &#39;gpgkey = https://yum.mariadb.org/RPM-GPG-KEY-MariaDB&#39;; \
+      echo &#39;gpgcheck = 1&#39;; \
+    } &gt; /etc/yum.repos.d/MariaDB.repo
+RUN yum install -y \
+      MariaDB-server-$MARIADB_VERSION
+    &amp;&amp; yum clean all</code></pre>
+<p><strong>Best Practice:</strong> Use it to control versions of installed packages</p>
+</section><section id="copy" class="slide level2">
+<h1>COPY</h1>
+<ul>
+<li>Copy a local file to the Docker image</li>
+</ul>
+</section><section id="expose" class="slide level2">
+<h1>EXPOSE</h1>
+<ul>
+<li>Expose a port in the container externally</li>
+</ul>
+</section><section id="volume" class="slide level2">
+<h1>VOLUME</h1>
+<ul>
+<li>Create a volume mountpoint for persistent data</li>
+</ul>
+</section><section id="more-questions" class="slide level2">
+<h1>More questions?</h1>
+<p>See the full documentation at <a href="https://docs.docker.com/engine/reference/builder/" class="uri">https://docs.docker.com/engine/reference/builder/</a></p>
+</section></section>
+      </div>
+    </div>
+
+    <script src="../common/reveal.js/lib/js/head.min.js"></script>
+    <script src="../common/reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: true,
+        center: true,
+
+        menu: {
+          themes: false,
+          transitions: false,
+          openButton: false,
+          openSlideNumber: true,
+          markers: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/reveal.js/plugin/notes/notes.js', async: true },
+          { src: '../common/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>

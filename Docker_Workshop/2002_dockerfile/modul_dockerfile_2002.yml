@@ -1,0 +1,31 @@
+---
+
+Name: Dockerfile
+
+Area: Docker
+
+ID: 2002
+
+Sources:
+    - External_URLs:
+        - https://docs.docker.com/engine/reference/builder/
+        - https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
+
+Documents:
+    - Presentation: modul_dockerfile_2002_01_slides.html
+    - Demo: modul_dockerfile_2002_02_demo.html
+    - Hands_On: module_dockerfile_2002_03_handson.html
+    - Control_Of_Success: modul_dockerfile_2002_04_check.html
+
+Duration: 2h
+
+Description: >
+    Dieses Modul vermittelt den Umgang mit Dockerfile und wie diese genutzt
+    werden um Docker Images zu bauen. Es bietet einen Überblick zu den
+    wichtigsten Befehlen in Dockerfiles und beschreibt Best-Practices um
+    les- und verwaltbare Dockerfiles zu schreiben.
+
+Requirements:
+    - Linux Distribution mit aktuellem Kernel >= 3.10
+    - Shell Bedienung
+    - CLI Editor Bedienung
