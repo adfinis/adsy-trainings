@@ -123,6 +123,8 @@
 <pre><code>docker search foo</code></pre>
 <p>Download image bar</p>
 <pre><code>docker pull bar</code></pre>
+<p>List local images</p>
+<pre><code>docker images</code></pre>
 <p>Delete image baz locally</p>
 <pre><code>docker rmi baz</code></pre>
 </section><section id="image-tags" class="slide level2">
@@ -137,10 +139,14 @@
 <pre><code>docker run foo</code></pre>
 <p>Start a container in the background</p>
 <pre><code>docker run -d foo</code></pre>
+<p>Show running containers</p>
+<pre><code>docker ps</code></pre>
 <p>Show logs from a container</p>
 <pre><code>docker logs -f $CONTAINER_ID</code></pre>
 </section><section id="container-management-1" class="slide level2">
 <h1>Container management</h1>
+<p>Show processes running in a container</p>
+<pre><code>docker top $CONTAINER_ID</code></pre>
 <p>Stop a running container</p>
 <pre><code>docker stop $CONTAINER_ID</code></pre>
 <p>Kill a running container</p>

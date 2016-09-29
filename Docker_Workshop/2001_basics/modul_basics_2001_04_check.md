@@ -34,4 +34,4 @@ Was ist der Unterschied zwischen `docker run` und `docker exec`?
 
 ## Container Management
 
-Mit welcher Option können interaktive Shells gestartet werden?
+Mit welchen Optionen können interaktive Shells gestartet werden?

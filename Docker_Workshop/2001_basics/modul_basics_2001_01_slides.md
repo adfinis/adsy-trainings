@@ -108,6 +108,10 @@ Download image bar
 
     docker pull bar
 
+List local images
+
+    docker images
+
 Delete image baz locally
 
     docker rmi baz
@@ -132,11 +136,19 @@ Start a container in the background
 
     docker run -d foo
 
+Show running containers
+
+    docker ps
+
 Show logs from a container
 
     docker logs -f $CONTAINER_ID
 
 ## Container management
+
+Show processes running in a container
+
+    docker top $CONTAINER_ID
 
 Stop a running container
 
