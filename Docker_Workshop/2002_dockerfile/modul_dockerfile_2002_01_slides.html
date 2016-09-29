@@ -43,6 +43,11 @@ COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT [&quot;docker-entrypoint.sh&quot;]
 
 CMD [&quot;bash&quot;]</code></pre>
+</section><section id="docker-build-command" class="slide level2">
+<h1>Docker build command</h1>
+<p>Build an image from a Dockerfile in a directory</p>
+<pre><code>docker build -t imagename:tag .</code></pre>
+<p><strong>Best Practice:</strong> Always specify a name and tag when building an image</p>
 </section><section id="docker-build-context" class="slide level2">
 <h1>Docker build context</h1>
 <p><strong>All</strong> files in the directory where the Dockerfile resides are sent to the Docker daemon as the <strong>build context</strong></p>

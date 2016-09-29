@@ -27,6 +27,14 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["bash"]
 ```
 
+## Docker build command
+
+Build an image from a Dockerfile in a directory
+
+    docker build -t imagename:tag .
+
+**Best Practice:** Always specify a name and tag when building an image
+
 ## Docker build context
 
 **All** files in the directory where the Dockerfile resides are sent to the Docker daemon as the **build context**
