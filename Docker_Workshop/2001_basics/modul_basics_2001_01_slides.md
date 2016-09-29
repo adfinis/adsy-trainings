@@ -94,7 +94,7 @@ This pulls the image **hello-world:latest** if it isn't found locally
 **interactive shell**
 
     docker run -it debian bash
-    cat /etc/debian_version
+    # cat /etc/debian_version
 
 # Basic Docker Commands
 
