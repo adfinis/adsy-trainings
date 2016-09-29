@@ -1,6 +1,8 @@
 SOURCES = $(wildcard *.md)
 SLIDES  = $(SOURCES:.md=.html)
 
+.PHONY: all clean
+
 all: $(SLIDES)
 
 %.html: %.md
@@ -13,3 +15,6 @@ all: $(SLIDES)
 	--no-highlight \
 	$< \
 	-o $@
+
+clean:
+	-rm -f *.html
