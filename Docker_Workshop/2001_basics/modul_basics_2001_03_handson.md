@@ -60,6 +60,6 @@ Run the anapsix/nyancat image iteractively
 
 ## And now for something completely different
 
-Run the anapsix/nyancat image interactively
+Run the anapsix/nyancat image interactivelly
 
     docker run -it anapsix/nyancat
