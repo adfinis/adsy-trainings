@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Dockerfile Check</title>
+
+    <link rel="stylesheet" href="../common/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../common/reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="../common/css/reveal-adsy.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../common/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../common/reveal.js/css/print/pdf.css' : '../common/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+<section><section id="kontrolle-zum-modul-dockerfile" class="titleslide slide level1"><h1>Kontrolle zum Modul Dockerfile</h1></section><section id="dockerfile" class="slide level2">
+<h1>Dockerfile</h1>
+<p>Was ist der Zweck eines Dockerfiles?</p>
+</section><section id="building-a-docker-image" class="slide level2">
+<h1>Building a Docker image</h1>
+<p>Mit welchem Befehl kann ein Docker Image aus einem Dockerfile gebaut werden?</p>
+</section><section id="building-a-docker-image-1" class="slide level2">
+<h1>Building a Docker image</h1>
+<p>Mit welcher Option kann ein Name und Tag gesetzt werden?</p>
+</section><section id="building-a-docker-image-2" class="slide level2">
+<h1>Building a Docker image</h1>
+<p>Was ist der Sinn des .dockerignore Files?</p>
+</section><section id="writing-dockerfiles" class="slide level2">
+<h1>Writing Dockerfiles</h1>
+<p>Worauf sollte man beim <code>FROM</code> Kommando achten?</p>
+</section><section id="writing-dockerfiles-1" class="slide level2">
+<h1>Writing Dockerfiles</h1>
+<p>Worauf sollte man beim <code>RUN</code> Kommando achten?</p>
+</section><section id="writing-dockerfiles-2" class="slide level2">
+<h1>Writing Dockerfiles</h1>
+<p>Wie kann ich Dateien aus dem build context ins Image kopieren?</p>
+</section><section id="writing-dockerfiles-3" class="slide level2">
+<h1>Writing Dockerfiles</h1>
+<p>Wozu dient <code>EXPOSE</code>?</p>
+</section><section id="writing-dockerfiles-4" class="slide level2">
+<h1>Writing Dockerfiles</h1>
+<p>Container sind per Definition flüchtig. Wie kann ich nicht flüchtige Daten verwalten?</p>
+</section><section id="writing-dockerfiles-5" class="slide level2">
+<h1>Writing Dockerfiles</h1>
+<p>Wie definiere ich das Kommando welches beim Starten des Containers ausgeführt wird?</p>
+</section></section>
+      </div>
+    </div>
+
+    <script src="../common/reveal.js/lib/js/head.min.js"></script>
+    <script src="../common/reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: true,
+        center: true,
+
+        menu: {
+          themes: false,
+          transitions: false,
+          openButton: false,
+          openSlideNumber: true,
+          markers: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/reveal.js/plugin/notes/notes.js', async: true },
+          { src: '../common/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>
