@@ -74,7 +74,7 @@ README.md
       curl \
       tar \
       gzip \
-  &amp;&amp; yum clean all</code></pre>
+    &amp;&amp; yum clean all</code></pre>
 <p><strong>Best Practice:</strong> Use as few <code>RUN</code> instructions as possible</p>
 <p><strong>Best Practice:</strong> Clean up temporary data at the end of <code>RUN</code></p>
 </section><section id="run-1" class="slide level2">
@@ -149,6 +149,23 @@ ENTRYPOINT [&quot;docker-entrypoint.sh&quot;]
 CMD [&quot;mysqld&quot;]</code></pre>
 <p><strong>Best Practices:</strong> Use for wrapper scripts preparing services (MariaDB, PostgreSQL, ...)</p>
 <p>For more information see <a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#/entrypoint">ENTRYPOINT</a></p>
+</section><section id="entrypoint-1" class="slide level2">
+<h1>ENTRYPOINT</h1>
+<p>This is a example entrypoint wrapper script for PostgreSQL</p>
+<pre class="bash"><code>#!/bin/bash
+set -e
+
+if [ &quot;$1&quot; = &#39;postgres&#39; ]; then
+    chown -R postgres &quot;$PGDATA&quot;
+
+    if [ -z &quot;$(ls -A &quot;$PGDATA&quot;)&quot; ]; then
+        gosu postgres initdb
+    fi
+
+    exec gosu postgres &quot;$@&quot;
+fi
+
+exec &quot;$@&quot;</code></pre>
 </section><section id="more-questions" class="slide level2">
 <h1>More questions?</h1>
 <p>See the full documentation at <a href="https://docs.docker.com/engine/reference/builder/" class="uri">https://docs.docker.com/engine/reference/builder/</a></p>

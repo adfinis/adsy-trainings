@@ -77,7 +77,7 @@ RUN yum install -y \
       curl \
       tar \
       gzip \
-  && yum clean all
+    && yum clean all
 ```
 
 **Best Practice:** Use as few `RUN` instructions as possible
@@ -207,6 +207,27 @@ CMD ["mysqld"]
 **Best Practices:** Use for wrapper scripts preparing services (MariaDB, PostgreSQL, ...)
 
 For more information see [ENTRYPOINT](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#/entrypoint)
+
+## ENTRYPOINT
+
+This is a example entrypoint wrapper script for PostgreSQL
+
+```bash
+#!/bin/bash
+set -e
+
+if [ "$1" = 'postgres' ]; then
+    chown -R postgres "$PGDATA"
+
+    if [ -z "$(ls -A "$PGDATA")" ]; then
+        gosu postgres initdb
+    fi
+
+    exec gosu postgres "$@"
+fi
+
+exec "$@"
+```
 
 ## More questions?
 
