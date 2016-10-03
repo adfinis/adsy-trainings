@@ -126,6 +126,24 @@ Delete image foo with tag bar locally
 
     docker rmi foo:bar
 
+Rename/retag an image
+
+    docker tag example example:stable
+
+## Image repositories
+
+Download the image bar from the repository foo
+
+    docker pull foo/bar
+
+Pull an image from the registry example.com
+
+    docker pull example.com/foo/bar
+
+Push an image to the registry example.com
+
+    docker push example.com/foo/bar
+
 ## Container management
 
 Start a container from the image foo

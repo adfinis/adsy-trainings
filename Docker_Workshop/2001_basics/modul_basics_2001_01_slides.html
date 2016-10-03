@@ -133,6 +133,16 @@
 <pre><code>docker pull foo:bar</code></pre>
 <p>Delete image foo with tag bar locally</p>
 <pre><code>docker rmi foo:bar</code></pre>
+<p>Rename/retag an image</p>
+<pre><code>docker tag example example:stable</code></pre>
+</section><section id="image-repositories" class="slide level2">
+<h1>Image repositories</h1>
+<p>Download the image bar from the repository foo</p>
+<pre><code>docker pull foo/bar</code></pre>
+<p>Pull an image from the registry example.com</p>
+<pre><code>docker pull example.com/foo/bar</code></pre>
+<p>Push an image to the registry example.com</p>
+<pre><code>docker push example.com/foo/bar</code></pre>
 </section><section id="container-management" class="slide level2">
 <h1>Container management</h1>
 <p>Start a container from the image foo</p>
