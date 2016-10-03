@@ -50,7 +50,7 @@ Run the the nginx image and expose port 80
 
 ## Expose a port in a container
 
-Run the the nginx image and expose port 80
+Run the nginx image and expose port 80
 
     docker run -p 8080:80 nginx
     xdg-open http://localhost:8080

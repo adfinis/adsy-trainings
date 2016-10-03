@@ -24,7 +24,7 @@ a.k.a. OS-level virtualization
 * self-contained
     * include all dependencies
 * externally managed
-    * containers have not control over resources
+    * containers have no control over resources
 
 ## OS-level virtualization
 
