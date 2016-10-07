@@ -1,0 +1,31 @@
+---
+
+Name: Docker Management
+
+Area: Docker
+
+ID: 2003
+
+Sources:
+    - External_URLs:
+        - https://docs.docker.com/compose/
+        - https://docs.ansible.com/ansible-container/
+
+Documents:
+    - Presentation: modul_management_2003_01_slides.html
+    - Demo: modul_management_2003_02_demo.html
+    - Hands_On: module_management_2003_03_handson.html
+    - Control_Of_Success: modul_management_2003_04_check.html
+
+Duration: 2h
+
+Description: >
+    Dieses Modul bietet Empfehlungen für den täglichen Umgang mit Docker
+    Containern, wie werden diese am besten gestartet, gestoppt und verwaltet.
+    Weiters werden einige Befehle mitgegeben die ein schnelles Aufräumen
+    ermöglichen.
+
+Requirements:
+    - Linux Distribution mit aktuellem Kernel >= 3.10
+    - Shell Bedienung
+    - CLI Editor Bedienung
