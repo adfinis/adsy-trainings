@@ -204,6 +204,14 @@ Start a interactive shell in a running container
 
     docker exec -it $CONTAINER_ID /bin/bash
 
+# Advanced Docker commands
+
+## Name a container
+
+To override the automatically generated names you can specify a name on the CLI
+
+    docker run --name nginx_proxy nginx
+
 ## Delete container on exit
 
 The option `--rm` deletes the container on exit
