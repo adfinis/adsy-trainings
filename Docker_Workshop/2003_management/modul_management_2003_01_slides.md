@@ -6,9 +6,50 @@
 
 ## Disclaimer
 
-This presentation is geared towards management of development environments. Not all of the recommendations apply for production environments!
+This presentation is geared towards management of development environments.
+Not all of the recommendations apply for production environments!
+
+# Docker volume Management
+
+## Automatically created volumes
+
+Docker Engine automatically creates a volume for every `VOLUME` command in the
+Dockerfile
+
+```bash
+docker run -d mariadb
+docker volume ls
+```
+
+## Mount a host path in the containers
+
+Volumes can also be paths on the host
+
+**Paths specified this way must the absolute paths**
+
+```bash
+docker run -d -v "$(pwd)/dockerdata:/var/lib/mysql" --name mariadb mariadb
+docker inspect -f '{{ json .Mounts }}' mariadb | jq
+[
+  {
+    "Source": "/home/lukasgr/Docker_Workshop/dockerdata",
+    "Destination": "/var/lib/mysql",
+    "Mode": "",
+    "RW": true,
+    "Propagation": "rprivate"
+  }
+]
+```
 
 # docker-compose
+
+## What is docker-compose
+
+docker-compose provides a layer of abstraction to avoid running multiple docker
+commands or using crazy long commands with multiple options
+
+To configure it create a **docker-compose.yml** file in a directory, an example
+is provided on the next slide
 
 ## Applications with docker-compose
 
@@ -43,6 +84,14 @@ services:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_PASSWORD: wordpress
 ```
+
+## Start you application with docker-compose
+
+Copy the example from the previous slide to **docker-compose.yml** and run
+
+    docker-compose up
+
+and open [http://localhost:8000/](http://localhost:8000/) in your browser
 
 # Keep your environment clean
 

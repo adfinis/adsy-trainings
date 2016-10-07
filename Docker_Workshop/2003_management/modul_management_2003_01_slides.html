@@ -29,7 +29,32 @@
 <h1>Disclaimer</h1>
 <p>This presentation is geared towards management of development environments. Not all of the recommendations apply for production environments!</p>
 </section></section>
-<section><section id="docker-compose" class="titleslide slide level1"><h1>docker-compose</h1></section><section id="applications-with-docker-compose" class="slide level2">
+<section><section id="docker-volume-management" class="titleslide slide level1"><h1>Docker volume Management</h1></section><section id="automatically-created-volumes" class="slide level2">
+<h1>Automatically created volumes</h1>
+<p>Docker Engine automatically creates a volume for every <code>VOLUME</code> command in the Dockerfile</p>
+<pre class="bash"><code>docker run -d mariadb
+docker volume ls</code></pre>
+</section><section id="mount-a-host-path-in-the-containers" class="slide level2">
+<h1>Mount a host path in the containers</h1>
+<p>Volumes can also be paths on the host</p>
+<p><strong>Paths specified this way must the absolute paths</strong></p>
+<pre class="bash"><code>docker run -d -v &quot;$(pwd)/dockerdata:/var/lib/mysql&quot; --name mariadb mariadb
+docker inspect -f &#39;{{ json .Mounts }}&#39; mariadb | jq
+[
+  {
+    &quot;Source&quot;: &quot;/home/lukasgr/Docker_Workshop/dockerdata&quot;,
+    &quot;Destination&quot;: &quot;/var/lib/mysql&quot;,
+    &quot;Mode&quot;: &quot;&quot;,
+    &quot;RW&quot;: true,
+    &quot;Propagation&quot;: &quot;rprivate&quot;
+  }
+]</code></pre>
+</section></section>
+<section><section id="docker-compose" class="titleslide slide level1"><h1>docker-compose</h1></section><section id="what-is-docker-compose" class="slide level2">
+<h1>What is docker-compose</h1>
+<p>docker-compose provides a layer of abstraction to avoid running multiple docker commands or using crazy long commands with multiple options</p>
+<p>To configure it create a <strong>docker-compose.yml</strong> file in a directory, an example is provided on the next slide</p>
+</section><section id="applications-with-docker-compose" class="slide level2">
 <h1>Applications with docker-compose</h1>
 <p><code>docker-compose</code> allows to combine multiple Docker containers to an application</p>
 <pre class="yaml"><code>version: &#39;2&#39;
@@ -59,6 +84,11 @@ services:
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_PASSWORD: wordpress</code></pre>
+</section><section id="start-you-application-with-docker-compose" class="slide level2">
+<h1>Start you application with docker-compose</h1>
+<p>Copy the example from the previous slide to <strong>docker-compose.yml</strong> and run</p>
+<pre><code>docker-compose up</code></pre>
+<p>and open <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a> in your browser</p>
 </section></section>
 <section><section id="keep-your-environment-clean" class="titleslide slide level1"><h1>Keep your environment clean</h1></section><section id="remove-exited-containers" class="slide level2">
 <h1>Remove exited containers</h1>
