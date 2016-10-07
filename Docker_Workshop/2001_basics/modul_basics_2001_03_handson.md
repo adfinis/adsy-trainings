@@ -67,10 +67,10 @@ Run a interactive shell in the centos image
 
 ## And now for something completely different
 
-Run the anapsix/nyancat image iteractively
+Run the anapsix/nyancat image iteractively and delete it on exit
 
 ## And now for something completely different
 
-Run the anapsix/nyancat image interactivelly
+Run the anapsix/nyancat image interactivelly and delete it on exit
 
-    docker run -it anapsix/nyancat
+    docker run --rm -it anapsix/nyancat

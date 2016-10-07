@@ -177,6 +177,10 @@
 <pre><code>docker run -it foo /bin/bash</code></pre>
 <p>Start a interactive shell in a running container</p>
 <pre><code>docker exec -it $CONTAINER_ID /bin/bash</code></pre>
+</section><section id="delete-container-on-exit" class="slide level2">
+<h1>Delete container on exit</h1>
+<p>The option <code>--rm</code> deletes the container on exit</p>
+<pre><code>docker run --rm centos yum list installed</code></pre>
 </section></section>
       </div>
     </div>

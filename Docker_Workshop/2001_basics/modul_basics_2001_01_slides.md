@@ -203,3 +203,9 @@ Run a interactive shell in a container
 Start a interactive shell in a running container
 
     docker exec -it $CONTAINER_ID /bin/bash
+
+## Delete container on exit
+
+The option `--rm` deletes the container on exit
+
+    docker run --rm centos yum list installed
