@@ -1,9 +1,17 @@
 SOURCES = $(wildcard *.md)
 SLIDES  = $(SOURCES:.md=.html)
+PDFS  = $(SOURCES:.md=.pdf)
 
 .PHONY: all clean
 
-all: $(SLIDES)
+all: $(SLIDES) $(PDFS)
+
+%.pdf: %.md
+	@echo "building $@ from $<" && \
+	pandoc \
+	--to beamer \
+	$< \
+	-o $@
 
 %.html: %.md
 	@echo "building $@ from $<" && \
@@ -17,4 +25,4 @@ all: $(SLIDES)
 	-o $@
 
 clean:
-	-rm -f *.html
+	-rm -f *.html *.pdf
