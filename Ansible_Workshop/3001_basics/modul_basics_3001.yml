@@ -1,0 +1,35 @@
+---
+
+Name: Basics
+
+Area: Ansible
+
+ID: 3001
+
+Sources:
+    - Manual_Page:
+        - man 1 ansible
+    - External_URLs:
+        - http://docs.ansible.com/ansible/intro_installation.html
+        - http://docs.ansible.com/ansible/intro_getting_started.html
+
+Documents:
+    - Presentation: modul_basics_3001_01_slides.html
+    - Hands_On: module_basics_3001_02_handson.html
+    - Control_Of_Success: modul_basics_3001_03_check.html
+
+Duration: 4h
+
+Description: >
+    Dieses Modul vermittelt einen Einstieg in die Konzepte und Grundlagen von
+    Ansible. Es wird vermittelt, wie Ansible installiert und konfiguriert wird,
+    was die wichtigsten Komponenten (Tasks, Notifier, Playbooks, Roles, etc.)
+    sind, wie Ad-hoc Befehle ausgeführt werden und wie ein Playbook aufgebaut
+    sein soll. Diese Bereiche werden mit Hands-on Aufgaben und Demos vertieft.
+    Weiterführende Themen zu Best-Practices werden in einem weitern Modul
+    behandelt.
+
+Requirements:
+    - Linux Distribution und Python 2.7
+    - Shell Bedienung
+    - CLI Editor Bedienung
