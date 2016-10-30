@@ -6,7 +6,7 @@
 
 Simple config management and orchestration
 
-```YAML
+```yaml
 - name: teach ansible basics
   template:
     src: good_ideas.j2
@@ -26,11 +26,13 @@ Simple config management and orchestration
 
 * Basic components
 
-* Modules overview
+* Variable handling
 
 ---
 
 ## Config management vs. orchestration
+
+Learn the difference
 
 ## Config management
 
@@ -90,7 +92,7 @@ What's it all about?
 
 * YAML based configuration via SSH
 
-* Written in Python
+* Written in Python 2
 
 * Template rendering with Jinja2
 
@@ -112,7 +114,7 @@ What's it all about?
 
 ## Weak spots
 
-* Does not scale as well as other cfg mgmt tools
+* Does not scale as well as other tools
 
 * Certain complex tasks turn ugly
 
@@ -130,58 +132,206 @@ What's it all about?
 
 Basic terminology you need to know
 
+## Modules
+
+Modules are used to interact with nodes and manage different resources:
+
+* ping
+* command
+* copy / synchronize
+* lineinfile
+* package
+* mysql_user / mysql_db
+
+Have a look at the [Ansible Module Index](http://docs.ansible.com/ansible/modules_by_category.html)!
+
+## Modules
+
+Modules can be executed ad-hoc:
+
+```bash
+$ ansible all -i inventory.txt -u root -m ping
+$ ansible all -i inventory.txt -u root -m command -a "df -h"
+```
+
+Each module exposes different options that can be customized
+
+## Inventory
+
+An inventory contains all the target nodes and structures them into groups:
+
+```ini
+[adfinis:children]
+bern
+basel
+
+[bern:children]
+database
+
+[basel:children]
+web
+
+[database]
+db[01:03].adfinis-sygroup.ch ansible_user=db_admin
+
+[web]
+web[01:03].adfinis-sygroup.ch ansible_user=web_admin
+```
+
+---
+
+## Hands-on :: Basics 01
+
+Install Ansible and take the first steps
+
+---
+
+## Ansible components 2
+
+Further down the rabbit hole
+
 ## Tasks
 
-Tasks are single steps executed against a machine:
+* Tasks are Ansible commands which call a module
 
-* Install nginx
+* Written in a YAML file
 
-```YAML
+* Executed from top to bottom
+
+```yaml
 - name: install nginx
   package:
     name=nginx
     state=present
-```
 
-* Start nginx
-
-```YAML
 - name: start nginx service
   service:
     name=nginx
     state=started
 ```
 
-## Modules
+## Handlers
 
-Task blocks consist of specific modules for each use case:
+* Handlers are basically tasks but notified by other tasks
 
-* Install nginx > uses the `package` module:
+* Executed only when necessary
 
 ```yaml
-- name: install nginx
-  **package**:
+- name: restart nginx
+  service:
     name=nginx
-    state=present
+    state=restarted
 ```
 
-Each module exposes different options that can be customized.
+## Playbooks
 
-## Modules
+Group tasks and handlers together in a playbook and make them reusable
 
-Many different modules in several categories are available, e.g.:
+```yaml
+---
+- hosts: web
+  tasks:
+    - name: template nginx.conf
+      template:
+        src=nginx.conf.j2
+        dest=/etc/nginx/conf.d
+      notify:
+        - restart nginx
+  handlers:
+    - name: restart nginx
+      service:
+        name=nginx
+        state=restarted
+```
 
-* File modules
-* Database modules
-* Network modules
-* Cloud modules
+## Playbooks
 
-Have a look at the [Ansible Module Index](http://docs.ansible.com/ansible/modules_by_category.html)!
+Execute the playbook:
 
-## Inventory
+    $ ansible-playbook webserver.yml -i inventory.txt -u root
 
 ## Roles
 
-## Handlers
+Divide and structure a playbook into different roles:
 
-## Playbooks
+* Each role is responsible for a certain component
+
+* Reuse the same roles in many different projects (playbooks)
+
+```yaml
+---
+- hosts: web
+  roles:
+    - common
+    - webserver
+    - monitoring
+```
+
+## Roles
+
+A role has a specific directory structure:
+
+```console
+ansible
+|-- webserver.yml
+|-- roles
+    |-- nginx
+        |-- defaults
+        |-- handlers
+        |-- tasks
+        |-- templates
+        |-- vars
+        |-- meta
+```
+
+## Facts
+
+Node specific information stored in variables:
+
+* Hardware resources
+
+* Network configuration
+
+* Operating system
+
+* and much much more
+
+## Facts
+
+Use the `setup` module to gather and display facts:
+
+```bash
+$ ansible all -i inventory.txt -u root -m setup
+```
+
+```yaml
+"ansible_facts": {
+    "ansible_all_ipv4_addresses": [
+        "192.168.122.10"
+    ], 
+    "ansible_all_ipv6_addresses": [
+        "fe80::5054:ff:fe5c:593"
+    ], 
+    "ansible_architecture": "x86_64", 
+    "ansible_bios_date": "04/01/2014", 
+    "ansible_bios_version": "1.9.3-20160701_074356-anatol", 
+[...]
+```
+
+---
+
+## Hands-on :: Basics 02
+
+Create some tasks and the first playbook
+
+---
+
+## Variable handling
+
+Where to store variables and what you need to know about precedence
+
+## Locations
+
+## Variable precedence
+
+

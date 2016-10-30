@@ -1,76 +1,144 @@
-% Docker Basics
-% Lukas Grossar
-% September 30, 2016
+% Ansible Basics
+% Michael Hofer
+% October 27, 2016
 
-# Docker Hands On
+# Ansible Hands-on
 
-## Pull a Docker image
+Learning by doing
 
-Pull the centos image from Docker Hub
+![](static/ansible_blue_icon.png)
 
-## Pull a Docker image
+---
 
-Pull the centos image from Docker Hub
+## Hands-on :: Basics 01
 
-    docker pull centos
+Install Ansible and take the first steps
 
-## Pull a Docker image with a tag
+---
 
-Pull the centos image with the tag 7 from Docker Hub
+## Basics 01 - Installation
 
-## Pull a Docker image with a tag
+Install Ansible on your machine:
 
-Pull the centos image with the tag 7 from Docker Hub
+* RHEL / CentOS (requires EPEL)
 
-    docker pull centos:7
+```bash
+$ sudo yum install ansible
+```
 
-## Run a command in a Docker image
+* Debain / Ubuntu
 
-Show the CentOS release of the centos image
+```bash
+$ sudo apt-get install ansible
+```
 
-## Run a command in a Docker image
+## Basics 01 - Installation
 
-Show the CentOS release of the centos image
+Check if you have the latest Ansible version:
 
-    docker run centos cat /etc/redhat-release
+```bash
+$ ansible --version
+$ man ansible
+```
 
-## Run a command in a Docker image
+## Basics 01 - Installation
 
-Show the CentOS release of the centos image with the tag 7
+Add your SSH public key to the authorized\_keys file on the target node:
 
-## Run a command in a Docker image
+```bash
+$ ssh-copy-id root@192.168.122.10
+```
 
-Show the CentOS release of the centos image with the tag 7
+## Basics 01 - Installation
 
-    docker run centos:7 cat /etc/redhat-release
+Create a working directory for this workshop:
 
-## Expose a port in a container
+```bash
+$ mkdir ~/ansible_workshop
+$ cd ~/ansible_workshop
+```
 
-Run the the nginx image and expose port 80
+## Basics 01 - Inventory
 
-## Expose a port in a container
+Create the file inventory.txt containing your test node:
 
-Run the nginx image and expose port 80
+```ini
+[test]
+192.168.122.10
+```
 
-    docker run -p 8080:80 nginx
-    xdg-open http://localhost:8080
+## Basics 01 - Ad-hoc commands
 
-## Run a interactive shell in a Docker image
+Execute your first ad-hoc commands:
 
-Run a interactive shell in the centos image
+```bash
+$ ansible test -i inventory.txt -u root -m ping
+$ ansible test -i inventory.txt -u root -m command -a "df -h"
+$ ansible test -i inventory.txt -u root -m command -a "ls -l"
+```
 
-## Run a interactive shell in a Docker image
+---
 
-Run a interactive shell in the centos image
+## Basics 02 - Facts
 
-    docker run -it centos /bin/bash
+Explore the facts of your test node:
 
-## And now for something completely different
+```bash
+$ ansible test -i inventory.txt -u root -m setup
+```
 
-Run the anapsix/nyancat image iteractively and delete it on exit
+## Basics 02 - Playbooks
 
-## And now for something completely different
+Create the file webserver.yml with the following content:
 
-Run the anapsix/nyancat image interactivelly and delete it on exit
+```yaml
+---
+- hosts: test
+  tasks:
+    - name: install nginx
+      package:
+        name=nginx
+        state=present
+    
+    - name: start nginx service
+      service:
+        name=nginx
+        state=started
+```
 
-    docker run --rm -it anapsix/nyancat
+## Basics 02 - Playbooks
+
+Run the playbook against your test node:
+
+```bash
+$ ansible-playbook webserver.yml -i inventory.txt -u root
+```
+
+Was it successful? Check if the webserver is running in your browser!
+
+## Basics 02 - Roles
+
+Create a new role called "nginx":
+
+```bash
+$ mkdir -p roles/nginx/tasks
+```
+
+Move the tasks from the webserver.yml playbook into the following file:
+
+```bash
+$ vim roles/nginx/tasks/main.yml
+```
+
+## Basics 02 - Roles
+
+Include the new nginx role in the webserver.yml playbook:
+
+```yml
+---
+- hosts: test
+  roles:
+    - nginx
+```
+
+Execute the playbook again, what happens?
