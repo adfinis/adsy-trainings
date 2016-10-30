@@ -9,6 +9,7 @@ ID: 3001
 Sources:
     - Manual_Page:
         - man 1 ansible
+        - man 1 ansible-playbook
     - External_URLs:
         - http://docs.ansible.com/ansible/intro_installation.html
         - http://docs.ansible.com/ansible/intro_getting_started.html
@@ -16,9 +17,8 @@ Sources:
 Documents:
     - Presentation: modul_basics_3001_01_slides.html
     - Hands_On: module_basics_3001_02_handson.html
-    - Control_Of_Success: modul_basics_3001_03_check.html
 
-Duration: 4h
+Duration: 6h
 
 Description: >
     Dieses Modul vermittelt einen Einstieg in die Konzepte und Grundlagen von

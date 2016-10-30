@@ -26,7 +26,9 @@ Simple config management and orchestration
 
 * Basic components
 
-* Variable handling
+* Variables
+
+* Templates
 
 ---
 
@@ -150,8 +152,8 @@ Have a look at the [Ansible Module Index](http://docs.ansible.com/ansible/module
 Modules can be executed ad-hoc:
 
 ```bash
-$ ansible all -i inventory.txt -u root -m ping
-$ ansible all -i inventory.txt -u root -m command -a "df -h"
+$ ansible web -i inventory.txt -u root -m ping
+$ ansible web -i inventory.txt -u root -m command -a "df -h"
 ```
 
 Each module exposes different options that can be customized
@@ -201,13 +203,13 @@ Further down the rabbit hole
 ```yaml
 - name: install nginx
   package:
-    name=nginx
-    state=present
+    name: nginx
+    state: present
 
 - name: start nginx service
   service:
-    name=nginx
-    state=started
+    name: nginx
+    state: started
 ```
 
 ## Handlers
@@ -219,8 +221,8 @@ Further down the rabbit hole
 ```yaml
 - name: restart nginx
   service:
-    name=nginx
-    state=restarted
+    name: nginx
+    state: restarted
 ```
 
 ## Playbooks
@@ -233,15 +235,16 @@ Group tasks and handlers together in a playbook and make them reusable
   tasks:
     - name: template nginx.conf
       template:
-        src=nginx.conf.j2
-        dest=/etc/nginx/conf.d
+        src: nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+        backup: yes
       notify:
         - restart nginx
   handlers:
     - name: restart nginx
       service:
-        name=nginx
-        state=restarted
+        name: nginx
+        state: restarted
 ```
 
 ## Playbooks
@@ -301,7 +304,7 @@ Node specific information stored in variables:
 Use the `setup` module to gather and display facts:
 
 ```bash
-$ ansible all -i inventory.txt -u root -m setup
+$ ansible web -i inventory.txt -u root -m setup
 ```
 
 ```yaml
@@ -326,12 +329,281 @@ Create some tasks and the first playbook
 
 ---
 
-## Variable handling
+## Variables
 
-Where to store variables and what you need to know about precedence
+How to make your playbooks adaptable
 
-## Locations
+---
+
+## General overview
+
+* Ansible allows one to use variables instead of hard coded values
+
+* Variables can be overwritten and included from different places
+
+* Support for different types (strings, numbers, lists, etc.)
+
+* Facts are variables too
+
+## General overview
+
+* Example of several vars:
+
+```yaml
+nginx_packages:
+  - nginx
+
+nginx_conf_dir: /etc/nginx/conf.d
+
+nginx_server_name: "{{ ansible_fqdn }}"
+```
+
+* Variables used within a task:
+
+```yaml
+- name: install nginx
+  package:
+    name="{{ nginx_packages }}"
+    state=present
+```
+
+## Scope
+
+Ansible has 3 different variable scopes:
+
+* Global (config, ENV & commandline)
+
+* Play (vars, include\_vars, role defaults & vars)
+
+* Host (specific to a machine like facts)
+
+## Locations 
+
+Variables can be included from many different locations:
+
+* Inventory
+
+* group\_vars
+
+* host\_vars
+
+* Playbook
+
+* Roles defaults
+
+* Roles vars
+
+## group\_vars
+
+Group variables are included based on the node's groups:
+
+```ini
+[adfinis:children]
+bern
+basel
+
+[bern:children]
+database
+
+[basel:children]
+web
+
+[database]
+db[01:03].adfinis-sygroup.ch ansible_user=db_admin
+
+[web]
+web[01:03].adfinis-sygroup.ch ansible_user=web_admin
+```
+
+## host\_vars
+
+Create host specific variables in the directory host\_vars:
+
+* ansible/host\_vars/db01.adfinis-sygroup.ch
+
+* ansible/host\_vars/web01.adfinis-sygroup.ch
+
+## Play vars
+
+It's possible to include vars in your playbooks:
+
+```yml
+---
+- hosts: web
+  vars:
+    nginx_package: nginx
+  vars_files:
+    - /vars/external_vars.yml
+  roles:
+    - nginx
+```
+
+## Role variables
+
+To define vars in your role create the following files:
+
+* roles/nginx/defaults/main.yml
+
+* roles/nginx/vars/main.yml
+
+Prefix all variables with the role name to prevent conflicts!
 
 ## Variable precedence
 
+Ansible has a tricky variable precedence:
 
+* role defaults
+* inventory
+* playbook
+* host facts
+* play vars
+* registered vars
+* role and include vars
+* extra vars
+
+See the [documentation](http://docs.ansible.com/ansible/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable)!
+
+## How you should use them
+
+Start simple and restrict yourself to the following vars:
+
+* role defaults
+
+* group\_vars
+
+* host\_vars
+
+* role vars
+
+---
+
+## Hands-on :: Basics 03
+
+Make your playbook more dynamic with variables
+
+---
+
+## Templates
+
+Generate configurations on the fly
+
+---
+
+## General overview
+
+Ansible supports rendering of templates through Jinja2:
+
+* Use the template module
+
+* Create a file in the role directory "templates" with the suffix .j2
+
+```python
+server {
+    listen       80 default_server;
+    server_name  {{ nginx_server_name }};
+
+    location / {
+        root /var/www;
+    }
+}
+```
+
+## Loops
+
+Jinja2 templates also support loops to generate multiple config blocks:
+
+```yml
+nginx_locations:
+  - path: /web
+    alias: /var/www/web
+  - path: /admin
+    alias: /var/www/admin
+```
+
+```python
+{% for item in nginx_locations %}
+    location {{ item.path }} {
+        alias {{ item.alias }};
+        autoindex on;
+    }
+
+{% endfor %}
+```
+
+## Conditions
+
+Use conditions (if, else, etc.) to have even more control:
+
+```python
+{%- if nginx_ssl %}
+server {
+    listen       443 default_server;
+    server_name  {{ nginx_server_name }};
+[...]
+{%- endif %}
+```
+
+---
+
+## Hands-on :: Basics 04
+
+Generate files dynamically with templates
+
+---
+
+## Field report
+
+What have you learned?
+
+* Ansible basics
+
+* Ansible components
+
+* Variable handling
+
+* Template rendering
+
+## Field report
+
+Can you describe all directories?
+
+```console
+ansible
+|-- group_vars
+|-- host_vars
+|-- webserver.yml
+|-- roles
+    |-- nginx
+        |-- defaults
+        |-- handlers
+        |-- tasks
+        |-- templates
+        |-- vars
+        |-- meta
+```
+
+---
+
+## Quo vadis?
+
+* Ansible Best Practice
+
+* Ansible Vault
+
+* Multi distribution support
+
+* Development Workflow (CI & CT)
+
+* Roll out strategy and cluster management
+
+## Feedback
+
+The good, the bad and the ugly
+
+---
+
+## Thank you!
+
+Be smart. Think open source. 
+
+![](static/adfinis_sygroup_logo.png)

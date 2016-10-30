@@ -20,13 +20,13 @@ Install Ansible and take the first steps
 
 Install Ansible on your machine:
 
-* RHEL / CentOS (requires EPEL)
+* RHEL & CentOS (requires EPEL)
 
 ```bash
 $ sudo yum install ansible
 ```
 
-* Debain / Ubuntu
+* Debain & Ubuntu
 
 ```bash
 $ sudo apt-get install ansible
@@ -74,8 +74,14 @@ Execute your first ad-hoc commands:
 ```bash
 $ ansible test -i inventory.txt -u root -m ping
 $ ansible test -i inventory.txt -u root -m command -a "df -h"
-$ ansible test -i inventory.txt -u root -m command -a "ls -l"
+$ ansible test -i inventory.txt -u root -m command -a "ls -l /"
 ```
+
+---
+
+## Hands-on :: Basics 02
+
+Create some tasks and the first playbook
 
 ---
 
@@ -97,13 +103,13 @@ Create the file webserver.yml with the following content:
   tasks:
     - name: install nginx
       package:
-        name=nginx
-        state=present
+        name: nginx
+        state: present
     
     - name: start nginx service
       service:
-        name=nginx
-        state=started
+        name: nginx
+        state: started
 ```
 
 ## Basics 02 - Playbooks
@@ -116,6 +122,16 @@ $ ansible-playbook webserver.yml -i inventory.txt -u root
 
 Was it successful? Check if the webserver is running in your browser!
 
+## Basics 02 - Playbooks
+
+Get debugging output by adding the verbose flag(s):
+
+```bash
+$ ansible-playbook webserver.yml -i inventory.txt -u root -v
+```
+
+Add more -v parameters to get even more output
+
 ## Basics 02 - Roles
 
 Create a new role called "nginx":
@@ -124,10 +140,20 @@ Create a new role called "nginx":
 $ mkdir -p roles/nginx/tasks
 ```
 
-Move the tasks from the webserver.yml playbook into the following file:
+Add the previous tasks to the tasks file roles/nginx/tasks/main.yml:
 
-```bash
-$ vim roles/nginx/tasks/main.yml
+```yml
+---
+- name: install nginx
+  package:
+    name: nginx
+    state: present
+
+- name: start nginx service
+  service:
+    name: nginx
+    state: started
+
 ```
 
 ## Basics 02 - Roles
@@ -142,3 +168,194 @@ Include the new nginx role in the webserver.yml playbook:
 ```
 
 Execute the playbook again, what happens?
+
+---
+
+## Hands-on :: Basics 03
+
+Make your playbook more dynamic with variables
+
+---
+
+## Basics 03 - Variables
+
+Create a host\_vars and group\_vars directory in your working dir:
+
+```bash
+$ mkdir host_vars group_vars
+```
+
+Your directory now should look like this:
+
+```bash
+ansible_workshop
+|-- group_vars
+|-- host_vars
+|-- inventory.txt
+|-- roles
+|-- webserver.yml
+```
+
+## Basics 03 - Common role
+
+Create an additional role called "common" including the following directories:
+
+```bash
+common
+|-- defaults
+|-- tasks
+|-- vars
+```
+
+## Basics 03 - Common role
+
+Add the defaults vars listed below:
+
+```yml
+---
+common_packages:
+  - ntp
+  - iptables
+```
+
+## Basics 03 - Common role
+
+The new role should take care of installing several packages:
+
+```yaml
+---
+- name: install common packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ common_packages }}"
+```
+
+## Basics 03 - Testing
+
+Include the new role into your playbook and give it a spin:
+
+* What happens?
+
+* What packages were installed?
+
+## Basics 03 - group\_vars
+
+Create the file group\_vars/test with the following variables:
+
+```yaml
+---
+common_packages:
+  - ntp
+  - iptables
+  - vim
+  - zsh
+```
+
+## Basics 03 - Testing
+
+Execute the playbook a second time:
+
+* Are there any changes?
+
+* If yes, why?
+
+## Basics 03 - Role vars
+
+Create the file roles/common/vars/main.yml with the following variables:
+
+```yaml
+---
+common_packages:
+  - ntp
+  - iptables
+  - vim
+  - zsh
+  - tcpdump
+  - wget
+  - curl
+  - rsync
+```
+
+## Basics 03 - Testing
+
+Execute the playbook a third time:
+
+* Wait, what happened now?
+
+* Please explain to me!
+
+---
+
+## Hands-on :: Basics 04
+
+Generate files dynamically with templates
+
+---
+
+## Basics 04 - Preparation
+
+Add the missing directories in our nginx role:
+
+* defaults
+* handlers
+* templates
+* vars
+
+## Basics 04 - Defaults
+
+Add the following variable to the defaults vars:
+
+```yaml
+---
+nginx_welcome_messages:
+  - "Ansible is cool!"
+  - "It even gets better!"
+  - "My first loop!"
+```
+
+## Basics 04 - Template
+
+Create the new template called `index.html.j2`:
+
+```python
+{% for message in nginx_welcome_messages %}
+<p>{{ message }}</p>
+{% endfor %}
+```
+
+## Basics 04 - Tasks
+
+Which module do we need to render the template and copy it to /usr/share/nginx/www?
+
+* Add a new task which renders the template
+
+* Create a backup of the old index.html file
+
+## Basics 04 - Testing
+
+Execute your modified playbook to deploy the new website:
+
+* Did it work?
+
+* Which messages are displayed?
+
+## Basics 04 - Handlers
+
+Imagine this is a more complex web application:
+
+* Restart the nginx service if the index.html file changed
+
+## Basics 04 - Testing
+
+Deploy the website again:
+
+* Did it work?
+
+* Was the nginx service restarted?
+
+---
+
+## Good work!
+
+You've completed this part of the workshop!
