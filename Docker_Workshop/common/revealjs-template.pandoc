@@ -12,15 +12,6 @@
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="../common/css/monokai.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../common/reveal.js/css/print/pdf.css' : '../common/reveal.js/css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
   </head>
   <body>
     <div class="reveal">

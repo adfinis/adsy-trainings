@@ -27,3 +27,8 @@
     font-size: 1em; }
   .reveal pre code {
     font-family: "Source Code Pro", monospace; }
+  .reveal section img {
+    border: none;
+    box-shadow: none; }
+  .reveal blockquote {
+    border-left: 10px solid; }
