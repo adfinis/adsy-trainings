@@ -1,0 +1,27 @@
+---
+
+Name: Patch Management
+
+Area: SUSE Manager 3
+
+ID: 4008
+
+Sources:
+    - Manual_Page:
+        - ...
+
+    - External_URLs:
+        - https://www.suse.com/documentation/suse-manager-3/
+
+Documents:
+    - Presentation: modul_patch_mgmt_4008_01_slides.html
+    - Hands_On: modul_patch_mgmt_4008_03_handson.html
+
+Duration: ...
+
+Description: >
+    ....
+
+Requirements:
+    - ...
+    - ...

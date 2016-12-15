@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>SUSE Manager 3 Bakup</title>
+
+    <link rel="stylesheet" href="../common/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../common/reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="../common/css/reveal-adsy.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../common/css/monokai.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+<section id="suse-manager-3---backup" class="slide level1">
+<h1>SUSE Manager 3 - Backup</h1>
+<figure>
+<img src="static/suma.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<section id="agenda" class="level2">
+<h2>Agenda</h2>
+<ul>
+<li><p>BTRFS Snapshots</p></li>
+<li><p>File Systems Backup</p></li>
+<li><p>Database Backup</p></li>
+</ul>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="btrfs-snapshots" class="level2">
+<h2>BTRFS Snapshots</h2>
+<p>By default, SUSE Linux Enterprise Server is set up using Btrfs and snapshots for the root partition. Snapshots allow you to easily roll back your system if needed after applying updates, or to back up files.</p>
+</section>
+<section id="file-systems-backup" class="level2">
+<h2>File Systems Backup</h2>
+<p>It's recommended to backup all (local) file systems!</p>
+</section>
+<section id="database-backup" class="level2">
+<h2>Database Backup</h2>
+<ul>
+<li><p>For local database backups SUSE provides the <code>smdba</code> command.</p></li>
+<li><p>Hot Backup</p></li>
+<li><p>Cold Backup</p></li>
+</ul>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="hands-on-backup-06" class="level2">
+<h2>Hands-on :: Backup 06</h2>
+</section>
+</section>
+      </div>
+    </div>
+
+    <script src="../common/reveal.js/lib/js/head.min.js"></script>
+    <script src="../common/reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: true,
+        center: true,
+
+        menu: {
+          themes: false,
+          transitions: false,
+          openButton: false,
+          openSlideNumber: true,
+          markers: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/reveal.js/plugin/notes/notes.js', async: true },
+          { src: '../common/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>

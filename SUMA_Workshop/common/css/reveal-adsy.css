@@ -1,0 +1,39 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
+@font-face {
+  font-family: "TheSansOffice";
+  src: url(../fonts/TheSansOffice5_c.eot);
+  src: local("â?º"), url(../fonts/TheSansOffice5_c.woff) format("woff"), url(../fonts/thesansoffice5_c.svg#thesansoffice) format("svg");
+  font-style: normal;
+  font-weight: normal; }
+
+@font-face {
+  font-family: "TheSansOffice";
+  src: url(../fonts/TheSansOffice7_c.eot);
+  src: local("â?º"), url(../fonts/TheSansOffice7_c.woff) format("woff"), url(../fonts/thesansoffice7_c.svg#thesansoffice) format("svg");
+  font-style: normal;
+  font-weight: bold; }
+
+#root {
+  --adsy-lightgray-pantone: #baae9f;
+  --adsy-darkgray-pantone: #968472;
+  --adsy-blue-pantone: #5a8fd2; }
+
+.reveal {
+  font-family: "TheSansOffice", sans-serif; }
+  .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none;
+    font-family: "TheSansOffice", sans-serif; }
+  .reveal section.level2 h1 {
+    font-size: 1.6em; }
+  .reveal section.level3 h1 {
+    font-size: 1.3em; }
+  .reveal section.level4 h1 {
+    font-size: 1em; }
+  .reveal pre code {
+    font-family: "Source Code Pro", monospace; }
+  .reveal section img {
+    border: none;
+    box-shadow: none; }
+  .reveal blockquote {
+    border-left: 10px solid; }

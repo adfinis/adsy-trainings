@@ -1,0 +1,27 @@
+---
+
+Name: Client Registration
+
+Area: SUSE Manager 3
+
+ID: 4004
+
+Sources:
+    - Manual_Page:
+        - ...
+        - ...
+    - External_URLs:
+        - https://www.suse.com/documentation/suse-manager-3/
+
+Documents:
+    - Presentation: modul_client_registration_4004_01_slides.html
+    - Hands_On: modul_client_registration_4004_03_handson.html
+
+Duration: ...
+
+Description: >
+    ....
+
+Requirements:
+    - ...
+    - ...

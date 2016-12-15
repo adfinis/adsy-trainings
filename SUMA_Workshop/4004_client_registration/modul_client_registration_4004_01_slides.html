@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>SUSE Manager 3 Client Registration</title>
+
+    <link rel="stylesheet" href="../common/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../common/reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="../common/css/reveal-adsy.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../common/css/monokai.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+<section id="suse-manager-3---client-registration" class="slide level1">
+<h1>SUSE Manager 3 - Client Registration</h1>
+<figure>
+<img src="static/suma.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<section id="agenda" class="level2">
+<h2>Agenda</h2>
+<ul>
+<li><p>Bootstrap Repository</p></li>
+<li><p>Traditional Clients</p></li>
+<li><p>Salt Clients</p></li>
+</ul>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="bootstrap-repository" class="level2">
+<h2>Bootstrap Repository</h2>
+<p>The client requires agent software packages to be installed on the client. The simplest way to access the required packages is to create a new bootstrap repository on the SUMA.</p>
+</section>
+<section id="traditional-clients" class="level2">
+<h2>Traditional Clients</h2>
+<ul>
+<li><p>Bootstrap Scripts</p></li>
+<li><p>Push and Pull</p></li>
+</ul>
+</section>
+<section id="salt-clients" class="level2">
+<h2>Salt Clients</h2>
+<ul>
+<li><p>Installation</p></li>
+<li><p>Configuration</p></li>
+<li><p>Grains</p></li>
+<li><p>Key Management</p></li>
+</ul>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="hands-on-client-registration-04" class="level2">
+<h2>Hands-on :: Client Registration 04</h2>
+</section>
+</section>
+      </div>
+    </div>
+
+    <script src="../common/reveal.js/lib/js/head.min.js"></script>
+    <script src="../common/reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: true,
+        center: true,
+
+        menu: {
+          themes: false,
+          transitions: false,
+          openButton: false,
+          openSlideNumber: true,
+          markers: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/reveal.js/plugin/notes/notes.js', async: true },
+          { src: '../common/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>

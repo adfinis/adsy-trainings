@@ -1,0 +1,314 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>SUSE Manager Channel Management</title>
+
+    <link rel="stylesheet" href="../common/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../common/reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="../common/css/reveal-adsy.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../common/css/monokai.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+<section id="suse-manager-3-hands-on" class="slide level1">
+<h1>SUSE Manager 3 Hands-on</h1>
+<figure>
+<img src="static/suma.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<section id="hands-on-channels-03" class="level2">
+<h2>Hands-on :: Channels 03</h2>
+<p>Channel Management: Create a workflow, clone channels and create activation keys</p>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="channels-03---channels" class="level2">
+<h2>Channels 03 - Channels</h2>
+<p>Install the <code>spacewalk-utils</code> package on your SUMA:</p>
+<pre class="text"><code># zypper -n install spacewalk-utils</code></pre>
+</section>
+<section id="channels-03---channels-1" class="level2">
+<h2>Channels 03 - Channels</h2>
+<p>Configure a cumstom workflow a la &quot;adsy-sles12-sp1&quot;:</p>
+<pre class="text"><code># cat .spacewalk-manage-channel-lifecycle/settings.conf 
+[general]
+phases = dev, test, prod
+exclude channels = 
+
+[adsy-sles12-sp1]
+phases = devl, prod
+exclude channels =
+
+# export pass=&quot;verysecure&quot;</code></pre>
+</section>
+<section id="channels-03---channels-2" class="level2">
+<h2>Channels 03 - Channels</h2>
+<p>List the current channels and your workflow:</p>
+<pre class="text"><code># spacewalk-manage-channel-lifecycle -u admin -p &quot;$pass&quot; -f
+
+# spacewalk-manage-channel-lifecycle -u admin -p &quot;$pass&quot; -l</code></pre>
+</section>
+<section id="channels-03---channels-3" class="level2">
+<h2>Channels 03 - Channels</h2>
+<figure>
+<img src="static/webui_1_list_channels.png" />
+</figure>
+</section>
+<section id="channels-03---development-channel" class="level2">
+<h2>Channels 03 - Development Channel</h2>
+<p>Create a development channel from the vendor channel:</p>
+<pre class="text"><code># spacewalk-manage-channel-lifecycle -u admin -p &quot;$pass&quot; \
+                                     -w adsy-sles12-sp1 \
+                                     --channel sles12-sp1-pool-x86_64 \
+                                     --init
+
+# spacewalk-manage-channel-lifecycle -u admin -p &quot;$pass&quot; -l</code></pre>
+</section>
+<section id="channels-03---production-channels" class="level2">
+<h2>Channels 03 - Production Channels</h2>
+<p>Create a producation channel from the development channel:</p>
+<pre class="text"><code># spacewalk-manage-channel-lifecycle -u admin -p &quot;$pass&quot; \
+                                     -w adsy-sles12-sp1 \
+                                     --channel devl-sles12-sp1-pool-x86_64 \
+                                     --promote
+
+# spacewalk-manage-channel-lifecycle -u admin -p &quot;$pass&quot; -l</code></pre>
+</section>
+<section id="channels-03---channels-4" class="level2">
+<h2>Channels 03 - Channels</h2>
+<figure>
+<img src="static/webui_2_list_channels.png" />
+</figure>
+</section>
+<section id="channels-03---channels-5" class="level2">
+<h2>Channels 03 - Channels</h2>
+<p>Create an archive from the production channel:</p>
+<pre class="text"><code># spacewalk-manage-channel-lifecycle -u admin -p &quot;$pass&quot; \
+                                     --channel prod-sles12-sp1-pool-x86_64 \
+                                     --archive
+
+# spacewalk-manage-channel-lifecycle -u admin -p &quot;$pass&quot; -l</code></pre>
+</section>
+<section id="channels-03---channels-6" class="level2">
+<h2>Channels 03 - Channels</h2>
+<p>Rollback the archive channel to the production channel:</p>
+<pre class="text"><code># spacewalk-manage-channel-lifecycle -u admin -p &quot;$pass&quot; \
+                                     --channel archive-20161110-prod-sles12-sp1-pool-x86_64 \
+                                     --rollback</code></pre>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="channels-03---spacecmd-configuration" class="level2">
+<h2>Channels 03 - <code>spacecmd</code> Configuration</h2>
+<p>Create a configuration file for the <code>spacecmd</code> command:</p>
+<p><code>~/.spacecmd/config</code></p>
+<pre class="ini"><code>[spacecmd]
+server=localhost
+username=admin
+password=verysecure
+nossl=0</code></pre>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="channels-03---activation-keys" class="level2">
+<h2>Channels 03 - Activation Keys</h2>
+<p>Create an activation key for salt development systems:</p>
+<pre class="text"><code># spacecmd activationkey_create
+INFO: Connected to https://localhost/rpc/api as admin
+Name (blank to autogenerate): ak-sles12sp1-devl-salt
+Description [None]: activation key for sles12 sp1 salt development systems
+
+Base Channels
+-------------
+archive-20161110-prod-sles12-sp1-pool-x86_64
+devl-sles12-sp1-pool-x86_64
+prod-sles12-sp1-pool-x86_64
+sles12-sp1-pool-x86_64
+
+Base Channel (blank for default): devl-sles12-sp1-pool-x86_64
+
+virtualization_host Entitlement [y/N]: 
+
+Universal Default [y/N]: 
+INFO: Created activation key 1-ak-sles12sp1-devl-salt
+
+# spacecmd activationkey_list</code></pre>
+</section>
+<section id="channels-03---activation-keys-1" class="level2">
+<h2>Channels 03 - Activation Keys</h2>
+<p>List the details of the salt development actvation key:</p>
+<pre class="text"><code># spacecmd activationkey_details 1-ak-sles12sp1-devl-salt
+INFO: Connected to https://localhost/rpc/api as admin
+Key:                    1-ak-sles12sp1-devl-salt
+Description:            activation key for sles12 sp1 development systems
+Universal Default:      False
+Usage Limit:            0
+Deploy Config Channels: False
+Contact Method:         default
+
+Software Channels
+-----------------
+devl-sles12-sp1-pool-x86_64
+
+Configuration Channels
+----------------------
+
+Entitlements
+------------
+
+System Groups
+-------------
+
+Packages
+--------</code></pre>
+</section>
+<section id="channels-03---activation-keys-2" class="level2">
+<h2>Channels 03 - Activation Keys</h2>
+<p>Add the child channels to the salt development activation key:</p>
+<pre class="text"><code># spacecmd softwarechannel_listchildchannels
+
+# spacecmd activationkey_addchildchannels \
+           1-ak-sles12sp1-devl-salt \
+           devl-sles12-sp1-updates-x86_64 \
+           devl-sle-manager-tools12-pool-x86_64-sp1 \
+           devl-sle-manager-tools12-updates-x86_64-sp1
+
+# spacecmd activationkey_details 1-ak-sles12sp1-devl-salt</code></pre>
+</section>
+<section id="channels-03---activation-key" class="level2">
+<h2>Channels 03 - Activation Key</h2>
+<p>Create an activation key for the salt producation systems:</p>
+<pre class="text"><code># spacecmd activationkey_create
+INFO: Connected to https://localhost/rpc/api as admin
+Name (blank to autogenerate): ak-sles12sp1-prod-salt
+Description [None]: activation key for sles12 sp1 salt production systems                                      
+
+Base Channels
+-------------
+archive-20161110-prod-sles12-sp1-pool-x86_64
+devl-sles12-sp1-pool-x86_64
+prod-sles12-sp1-pool-x86_64
+sles12-sp1-pool-x86_64
+
+Base Channel (blank for default): prod-sles12-sp1-pool-x86_64
+
+virtualization_host Entitlement [y/N]: 
+
+Universal Default [y/N]: 
+INFO: Created activation key 1-ak-sles12sp1-prod-salt
+
+# spacecmd activationkey_list</code></pre>
+</section>
+<section id="channels-03---activation-key-1" class="level2">
+<h2>Channels 03 - Activation Key</h2>
+<p>Add the child channels to the salt production activation key:</p>
+<pre class="text"><code># spacecmd softwarechannel_listchildchannels
+
+# spacecmd activationkey_addchildchannels \
+           1-ak-sles12sp1-prod-salt \
+           prod-sles12-sp1-updates-x86_64 \
+           prod-sle-manager-tools12-pool-x86_64-sp1 \
+           prod-sle-manager-tools12-updates-x86_64-sp1
+
+# spacecmd activationkey_details 1-ak-sles12sp1-prod-salt</code></pre>
+</section>
+<section id="channels-03---activation-key-2" class="level2">
+<h2>Channels 03 - Activation Key</h2>
+<p>Create an activation key for the traditional producation systems:</p>
+<pre class="text"><code># spacecmd activationkey_create
+INFO: Connected to https://localhost/rpc/api as admin
+Name (blank to autogenerate): ak-sles12sp1-prod-trad
+Description [None]: activation key for traditional sles12 sp1 production
+
+Base Channels
+-------------
+archive-20161110-prod-sles12-sp1-pool-x86_64
+devl-sles12-sp1-pool-x86_64
+prod-sles12-sp1-pool-x86_64
+sles12-sp1-pool-x86_64
+ 
+Base Channel (blank for default): prod-sles12-sp1-pool-x86_64
+ 
+virtualization_host Entitlement [y/N]: 
+ 
+Universal Default [y/N]: 
+INFO: Created activation key 1-ak-sles12sp1-prod-trad
+
+# spacecmd activationkey_list</code></pre>
+</section>
+<section id="channels-03---activation-key-3" class="level2">
+<h2>Channels 03 - Activation Key</h2>
+<p>Add the child channels to the traditional production activation key:</p>
+<pre class="text"><code># spacecmd softwarechannel_listchildchannels
+
+# spacecmd activationkey_addchildchannels \
+           1-ak-sles12sp1-prod-trad \
+           prod-sles12-sp1-updates-x86_64 \
+           prod-sle-manager-tools12-pool-x86_64-sp1 \
+           prod-sle-manager-tools12-updates-x86_64-sp1
+
+# spacecmd activationkey_details 1-ak-sles12sp1-prod-trad</code></pre>
+</section>
+<section id="channels-03---activation-key-4" class="level2">
+<h2>Channels 03 - Activation Key</h2>
+<p>Add the required packages to the acvivation key:</p>
+<pre class="text"><code># spacecmd activationkey_addpackages \
+           1-ak-sles12sp1-prod-trad \
+           rhncfg-actions \
+           osad \
+           rhncfg-client \
+           rhncfg-management 
+
+# spacecmd activationkey_details 1-ak-sles12sp1-prod-trad</code></pre>
+</section>
+<section id="channels-03---activation-keys-in-the-webui" class="level2">
+<h2>Channels 03 - Activation Keys in the WebUI</h2>
+<figure>
+<img src="static/webui_3_ak.png" />
+</figure>
+</section>
+</section>
+      </div>
+    </div>
+
+    <script src="../common/reveal.js/lib/js/head.min.js"></script>
+    <script src="../common/reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: true,
+        center: true,
+
+        menu: {
+          themes: false,
+          transitions: false,
+          openButton: false,
+          openSlideNumber: true,
+          markers: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/reveal.js/plugin/notes/notes.js', async: true },
+          { src: '../common/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>

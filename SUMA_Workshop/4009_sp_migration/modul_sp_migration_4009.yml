@@ -1,0 +1,27 @@
+---
+
+Name: SP Migraton
+
+Area: SUSE Manager 3
+
+ID: 4009
+
+Sources:
+    - Manual_Page:
+        - ...
+
+    - External_URLs:
+        - https://www.suse.com/documentation/suse-manager-3/
+
+Documents:
+    - Presentation: modul_sp_migraton_4009_01_slides.html
+    - Hands_On: modul_sp_migraton_4009_03_handson.html
+
+Duration: ...
+
+Description: >
+    ....
+
+Requirements:
+    - ...
+    - ...

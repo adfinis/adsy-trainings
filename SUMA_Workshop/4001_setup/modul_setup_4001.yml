@@ -1,0 +1,26 @@
+---
+
+Name: Setup
+
+Area: SUSE Manager 3
+
+ID: 4001
+
+Sources:
+    - Manual_Page:
+        - man 1 ...
+
+    - External_URLs:
+        - https://www.suse.com/documentation/suse-manager-3/
+
+Documents:
+    - Presentation: modul_setup_4001_01_slides.html
+    - Hands_On: module_setup_4001_02_handson.html
+
+Duration: ...
+
+Description: >
+    ...
+
+Requirements:
+    - ...

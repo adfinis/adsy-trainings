@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>SUSE Manager 3 Channel Management</title>
+
+    <link rel="stylesheet" href="../common/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../common/reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="../common/css/reveal-adsy.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../common/css/monokai.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+<section id="suse-manager-3---channel-management" class="slide level1">
+<h1>SUSE Manager 3 - Channel Management</h1>
+<figure>
+<img src="static/suma.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<section id="agenda" class="level2">
+<h2>Agenda</h2>
+<ul>
+<li><p>Channels</p></li>
+<li><p>Lifecycle Management</p></li>
+<li><p>Activation Keys</p></li>
+</ul>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="channels" class="level2">
+<h2>Channels</h2>
+<ul>
+<li><p>Channels are RPM repositories releated to products, add-ons or modules.</p></li>
+<li><p>SUSE products contains a pool and an update channels</p>
+<ul>
+<li><p>Pool channels do not change</p></li>
+<li><p>Update channels can change</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="channel-types" class="level2">
+<h2>Channel Types</h2>
+<ul>
+<li><p>Vendor Channels</p></li>
+<li><p>Base Channels</p></li>
+<li><p>Child Channels</p></li>
+<li><p>Cloned Channles</p></li>
+<li><p>Custom Channels</p></li>
+</ul>
+</section>
+<section id="channel-rules" class="level2">
+<h2>Channel Rules</h2>
+<ul>
+<li><p>A channel points to a repository</p></li>
+<li><p>A channel can contain multiple repositories</p></li>
+<li><p>A system can subscribe to only one base channel</p></li>
+<li><p>A base channel can have zero or more child channels</p></li>
+</ul>
+</section>
+<section id="channel-rules-1" class="level2">
+<h2>Channel Rules</h2>
+<ul>
+<li><p>A system can optionally subscribe to zero or more child channels</p></li>
+<li><p>A child channel can only be linked to one base channel</p></li>
+<li><p>A base channel can not become a child channel</p></li>
+<li><p>Clients obtain access to repositories through a channel assignment</p></li>
+</ul>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="lifecycle-environment" class="level2">
+<h2>Lifecycle Environment</h2>
+<figure>
+<img src="static/lifecycle.png" />
+</figure>
+</section>
+<section id="activation-keys" class="level2">
+<h2>Activation Keys</h2>
+<ul>
+<li><p>Is a token that can optionally be used by a system when it registers with a SUSE Manager server</p></li>
+<li><p>It can assign a base channel to a system</p></li>
+<li><p>It can assign optional child channels to a system</p></li>
+<li><p>It can apply salt states to a system</p></li>
+</ul>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="hands-on-channel-managemant-03" class="level2">
+<h2>Hands-on :: Channel Managemant 03</h2>
+</section>
+</section>
+      </div>
+    </div>
+
+    <script src="../common/reveal.js/lib/js/head.min.js"></script>
+    <script src="../common/reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: true,
+        center: true,
+
+        menu: {
+          themes: false,
+          transitions: false,
+          openButton: false,
+          openSlideNumber: true,
+          markers: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/reveal.js/plugin/notes/notes.js', async: true },
+          { src: '../common/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>

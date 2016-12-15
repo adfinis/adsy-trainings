@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>SUSE Manager 3 Sync SMT</title>
+
+    <link rel="stylesheet" href="../common/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../common/reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="../common/css/reveal-adsy.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../common/css/monokai.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+<section id="suse-manager-3---smt-synchronization" class="slide level1">
+<h1>SUSE Manager 3 - SMT Synchronization</h1>
+<figure>
+<img src="static/suma.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<section id="agenda" class="level2">
+<h2>Agenda</h2>
+<ul>
+<li><p>Scenario</p></li>
+<li><p>Data Export &gt; Import</p></li>
+<li><p>Configuration</p></li>
+<li><p>Add and Sync Channels</p></li>
+<li><p>Verify Synchronization</p></li>
+</ul>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="scenario" class="level2">
+<h2>Scenario</h2>
+<blockquote>
+<p>If it is not possible to connect SUSE Manager directly or via a proxy to the Internet, a disconnected setup in combination with Subscription Management Tool (SMT) is the recommended solution.</p>
+</blockquote>
+<p><a href="https://www.suse.com/documentation/suse-manager-3/singlehtml/book_suma_best_practices/book_suma_best_practices.html#sub.mgr.tool">SUSE Documentation</a></p>
+</section>
+<section id="data-export-import" class="level2">
+<h2>Data Export &gt; Import</h2>
+<ul>
+<li><p>Export data</p></li>
+<li><p>Import data</p></li>
+</ul>
+</section>
+<section id="configuration" class="level2">
+<h2>Configuration</h2>
+<ul>
+<li>Specify the local path on the SUSE Manager server in <code>/etc/rhn/rhn.conf</code></li>
+</ul>
+</section>
+<section id="add-and-sync-channels" class="level2">
+<h2>Add and Sync Channels</h2>
+<pre class="text"><code>mgr-sync add channel &quot;$channel-label&quot;</code></pre>
+<ul>
+<li>Channels are RPM repositories like:
+<ul>
+<li>sles12-sp1-pool-x86_64</li>
+<li>sles12-sp1-updates-x86_64</li>
+<li>sle-ha12-sp1-pool-x86_64</li>
+<li>sle-ha12-sp1-updates-x86_64</li>
+<li>sle-module-containers12-pool-x86_64-sp1</li>
+<li>sle-module-containers12-updates-x86_64-sp1</li>
+</ul></li>
+</ul>
+</section>
+<section id="verify-synchronization" class="level2">
+<h2>Verify Synchronization</h2>
+<ul>
+<li><p>Log files</p></li>
+<li><p>WebUI</p></li>
+<li><p><code>spacecmd</code></p></li>
+</ul>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="hands-on-smt-sync-02" class="level2">
+<h2>Hands-on :: SMT Sync 02</h2>
+</section>
+</section>
+      </div>
+    </div>
+
+    <script src="../common/reveal.js/lib/js/head.min.js"></script>
+    <script src="../common/reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: true,
+        center: true,
+
+        menu: {
+          themes: false,
+          transitions: false,
+          openButton: false,
+          openSlideNumber: true,
+          markers: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/reveal.js/plugin/notes/notes.js', async: true },
+          { src: '../common/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>

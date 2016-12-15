@@ -1,0 +1,27 @@
+---
+
+Name: Proxy
+
+Area: SUSE Manager 3
+
+ID: 4005
+
+Sources:
+    - Manual_Page:
+        - ...
+
+    - External_URLs:
+        - https://www.suse.com/documentation/suse-manager-3/
+
+Documents:
+    - Presentation: modul_proxy_4005_01_slides.html
+    - Hands_On: modul_proxy_4005_03_handson.html
+
+Duration: ...
+
+Description: >
+    ....
+
+Requirements:
+    - ...
+    - ...

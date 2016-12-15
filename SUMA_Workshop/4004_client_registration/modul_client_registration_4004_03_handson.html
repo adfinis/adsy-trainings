@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>SUSE Manager Client Registration</title>
+
+    <link rel="stylesheet" href="../common/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../common/reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="../common/css/reveal-adsy.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../common/css/monokai.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+<section id="suse-manager-3-hands-on" class="slide level1">
+<h1>SUSE Manager 3 Hands-on</h1>
+<figure>
+<img src="static/suma.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<section id="hands-on-client-registration-04" class="level2">
+<h2>Hands-on :: Client Registration 04</h2>
+<p>Register systems with the traditional agent and as salt minion.</p>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="client-registration-04---repository" class="level2">
+<h2>Client Registration 04 - Repository</h2>
+<p>Create a bootstrap repository:</p>
+<pre class="text"><code># mgr-create-bootstrap-repo -l
+
+# mgr-create-bootstrap-repo -c SLE-12-SP1-x86_64
+
+# ls -la /srv/www/htdocs/pub/</code></pre>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="client-registration-04---traditional" class="level2">
+<h2>Client Registration 04 - Traditional</h2>
+<p>Generate a bootstrap script:</p>
+<figure>
+<img src="static/webui_1_bootstrap_script.png" />
+</figure>
+</section>
+<section id="client-registration-04---traditional-1" class="level2">
+<h2>Client Registration 04 - Traditional</h2>
+<p>Verify if the script exists:</p>
+<pre class="text"><code># ls -la /srv/www/htdocs/pub/bootstrap</code></pre>
+</section>
+<section id="client-registration-04---traditional-2" class="level2">
+<h2>Client Registration 04 - Traditional</h2>
+<p>Copy the bootstrap script:</p>
+<pre class="text"><code># cd /srv/www/htdocs/pub/bootstrap
+
+# cp bootstrap{,-prod}.sh</code></pre>
+</section>
+<section id="client-registration-04---traditional-3" class="level2">
+<h2>Client Registration 04 - Traditional</h2>
+<p>Modify the bootstrap script:</p>
+<p><code>bootstrap-prod.sh</code></p>
+<pre class="text"><code>[...]
+ 74 #exit 1
+ 75 
+ 76 # can be edited, but probably correct (unless created during initial install):
+ 77 # NOTE: ACTIVATION_KEYS *must* be used to bootstrap a client machine.
+ 78 ACTIVATION_KEYS=1-ak-sles12sp1-prod-trad</code></pre>
+</section>
+<section id="client-registration-04---traditional-4" class="level2">
+<h2>Client Registration 04 - Traditional</h2>
+<p>Connecting the first client to SUMA:</p>
+<pre class="text"><code># cd /srv/www/htdocs/pub/bootstrap/
+
+# cat bootstrap-prod.sh | ssh root@srv1.net&quot;$NR&quot;.lab /bin/bash</code></pre>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="client-registration-04---saltstack" class="level2">
+<h2>Client Registration 04 - SaltStack</h2>
+<p>Add the SUMA tools repository and install the salt minion on srv2:</p>
+<pre class="text"><code># zypper addrepo \ 
+         http://suma&quot;$NR&quot;.net&quot;$NR&quot;.lab/pub/repositories/sle/12/1/bootstrap/ \ 
+         SUMA3-Tools
+
+# zypper -n install salt-minion</code></pre>
+</section>
+<section id="client-registration-04---saltstack-1" class="level2">
+<h2>Client Registration 04 - SaltStack</h2>
+<p>Configure the minion and do a restart:</p>
+<pre class="text"><code># echo &quot;master: suma&quot;$NR&quot;.net&quot;$NR&quot;.lab&quot; &gt; /etc/salt/minion.d/master.conf
+
+# echo -e &quot;susemanager:\n  activation_key: 1-ak-sles12sp1-devl-salt&quot; \
+          &gt; /etc/salt/grains
+
+# systemctl restart salt-minion</code></pre>
+</section>
+<section id="client-registration-04---salt-keys" class="level2">
+<h2>Client Registration 04 - Salt Keys</h2>
+<p>List keys and accept the new minion:</p>
+<pre class="text"><code># salt-key -L
+
+# salt-key -a srv2.net&quot;$NR&quot;.lab</code></pre>
+</section>
+<section id="client-registration-04---salt-keys-1" class="level2">
+<h2>Client Registration 04 - Salt Keys</h2>
+<p>Key management in the WebUI:</p>
+<figure>
+<img src="static/webiu_2_salt_onboarding.png" />
+</figure>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="client-registration-04---list-systems" class="level2">
+<h2>Client Registration 04 - List Systems</h2>
+<p>List the new registred systems:</p>
+<pre class="text"><code># spacecmd system_list
+
+# spacecmd system_details &quot;$hostname&quot;</code></pre>
+</section>
+<section id="client-registration-04---list-systems-1" class="level2">
+<h2>Client Registration 04 - List Systems</h2>
+<figure>
+<img src="static/webui_3_systems.png" />
+</figure>
+</section>
+<section id="client-registration-04---list-systems-2" class="level2">
+<h2>Client Registration 04 - List Systems</h2>
+<p>Verfiy the repositoies on the new registered systems:</p>
+<pre class="text"><code># zypper repos</code></pre>
+</section>
+</section>
+      </div>
+    </div>
+
+    <script src="../common/reveal.js/lib/js/head.min.js"></script>
+    <script src="../common/reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: true,
+        center: true,
+
+        menu: {
+          themes: false,
+          transitions: false,
+          openButton: false,
+          openSlideNumber: true,
+          markers: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/reveal.js/plugin/notes/notes.js', async: true },
+          { src: '../common/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>

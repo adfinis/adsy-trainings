@@ -1,0 +1,26 @@
+---
+
+Name: Synchronisation SMT
+
+Area: SUSE Manager 3
+
+ID: 4002
+
+Sources:
+    - Manual_Page:
+        - man 1 ansible
+        - man 1 ansible-playbook
+    - External_URLs:
+        - https://www.suse.com/documentation/suse-manager-3/
+
+Documents:
+    - Presentation: modul_sync_smt_4002_01_slides.html
+    - Hands_On: module_sync_smt_4002_02_handson.html
+
+Duration: ..
+
+Description: >
+    ...
+
+Requirements:
+    - ...
