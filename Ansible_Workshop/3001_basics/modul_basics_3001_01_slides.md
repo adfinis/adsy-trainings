@@ -280,6 +280,7 @@ ansible
 |-- roles
     |-- nginx
         |-- defaults
+        |-- files
         |-- handlers
         |-- tasks
         |-- templates
@@ -575,6 +576,7 @@ ansible
 |-- roles
     |-- nginx
         |-- defaults
+        |-- files
         |-- handlers
         |-- tasks
         |-- templates
