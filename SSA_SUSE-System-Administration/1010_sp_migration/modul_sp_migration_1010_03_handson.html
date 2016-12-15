@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>SLES 12 SP Migration</title>
+
+    <link rel="stylesheet" href="../common/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../common/reveal.js/css/theme/white.css">
+    <link rel="stylesheet" href="../common/css/reveal-adsy.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../common/css/monokai.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+<section id="sles-12---hands-on" class="slide level1">
+<h1>SLES 12 - Hands-on</h1>
+<figure>
+<img src="static/sles12.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<section id="hands-on-sp-migration-10" class="level2">
+<h2>Hands-on :: SP Migration 10</h2>
+<p>Upgrading a SLES11 SP4 system manually.</p>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="sp-migration-10---start-upgrade" class="level2">
+<h2>SP Migration 10 - Start Upgrade</h2>
+<p>Boot from installation medium (SLES12SP1) and select &quot;Upgrade&quot;:</p>
+<figure>
+<img src="static/upg_process_01.png" />
+</figure>
+</section>
+<section id="sp-migration-10---welcom-screen" class="level2">
+<h2>SP Migration 10 - Welcom screen</h2>
+<p>Choose Language and Keyboard and accept the license agreement:</p>
+<figure>
+<img src="static/upg_process_02.png" />
+</figure>
+</section>
+<section id="sp-migration-10---partition" class="level2">
+<h2>SP Migration 10 - Partition</h2>
+<p>Select partition to upgrade:</p>
+<figure>
+<img src="static/upg_process_03.png" />
+</figure>
+</section>
+<section id="sp-migration-10---previously-repo" class="level2">
+<h2>SP Migration 10 - Previously Repo</h2>
+<p>Remove previosly used repositories:</p>
+<figure>
+<img src="static/upg_process_04.png" />
+</figure>
+</section>
+<section id="sp-migration-10---registration" class="level2">
+<h2>SP Migration 10 - Registration</h2>
+<p>Skip registration:</p>
+<figure>
+<img src="static/upg_process_05.png" />
+</figure>
+</section>
+<section id="sp-migration-10---add-ons" class="level2">
+<h2>SP Migration 10 - Add Ons</h2>
+<p>Do not add other products:</p>
+<figure>
+<img src="static/upg_process_06.png" />
+</figure>
+</section>
+<section id="sp-migration-10---settings" class="level2">
+<h2>SP Migration 10 - Settings</h2>
+<p>Here you can change the setting, befor the upgrade starts:</p>
+<figure>
+<img src="static/upg_process_07.png" />
+</figure>
+</section>
+</section>
+<section class="slide level1">
+
+<section id="sp-migration-10---verify" class="level2">
+<h2>SP Migration 10 - Verify</h2>
+<p>Check the OS release, kernel version and the repositories:</p>
+<pre class="text"><code># cat /etc/os-release
+
+# rpm -qa kernel*
+
+# zypper lr</code></pre>
+</section>
+<section id="sp-migration-10---orphaned-packages" class="level2">
+<h2>SP Migration 10 - Orphaned Packages</h2>
+<p>Check for any orphaned packages:</p>
+<pre class="text"><code># zypper packages --orphaned</code></pre>
+</section>
+</section>
+      </div>
+    </div>
+
+    <script src="../common/reveal.js/lib/js/head.min.js"></script>
+    <script src="../common/reveal.js/js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        history: true,
+        center: true,
+
+        menu: {
+          themes: false,
+          transitions: false,
+          openButton: false,
+          openSlideNumber: true,
+          markers: true
+        },
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../common/reveal.js/plugin/notes/notes.js', async: true },
+          { src: '../common/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '../common/reveal.js-menu/menu.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>
