@@ -4,11 +4,10 @@ Name: SP Migraton
 
 Area: SLES 12
 
-ID: 4009
+ID: 4010
 
 Sources:
     - Manual_Page:
-        - btrfs-filesystem(8)
         - zypper(8)
 
     - External_URLs:
@@ -24,8 +23,16 @@ Documents:
 Duration: 2h
 
 Description: >
-    ....
+    Dieses Modul vermittelt einen Einstieg in die Grundlagen und die
+    Durchfuehrung von Upgrades auf SLES12 und die Migration von 
+    Service Packs mit SLES12.
+    Es werden die Upgrade Paths, der Produkt Life Cycle und die
+    Mothoden, welche bei einem Upgrade/Migration eingesetzt werden
+    koennen gezeigt.
+    Die einzelnen Themen werden mit Hands-on Aufgaben vertieft.
 
 Requirements:
-    - ...
-    - ...
+    - Installiertes System mit SLES11 SP4
+    - SLE Basiskenntnisse
+    - RPM Basiskenntnisse
+    - zypper Basiskenntnisse
