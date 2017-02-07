@@ -80,15 +80,15 @@
 
 * Salt
 
-    * Ab SLES11 SP3
+    * SLES11 SP3 =<
 
 * Traditional
 
-    * Ab SLES10 SP3
+    * SLES10 SP3 =<
 
-    * Ab RHEL5
+    * RHEL5 =<
 
-    * Ab Novel Open Server 11
+    * Novel Open Server 11 =<
 
 ---
 
