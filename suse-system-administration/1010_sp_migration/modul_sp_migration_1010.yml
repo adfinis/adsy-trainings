@@ -1,0 +1,31 @@
+---
+
+Name: SP Migraton
+
+Area: SLES 12
+
+ID: 4009
+
+Sources:
+    - Manual_Page:
+        - btrfs-filesystem(8)
+        - zypper(8)
+
+    - External_URLs:
+        - https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12/
+        - https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP1/
+        - https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP2/
+        - https://www.suse.com/documentation/sles-12/singlehtml/book_sle_deployment/book_sle_deployment.html
+
+Documents:
+    - Presentation: modul_sp_migraton_1010_01_slides.html
+    - Hands_On: modul_sp_migraton_1010_03_handson.html
+
+Duration: 2h
+
+Description: >
+    ....
+
+Requirements:
+    - ...
+    - ...
