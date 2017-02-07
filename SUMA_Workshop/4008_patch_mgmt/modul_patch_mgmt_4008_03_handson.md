@@ -39,7 +39,7 @@ Start the tomcat service:
 
 ## Patch Management 07 - Synchronization
 
-Refresh the channel and schedule a reposyn:
+Refresh the channel and schedule a reposync:
 
 ```text
 mgr-sync refresh
