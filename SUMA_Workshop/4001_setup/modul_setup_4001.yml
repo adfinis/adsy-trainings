@@ -7,9 +7,6 @@ Area: SUSE Manager 3
 ID: 4001
 
 Sources:
-    - Manual_Page:
-        - man 1 ...
-
     - External_URLs:
         - https://www.suse.com/documentation/suse-manager-3/
 
@@ -17,10 +14,15 @@ Documents:
     - Presentation: modul_setup_4001_01_slides.html
     - Hands_On: module_setup_4001_02_handson.html
 
-Duration: ...
+Duration: 2h
 
 Description: >
-    ...
+    Dieses Modul vermittelt einen Einstieg in die Konzepte und Grundlagen des
+    SUSE Manager. Es wird vermittelt, wie die Installation und die 
+    Grundkonfiguration Setup des SUSE Manager durchgefuehrt wird.
+    Diese Bereiche werden mit Hands-on Aufgaben vertieft.  
 
 Requirements:
-    - ...
+    - Linux Basics
+    - Bash Bedienung
+    - CLI Editor Bedienung

@@ -7,8 +7,6 @@ Area: SUSE Manager 3
 ID: 4008
 
 Sources:
-    - Manual_Page:
-        - ...
 
     - External_URLs:
         - https://www.suse.com/documentation/suse-manager-3/
@@ -17,11 +15,15 @@ Documents:
     - Presentation: modul_patch_mgmt_4008_01_slides.html
     - Hands_On: modul_patch_mgmt_4008_03_handson.html
 
-Duration: ...
+Duration: 2h
 
 Description: >
-    ....
+    Diese Modul vermittelt die Grundlagen des Patch Management mit
+    dem SUSE Manager 3. Es werden verschiedene Szenarien gezeigt, wie
+    ein "Patch Day" durchgefuehrt werden kann.
+    Diese Bereiche werden mit Hands-on Aufgaben vertieft.
 
 Requirements:
-    - ...
-    - ...
+    - Linux Basics
+    - Bash Bedienung
+    - CLI Editor Bedienung

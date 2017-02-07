@@ -8,7 +8,8 @@ ID: 4006
 
 Sources:
     - Manual_Page:
-        - ...
+        - man 1 smdba
+        - man 5 crontab
 
     - External_URLs:
         - https://www.suse.com/documentation/suse-manager-3/
@@ -17,11 +18,14 @@ Documents:
     - Presentation: modul_backup_4006_01_slides.html
     - Hands_On: modul_backup_4006_03_handson.html
 
-Duration: ...
+Duration: 1h
 
 Description: >
-    ....
+    Diese Modul vermittelt, wie ein Backup der SUSE Manager 3 Datenbank
+    gemacht werden kann.
+    Diese Bereiche werden mit Hands-on Aufgaben vertieft.
 
 Requirements:
-    - ...
-    - ...
+    - Linux Basics
+    - Bash Bedienung
+    - CLI Editor Bedienung

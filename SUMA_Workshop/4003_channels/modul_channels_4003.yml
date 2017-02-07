@@ -8,21 +8,23 @@ ID: 4003
 
 Sources:
     - Manual_Page:
-        - 
-        - ...
+        - man 1 spacecmd
     - External_URLs:
         - https://www.suse.com/documentation/suse-manager-3/
-        - ...
 
 Documents:
     - Presentation: modul_channel_4003_01_slides.html
     - Hands_On: channels_4003_02_handson.html
 
-Duration: ...
+Duration: 2h
 
 Description: >
-    ....
+    Diese Modul vermittelt die Grundlagen von Software Channel. Es wird 
+    vermittelt, wie wie Channel geklont werden können und wie diese anhand von
+    Activation Keys Systemen zur Verfügung gestellt werden.
+    Diese Bereiche werden mit Hands-on Aufgaben vertieft.
 
 Requirements:
-    - ...
-    - ...
+    - Linux Basics
+    - Bash Bedienung
+    - CLI Editor Bedienung

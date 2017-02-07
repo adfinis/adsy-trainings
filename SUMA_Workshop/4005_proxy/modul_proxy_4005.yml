@@ -8,7 +8,7 @@ ID: 4005
 
 Sources:
     - Manual_Page:
-        - ...
+        - man 8 zypper
 
     - External_URLs:
         - https://www.suse.com/documentation/suse-manager-3/
@@ -17,11 +17,16 @@ Documents:
     - Presentation: modul_proxy_4005_01_slides.html
     - Hands_On: modul_proxy_4005_03_handson.html
 
-Duration: ...
+Duration: 2h
 
 Description: >
-    ....
+    Diese Modul vermittelt einen Einstieg in die Konzepte die Grundlagen 
+    des SUSE Manager 3 Proxy. Es wird vermittelt, wie ein Proxy System
+    installiert, am SUSE Manager regisiert und SLES System sich beim Proxy
+    registieren koenne.
+    Diese Bereiche werden mit Hands-on Aufgaben vertieft.
 
 Requirements:
-    - ...
-    - ...
+    - Linux Basics
+    - Bash Bedienung
+    - CLI Editor Bedienung

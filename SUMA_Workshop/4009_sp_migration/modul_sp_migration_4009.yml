@@ -7,9 +7,6 @@ Area: SUSE Manager 3
 ID: 4009
 
 Sources:
-    - Manual_Page:
-        - ...
-
     - External_URLs:
         - https://www.suse.com/documentation/suse-manager-3/
 
@@ -17,11 +14,14 @@ Documents:
     - Presentation: modul_sp_migraton_4009_01_slides.html
     - Hands_On: modul_sp_migraton_4009_03_handson.html
 
-Duration: ...
+Duration: 1h
 
 Description: >
-    ....
+    Diese Modul vermittelt, wie Upgrades von Service Pack mit dem 
+    SUSE Manager 3 durchgefuehrt werden koennen.
+    Diese Bereiche werden mit Hands-on Aufgaben vertieft.
 
 Requirements:
-    - ...
-    - ...
+    - Linux Basics
+    - Bash Bedienung
+    - CLI Editor Bedienung

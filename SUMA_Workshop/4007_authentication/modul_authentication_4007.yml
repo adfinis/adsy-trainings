@@ -8,7 +8,8 @@ ID: 4007
 
 Sources:
     - Manual_Page:
-        - ...
+        - man 5 sssd.conf
+        - man 5 nsswitch.conf
 
     - External_URLs:
         - https://www.suse.com/documentation/suse-manager-3/
@@ -17,11 +18,13 @@ Documents:
     - Presentation: modul_authentication_4007_01_slides.html
     - Hands_On: modul_authentication_4007_03_handson.html
 
-Duration: ...
+Duration: 1h
 
 Description: >
-    ....
+    Diese Modul vermittelt, wie der SUSE Manager 3 an einem Directory
+    Service angebunden werden kann.
 
 Requirements:
-    - ...
-    - ...
+    - Linux Basics
+    - Bash Bedienung
+    - CLI Editor Bedienung

@@ -8,8 +8,8 @@ ID: 4002
 
 Sources:
     - Manual_Page:
-        - man 1 ansible
-        - man 1 ansible-playbook
+        - man 8 mgr-sync
+        - man 1 spacecmd
     - External_URLs:
         - https://www.suse.com/documentation/suse-manager-3/
 
@@ -17,10 +17,15 @@ Documents:
     - Presentation: modul_sync_smt_4002_01_slides.html
     - Hands_On: module_sync_smt_4002_02_handson.html
 
-Duration: ..
+Duration: 1h
 
 Description: >
-    ...
+    Diese Modul vermittelt die Synchronisation des SUSE Manager mit einem SMT.
+    Es wird vermittelt, wie der SUSE Manager konfiguriert werden muss und 
+    wie Software Channel importiert und synchronisiert werden koennen.
+    Diese Bereiche werden mit Hands-on Aufgaben vertieft.
 
 Requirements:
-    - ...
+    - Linux Basics
+    - Bash Bedienung
+    - CLI Editor Bedienung
