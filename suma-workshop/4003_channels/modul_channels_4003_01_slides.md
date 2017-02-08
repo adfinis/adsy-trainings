@@ -40,26 +40,6 @@
 
 * Custom Channels
 
-## Channel Rules
-
-* A channel points to a repository
-
-* A channel can contain multiple repositories 
-
-* A system can subscribe to only one base channel
-
-* A base channel can have zero or more child channels
-
-## Channel Rules
-
-* A system can optionally subscribe to zero or more child channels
-
-* A child channel can only be linked to one base channel
-
-* A base channel can not become a child channel
-
-* Clients obtain access to repositories through a channel assignment
-
 ---
 
 ## Lifecycle Environment
@@ -68,13 +48,29 @@
 
 ## Activation Keys
 
-* Is a token that can optionally be used by a system when it registers with a SUSE Manager server
+* An activation key is a group of configuration settings with a label.
 
-* It can assign a base channel to a system 
+* This information is passed on to all systems registered with a key. 
 
-* It can assign optional child channels to a system
+* Each activation key is bound to the organization for which it has been created.
 
-* It can apply salt states to a system
+* Activation keys may be used with traditional clients or with Salt clients. 
+
+## Activation Keys
+
+An activation key can specify:
+
+* Channel Assignment
+
+* System Types (Traditionally called Add-on Entitlements)
+
+* Contact Method
+
+* Configuration Files
+
+* Packages to be Installed
+
+* System Group Assignment
 
 ---
 
