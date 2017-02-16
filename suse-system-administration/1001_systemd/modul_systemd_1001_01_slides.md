@@ -22,7 +22,7 @@
 
 * Beendet Daemons richtig
 
-![screenshot1](screenshot1.png)
+![screenshot1](pics_01/screenshot1.png)
 
 ---
 
