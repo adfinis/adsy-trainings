@@ -34,7 +34,7 @@
 
 # /boot/grub2/grub.cfg
 
-![Bild 1](slides1.png)
+![Bild 1](pics_1/slides1.png)
 
 # /etc/default/grub 1/3
 
@@ -83,7 +83,7 @@ Variablen zur Kontrolle des Aussehens
 
 # /etc/default/grub
 
-![Bild 2](slides2.png)
+![Bild 2](pics_1/slides2.png)
 
 # /etc/grub.d 1/3
 
@@ -122,7 +122,7 @@ Variablen zur Kontrolle des Aussehens
 
 # /etc/grub.d
 
-![Bild 3](slides3.png)
+![Bild 3](pics_1/slides3.png)
 
 # Ein manueller eingetragen
 
@@ -147,7 +147,7 @@ menuentry 'AdSy Test' {
 
 # /etc/sysconfig/Bootloader
 
-![Bild 4](slides4.png)
+![Bild 4](pics_1/slides4.png)
 
 # Architektur spezifische Details
 
@@ -191,7 +191,7 @@ menuentry 'AdSy Test' {
 
 # YAST Ansicht
 
-![Bild 5](slides5.png)
+![Bild 5](pics_1/slides5.png)
 
 # Neuer Kernel in der Liste aufnehmen
 
@@ -215,7 +215,7 @@ menuentry 'AdSy Test' {
 
 # Eintrag editieren
 
-![Bild 6](slides6.png)
+![Bild 6](pics_1/slides6.png)
 
 # Wichtigste Commands
 
