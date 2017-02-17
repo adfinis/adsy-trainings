@@ -2,31 +2,31 @@
 
 # Fortlaufendes Log anzeigen
 
-![Bild 1](demo1.png)
+![Bild 1](pics_02/demo1.png)
 
 # Log der letzten 3h anzeigen
 
-![Bild 2](demo2.png)
+![Bild 2](pics_02/demo2.png)
 
 # Spezifische Range von Log-Einträgen anzeigen
 
-![Bild 3](demo3.png)
+![Bild 3](pics_02/demo3.png)
 
 # Liste der bekannten System-Starts anzeigen
 
-![Bild 4](demo4.png)
+![Bild 4](pics_02/demo4.png)
 
 # Log-Einträge seit einem spezifischen System-Starts bis zum Shutdown anzeigen
 
-![Bild 5](demo5.png)
+![Bild 5](pics_02/demo5.png)
 
 # Alle Log-Einträge zu einem spezifischen Binary anzeigen
 
-![Bild 6](demo6.png)
+![Bild 6](pics_02/demo6.png)
 
 # Log-Einträge eines spezifischen Users anzeigen
 
-![Bild 7](demo7.png)
+![Bild 7](pics_02/demo7.png)
 
 # Attribution / License
 
