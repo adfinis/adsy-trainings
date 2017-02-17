@@ -2,21 +2,21 @@
 
 # autoyast-Profil generieren
 
-![Bild 1](demo1.png)
+![Bild 1](pics_2/demo1.png)
 
 # autoyast ausführen
 
-![Bild 2](demo2.png)
+![Bild 2](pics_2/demo2.png)
 
-![Bild 3](demo3.png)
+![Bild 3](pics_2/demo3.png)
 
-![Bild 4](demo4.png)
+![Bild 4](pics_2/demo4.png)
 
-![Bild 5](demo5.png)
+![Bild 5](pics_2/demo5.png)
 
-![Bild 6](demo6.png)
+![Bild 6](pics_2/demo6.png)
 
-![Bild 7](demo7.png)
+![Bild 7](pics_2/demo7.png)
 
 # Screencast
 
