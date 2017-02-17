@@ -4,21 +4,21 @@
 
 # Interface Konfiguration übernehmen
 
-![Bild 1](demo1.png)
+![Bild 1](pics_2/demo1.png)
 
 # Bondings
 
 # Bond erstellen (YAST oder Config-File)
 
-![Bild 2](demo2.png)
+![Bild 2](pics_2/demo2.png)
 
 # Bond deaktiviert
 
-![Bild 3](demo3.png)
+![Bild 3](pics_2/demo3.png)
 
 # Bond aktivieren
 
-![Bild 4](demo4.png)
+![Bild 4](pics_2/demo4.png)
 
 # Attribution / License
 
