@@ -7,15 +7,14 @@ import glob
 import yaml
 import jinja2
 import subprocess
+import argparse
 
 from pprint import pprint
 
-BUILD_DIR   = "build"
-COMMONS_DIR = "adsy-trainings-common.src"
-TPL_PATH = "adsy-trainings-common.src/index/tpl.html"
 IGNORE_TRAININGS = [
-    "ansible-workshop",
-    "suma-workshop"
+    #"ansible-workshop",
+    #"suma-workshop",
+    #"suse-system-administration"
 ]
 INDEX_COPY_FILES=[
     "adcssy.min.css",
@@ -59,7 +58,7 @@ def build_html(source_file, dest_file, commons_dir):
 
 
 def build_pdf(source_file, dest_file, commons_dir, build_path):
-
+    
     otmp = "{0}/{1}.tmp.html".format(
         os.path.dirname( dest_file ),
         os.path.basename( dest_file )
@@ -93,68 +92,43 @@ def build_pdf(source_file, dest_file, commons_dir, build_path):
 
 
 
-    #sys.exit(0)
-    # #return
-    # tmp_build_path = "{0}/tmp/tmp-slide-".format(
-    #     build_path
-    # )
-    # # Build single pdf files
-    # phantomjs_cmd_arr = [
-    #     "phantomjs",
-    #     "{0}/phantomjs-revealjs-capture.js".format(
-    #         commons_dir
-    #     ),
-    #     source_file,
-    #     tmp_build_path
-    # ]
-    # print(source_file)
-    # print(" ".join(phantomjs_cmd_arr))
-    #
-    # subprocess.check_call(phantomjs_cmd_arr)
-    #
-    # # combine single pdf's to a single one
-    # tmp_slides = glob.glob(
-    #     "{0}*.pdf".format(
-    #         tmp_build_path
-    #     )
-    # )
-    # tmp_slides = sorted(tmp_slides)
-    # gscmd_array = [
-    #     "gs",
-    #     "-q",
-    #     "-dPDFSETTINGS=/printer",
-    #     "-dNOPAUSE",
-    #     "-dBATCH",
-    #     "-sDEVICE=pdfwrite",
-    #     "-sOutputFile={0}".format(
-    #         dest_file
-    #     )
-    # ]
-    # gscmd_array += tmp_slides
-    # subprocess.check_call(gscmd_array)
-    # #print(" ".join(gscmd_array))
-    #
-    # for tmp_slide in tmp_slides:
-    #     os.remove(tmp_slide)
-
-    #sys.exit(0)
-
-
-
 
 def main():
 
-    root_dir = os.path.dirname(
-        os.path.realpath( __file__ )
+    parser = argparse.ArgumentParser(
+        description='Training builder'
+    )
+    parser.add_argument(
+        "--root",
+        default=".",
+        help="Root directory of training sources"
+    )
+    parser.add_argument(
+        "--commons",
+        default="adsy-trainings-common.src",
+        help="Common files location"
+    )
+    parser.add_argument(
+        "--build-dir",
+        default="build",
+        help="Output directory"
+    )
+    parser.add_argument(
+        "--ignore",
+        action="append",
+        help="Ignore training"
     )
 
-    commons_dir_abs = "{0}/{1}".format(
-        root_dir,
-        COMMONS_DIR
-    )
+    args = parser.parse_args()
+
+    root_dir = os.path.realpath(args.root)
+    commons_dir_abs = os.path.realpath(args.commons)
+    build_dir = os.path.realpath(args.build_dir)
 
     index_files = glob.glob(
-        "**/*yml",
+        "{0}/**/*yml".format(
+            root_dir
+        ),
         recursive = True
     )
 
@@ -165,33 +139,30 @@ def main():
         "cp",
         "-ra",
         commons_dir_abs,
-        "{0}/{1}/commons".format(
-            root_dir,
-            BUILD_DIR,
+        "{0}/commons".format(
+            build_dir,
         )
     ])
 
 
     for yaml_file in sorted(index_files):
 
-        training_dir = os.path.dirname( yaml_file )
+        training_dir = os.path.dirname( os.path.relpath(yaml_file, root_dir) )
+
         rdir = training_dir.split("/")[0]
-        if rdir in IGNORE_TRAININGS:
+        if rdir in args.ignore:
             continue
 
         source_dir = "{0}/{1}".format(
             root_dir,
             training_dir
         )
-        build_path = "{0}/{1}/{2}".format(
-            root_dir,
-            BUILD_DIR,
+        build_path = "{0}/{1}".format(
+            build_dir,
             training_dir
         )
-        build_path_root_abs = "{0}/{1}".format(
-            root_dir,
-            BUILD_DIR
-        )
+        build_path_root_abs = build_dir
+
 
         yf = open(yaml_file)
         training_yaml = yaml.load(yf)
@@ -245,9 +216,8 @@ def main():
                 training_dir,
                 sdir
             )
-            dst = "{0}/{1}/{2}/{3}".format(
-                root_dir,
-                BUILD_DIR,
+            dst = "{0}/{1}/{2}".format(
+                build_dir,
                 training_dir,
                 sdir
             )
@@ -257,6 +227,7 @@ def main():
                 src,
                 dst
             ])
+
 
         # then build pdf from generated html
         for htmlf in tt['files_html']:
@@ -297,11 +268,16 @@ def main():
     context = {
          "training_list": training_list
     }
-    output_index_html = render_template(TPL_PATH, context)
-    output_index = "{0}/{1}/index.html".format(
-        root_dir,
-        BUILD_DIR
+
+    _tpl_path = "{0}/index/tpl.html".format(commons_dir_abs)
+
+
+    output_index_html = render_template(_tpl_path, context)
+
+    output_index = "{0}/index.html".format(
+        build_dir
     )
+
     file_object  = open(output_index, "w")
     file_object.write(
         output_index_html
@@ -314,9 +290,8 @@ def main():
             commons_dir_abs,
             css
         )
-        dst = "{0}/{1}/{2}".format(
-            root_dir,
-            BUILD_DIR,
+        dst = "{0}/{1}".format(
+            build_dir,
             css
         )
         subprocess.check_call([
