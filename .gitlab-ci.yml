@@ -13,6 +13,7 @@ docs:
   script:
     - mkdir build
     - adsy-trainings-common.src/training-builder.py --root=. --commons=adsy-trainings-common.src --build-dir=build
+    - mv build trainings
   artifacts:
     paths:
-      - build/*
+      - trainings/*
