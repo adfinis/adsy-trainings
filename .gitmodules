@@ -1,3 +1,3 @@
 [submodule "adsy-trainings-common.src"]
 	path = adsy-trainings-common.src
-	url = git@git.adfinis-sygroup.ch:ad-sy/adsy-trainings-common.src.git
+	url = ./adsy-trainings-common.src.git
