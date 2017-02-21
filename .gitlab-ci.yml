@@ -11,6 +11,7 @@ stages:
 docs:
   stage: docs
   script:
+    - pacman -S --noconfirm openssh
     - make
   artifacts:
     paths:
