@@ -12,6 +12,7 @@ docs:
   stage: docs
   script:
     - mkdir build
+    - ls -lah
     - adsy-trainings-common.src/training-builder.py --root=. --commons=adsy-trainings-common.src --build-dir=build
   artifacts:
     paths:
