@@ -1,0 +1,3 @@
+[submodule "adsy-trainings-common.src"]
+	path = adsy-trainings-common.src
+	url = ../../ad-sy/adsy-trainings-common.src.git

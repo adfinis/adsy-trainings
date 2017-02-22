@@ -1,0 +1,19 @@
+before_script:
+  - /usr/bin/Xvfb :99 -screen 0 1024x768x24 -fbdir /var/run -ac &
+  - export DISPLAY=:99
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - docs
+
+docs:
+  stage: docs
+  script:
+    - mkdir build
+    - adsy-trainings-common.src/training-builder.py --root=. --commons=adsy-trainings-common.src --build-dir=build
+    - mv build trainings
+  artifacts:
+    paths:
+      - trainings/*
