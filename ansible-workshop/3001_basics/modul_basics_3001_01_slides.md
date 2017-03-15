@@ -609,3 +609,11 @@ The good, the bad and the ugly
 Be smart. Think open source. 
 
 ![](static/adfinis_sygroup_logo.png)
+
+---
+
+## Attribution / License
+
+* XKCD - The General Problem, by xkcd https://xkcd.com/974/
+  License CC-BY-NC see https://xkcd.com/license.html
+
