@@ -2,6 +2,10 @@
 % Marc Stulz
 % November 10, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # SUSE Manager 3 Hands-on
 
 ![](static/suma.png)
@@ -60,7 +64,7 @@ Modify the bootstrap script:
 ```text
 [...]
  74 #exit 1
- 75 
+ 75
  76 # can be edited, but probably correct (unless created during initial install):
  77 # NOTE: ACTIVATION_KEYS *must* be used to bootstrap a client machine.
  78 ACTIVATION_KEYS=1-ak-sles12sp1-prod-trad
@@ -83,8 +87,8 @@ Connecting the first client to SUMA:
 Add the SUMA tools repository and install the salt minion on srv2:
 
 ```text
-# zypper addrepo \ 
-         http://suma"$NR".net"$NR".lab/pub/repositories/sle/12/1/bootstrap/ \ 
+# zypper addrepo \
+         http://suma"$NR".net"$NR".lab/pub/repositories/sle/12/1/bootstrap/ \
          SUMA3-Tools
 
 # zypper -n install salt-minion
@@ -143,3 +147,16 @@ Verfiy the repositoies on the new registered systems:
 # zypper repos
 ```
 
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

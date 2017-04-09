@@ -1,3 +1,7 @@
+![](pics_2/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # Demo zu Module "zypper" [SSA 1005]
 
 # Paketgruppen suchen
@@ -41,3 +45,17 @@
 # Repository deaktivieren und aktivieren
 
 ![Bild 10](pics_2/demo10.png)
+
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

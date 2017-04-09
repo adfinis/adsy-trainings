@@ -2,6 +2,10 @@
 % Lukas Grossar
 % September 30, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # What are containers?
 
 ## Technically speaking
@@ -235,3 +239,17 @@ The option `--rm` deletes the container on exit
 ```
 docker run --rm centos yum list installed
 ```
+
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

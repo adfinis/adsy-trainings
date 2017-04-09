@@ -2,6 +2,10 @@
 % Lukas Grossar
 % September 30, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # Docker Management
 
 ## Disclaimer
@@ -126,3 +130,17 @@ This command will check for new versions of the each image:tag combination in `d
 ```bash
 docker images | awk '(NR>1) && ($2!~/none/) {print $1":"$2}' | xargs -L 1 docker pull
 ```
+
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

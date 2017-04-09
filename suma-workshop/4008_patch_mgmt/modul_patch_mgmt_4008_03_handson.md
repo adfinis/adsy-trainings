@@ -2,6 +2,10 @@
 % Marc Stulz
 % November 17, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # SUSE Manager 3 Hands-on
 
 ![](static/suma.png)
@@ -105,10 +109,10 @@ Comapre the updates channels:
            sles12-sp1-updates-x86_64 \
            devl-sles12-sp1-updates-x86_64 \
            | grep par
-INFO: Connected to https://localhost/rpc/api as admin 
--SUSE-12-SP1-2016-1310 Recommended update for apparmor 
--SUSE-12-SP1-2016-1655 Recommended update for parted 
-+CL-SUSE-12-SP1-2016-1310 Recommended update for apparmor 
+INFO: Connected to https://localhost/rpc/api as admin
+-SUSE-12-SP1-2016-1310 Recommended update for apparmor
+-SUSE-12-SP1-2016-1655 Recommended update for parted
++CL-SUSE-12-SP1-2016-1310 Recommended update for apparmor
 ```
 
 ---
@@ -193,3 +197,17 @@ Check the patches with `zypper` command:
 ```text
 # zypper patches | grep "1655"
 ```
+
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

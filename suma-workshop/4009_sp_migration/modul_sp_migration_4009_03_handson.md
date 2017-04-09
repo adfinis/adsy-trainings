@@ -2,6 +2,10 @@
 % Marc Stulz
 % November 18, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # SUSE Manager 3 Hands-on
 
 ![](static/suma.png)
@@ -42,17 +46,17 @@ Start the tomcat service:
 Refresh the channel and schedule a reposyn:
 
 ```text
-# mgr-sync refresh 
+# mgr-sync refresh
 
-# mgr-sync list channel 
+# mgr-sync list channel
 
-# mgr-sync add channel sles12-sp2-pool-x86_64 
+# mgr-sync add channel sles12-sp2-pool-x86_64
 
-# mgr-sync add channel sles12-sp2-updates-x86_64 
+# mgr-sync add channel sles12-sp2-updates-x86_64
 
-# mgr-sync add channel sle-manager-tools12-pool-x86_64-sp2 
+# mgr-sync add channel sle-manager-tools12-pool-x86_64-sp2
 
-# mgr-sync add channel sle-manager-tools12-updates-x86_64-sp2 
+# mgr-sync add channel sle-manager-tools12-updates-x86_64-sp2
 ```
 
 Verify the synchronization:
@@ -102,9 +106,9 @@ Clone the SLES12 SP1 channels:
                                      --channel sles12-sp2-pool-x86_64 \
                                      --init
 
-INFO: Cloning devl-sles12-sp2-pool-x86_64 from sles12-sp2-pool-x86_64 
-INFO: Cloning devl-sle-manager-tools12-pool-x86_64-sp2 from sle-manager-tools12-pool-x86_64-sp2 
-INFO: Cloning devl-sle-manager-tools12-updates-x86_64-sp2 from sle-manager-tools12-updates-x86_64-sp2 
+INFO: Cloning devl-sles12-sp2-pool-x86_64 from sles12-sp2-pool-x86_64
+INFO: Cloning devl-sle-manager-tools12-pool-x86_64-sp2 from sle-manager-tools12-pool-x86_64-sp2
+INFO: Cloning devl-sle-manager-tools12-updates-x86_64-sp2 from sle-manager-tools12-updates-x86_64-sp2
 INFO: Cloning devl-sles12-sp2-updates-x86_64 from sles12-sp2-updates-x86_64
 
 # spacewalk-manage-channel-lifecycle -u admin -p "$pw" \
@@ -185,3 +189,17 @@ Click on "Schedule System Reboot":
 Click on "Reboot system" to initiate the reboot:
 
 ![](static/webui_13_sp_migration.png)
+
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

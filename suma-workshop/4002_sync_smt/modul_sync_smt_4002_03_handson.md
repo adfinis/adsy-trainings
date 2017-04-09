@@ -2,6 +2,10 @@
 % Marc Stulz
 % November 10, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # SUSE Manager 3 Hands-on
 
 ![](static/suma.png)
@@ -41,7 +45,7 @@ server.susemanager.fromdir = /data/repos_init_20161109
 ```text
 # systemctl restart tomcat
 
-# mgr-sync refresh 
+# mgr-sync refresh
 
 # mgr-sync list channels
 
@@ -130,3 +134,17 @@ Repos
 sles12-sp1-updates-x86_64
 
 ```
+
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

@@ -2,6 +2,10 @@
 % Michael Hofer
 % October 27, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # Ansible - Basics
 
 Simple config management and orchestration
@@ -126,7 +130,7 @@ What's it all about?
 
 * Ansible Galaxy (proceed with caution!)
 
-* Contributions are somewhat slowly processed 
+* Contributions are somewhat slowly processed
 
 ---
 
@@ -312,13 +316,13 @@ $ ansible web -i inventory.txt -u root -m setup
 "ansible_facts": {
     "ansible_all_ipv4_addresses": [
         "192.168.122.10"
-    ], 
+    ],
     "ansible_all_ipv6_addresses": [
         "fe80::5054:ff:fe5c:593"
-    ], 
-    "ansible_architecture": "x86_64", 
-    "ansible_bios_date": "04/01/2014", 
-    "ansible_bios_version": "1.9.3-20160701_074356-anatol", 
+    ],
+    "ansible_architecture": "x86_64",
+    "ansible_bios_date": "04/01/2014",
+    "ansible_bios_version": "1.9.3-20160701_074356-anatol",
 [...]
 ```
 
@@ -378,7 +382,7 @@ Ansible has 3 different variable scopes:
 
 * Host (specific to a machine like facts)
 
-## Locations 
+## Locations
 
 Variables can be included from many different locations:
 
@@ -606,9 +610,23 @@ The good, the bad and the ugly
 
 ## Thank you!
 
-Be smart. Think open source. 
+Be smart. Think open source.
 
 ![](static/adfinis_sygroup_logo.png)
+
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)
 
 ---
 
@@ -616,4 +634,3 @@ Be smart. Think open source.
 
 * XKCD - The General Problem, by xkcd https://xkcd.com/974/
   License CC-BY-NC see https://xkcd.com/license.html
-

@@ -1,6 +1,10 @@
-% SUSE Manager 3 Setpu
+% SUSE Manager 3 Setup
 % Marc Stulz
 % November 08, 2016
+
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
 
 # SUSE Manager 3 Hands-on
 
@@ -142,3 +146,16 @@ https://training.cust.adfinis-sygroup.ch:"$high_port"
 
 ![](static/webui_1_create_org.png)
 
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

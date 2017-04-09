@@ -2,6 +2,10 @@
 % Marc Stulz
 % November 10, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # SUSE Manager 3 Hands-on
 
 ![](static/suma.png)
@@ -27,10 +31,10 @@ Install the `spacewalk-utils` package on your SUMA:
 Configure a cumstom workflow a la "adsy-sles12-sp1":
 
 ```text
-# cat .spacewalk-manage-channel-lifecycle/settings.conf 
+# cat .spacewalk-manage-channel-lifecycle/settings.conf
 [general]
 phases = dev, test, prod
-exclude channels = 
+exclude channels =
 
 [adsy-sles12-sp1]
 phases = devl, prod
@@ -142,9 +146,9 @@ sles12-sp1-pool-x86_64
 
 Base Channel (blank for default): devl-sles12-sp1-pool-x86_64
 
-virtualization_host Entitlement [y/N]: 
+virtualization_host Entitlement [y/N]:
 
-Universal Default [y/N]: 
+Universal Default [y/N]:
 INFO: Created activation key 1-ak-sles12sp1-devl-salt
 
 # spacecmd activationkey_list
@@ -216,9 +220,9 @@ sles12-sp1-pool-x86_64
 
 Base Channel (blank for default): prod-sles12-sp1-pool-x86_64
 
-virtualization_host Entitlement [y/N]: 
+virtualization_host Entitlement [y/N]:
 
-Universal Default [y/N]: 
+Universal Default [y/N]:
 INFO: Created activation key 1-ak-sles12sp1-prod-salt
 
 # spacecmd activationkey_list
@@ -256,12 +260,12 @@ archive-20161110-prod-sles12-sp1-pool-x86_64
 devl-sles12-sp1-pool-x86_64
 prod-sles12-sp1-pool-x86_64
 sles12-sp1-pool-x86_64
- 
+
 Base Channel (blank for default): prod-sles12-sp1-pool-x86_64
- 
-virtualization_host Entitlement [y/N]: 
- 
-Universal Default [y/N]: 
+
+virtualization_host Entitlement [y/N]:
+
+Universal Default [y/N]:
 INFO: Created activation key 1-ak-sles12sp1-prod-trad
 
 # spacecmd activationkey_list
@@ -293,7 +297,7 @@ Add the required packages to the acvivation key:
            rhncfg-actions \
            osad \
            rhncfg-client \
-           rhncfg-management 
+           rhncfg-management
 
 # spacecmd activationkey_details 1-ak-sles12sp1-prod-trad
 ```
@@ -302,3 +306,16 @@ Add the required packages to the acvivation key:
 
 ![](static/webui_3_ak.png)
 
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

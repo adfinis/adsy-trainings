@@ -2,6 +2,10 @@
 % Lukas Grossar
 % September 30, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # Kontrolle zum Modul Dockerfile
 
 ## Dockerfile
@@ -43,3 +47,17 @@ Container sind per Definition flüchtig. Wie kann ich nicht flüchtige Daten ver
 ## Writing Dockerfiles
 
 Wie definiere ich das Kommando welches beim Starten des Containers ausgeführt wird?
+
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

@@ -2,6 +2,10 @@
 % Marc Stulz
 % November 10, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # SUSE Manager 3 Hands-on
 
 ![](static/suma.png)
@@ -63,9 +67,9 @@ sles12-sp1-pool-x86_64
 
 Base Channel (blank for default): prod-sles12-sp1-pool-x86_64
 
-virtualization_host Entitlement [y/N]: 
+virtualization_host Entitlement [y/N]:
 
-Universal Default [y/N]: 
+Universal Default [y/N]:
 INFO: Created activation key 1-ak-sles12sp1-prod-proxy
 ```
 
@@ -93,7 +97,7 @@ Add the required packages to the acvivation key:
            rhncfg-actions \
            osad \
            rhncfg-client \
-           rhncfg-management 
+           rhncfg-management
 ```
 
 ## Proxy 05 - Bootstrap Script
@@ -102,7 +106,7 @@ Create a new bootstrap script:
 
 ```text
 # cd /srv/www/htdocs/pub/bootstrap/
-# cp bootstrap{,-proxy}.sh 
+# cp bootstrap{,-proxy}.sh
 ```
 
 Modify the bootstrap script:
@@ -207,3 +211,16 @@ Register the new client (pull):
 # curl http://proxy"$NR".net"$NR".lab/pub/bootstrap/bootstrap.sh | bash
 ```
 
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

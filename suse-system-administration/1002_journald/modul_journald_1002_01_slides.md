@@ -1,3 +1,7 @@
+![](pics_02/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # Modul "journald" [SSA 1002]
 
 # systemd-journald Daemon
@@ -186,3 +190,17 @@ journalctl _SYSTEMD_UNIT=httpd.service
 
 * Slides
   Adfinis SyGroup AG, 2016, Attrivution-NonCommercial 2.0 (CC BY_NC 2.0)
+
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

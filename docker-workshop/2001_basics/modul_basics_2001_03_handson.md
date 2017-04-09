@@ -2,6 +2,10 @@
 % Lukas Grossar
 % September 30, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # Docker Hands On
 
 ## Pull a Docker image
@@ -74,3 +78,17 @@ Run the anapsix/nyancat image iteractively and delete it on exit
 Run the anapsix/nyancat image interactivelly and delete it on exit
 
     docker run --rm -it anapsix/nyancat
+
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)
