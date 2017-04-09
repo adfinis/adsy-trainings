@@ -2,6 +2,10 @@
 % Marc Stulz
 % November 14, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # SUSE Manager 3 - Authentication
 
 ![](static/suma.png)
@@ -73,7 +77,7 @@ Must to be stoped and disbaled as sssd now caches:
 
 # systemctl disable nscd.service
 
-```	
+```
 
 ---
 
@@ -176,3 +180,16 @@ spacewalk:
 
 `/usr/bin/sw-ldap-user-sync`
 
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

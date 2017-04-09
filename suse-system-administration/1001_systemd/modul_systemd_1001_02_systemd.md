@@ -1,30 +1,34 @@
+![](pics/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # Demo zu Module „systemd" [SSA 1001]
 
---------------------------------------------------------------------------------
+---
 
 ## Dienst automatisch starten
 
 ![enable](pics_02/enable.png)
 
---------------------------------------------------------------------------------
+---
 
 ## Dienst manuell starten & Status prüfen
 
 ![status](pics_02/status.png)
 
---------------------------------------------------------------------------------
+---
 
 ## Boot Analyse in SVG rendern
 
 ![boot](pics_02/boot.png)
 
---------------------------------------------------------------------------------
+---
 
 ## Unit File prüfen, Restart aktivieren
 
 ![check](pics_02/check.png)
 
---------------------------------------------------------------------------------
+---
 
 ## Dienst killen und Restart prüfen
 
@@ -104,3 +108,15 @@ tailf /tmp/logger.log
 ```
 
 ---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

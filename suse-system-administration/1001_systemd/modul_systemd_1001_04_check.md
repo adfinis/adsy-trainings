@@ -1,3 +1,7 @@
+![](pics/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # Erfolgskontrolle zu Module "systemd" [SSA 1001]
 
 # Kontrollfrage 1
@@ -55,3 +59,17 @@ C) bootctl enable mariadb
 * Slides
 
   Adfinis SyGroup AG, 2016, Attribution-NonCommercial 2.0 (CC BY_NC 2.0)
+
+  ---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

@@ -2,6 +2,10 @@
 % Lukas Grossar
 % September 30, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # Kontrolle zum Modul Docker Basics
 
 ## Ziele von Containern?
@@ -47,3 +51,17 @@ Mit welchen Optionen können Container Ports am Host exposed werden?
 ## Exposed Port Management
 
 Wie können die exposed Ports eines Containers gezeigt werden?
+
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

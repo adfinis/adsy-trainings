@@ -2,6 +2,10 @@
 % Marc Stulz
 % November 18, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # SLES 12 - SP Migration
 
 ![](static/sles12.png)
@@ -38,13 +42,13 @@ SUSE release Service Packs at regular intervals:
 
 ![](static/lifecycle2.png)
 
-SUSE Linux Enterprise Server has a 13-year life-cycle: 10 years of general support and 3 years of extended support. 
+SUSE Linux Enterprise Server has a 13-year life-cycle: 10 years of general support and 3 years of extended support.
 
 ## Upgrade Path
 
 ![](static/upgrade_path.png)
 
-Major releases are made every 4 years. Service packs are made every 12-14 months. 
+Major releases are made every 4 years. Service packs are made every 12-14 months.
 
 ## Migration
 
@@ -74,7 +78,7 @@ Major releases are made every 4 years. Service packs are made every 12-14 months
 
 ## Disk Space
 
-* Space requirements depend on your particular partitioning profile and the software selected. 
+* Space requirements depend on your particular partitioning profile and the software selected.
 
 * During the update procedure, YaST will check the free disk space and display a warning to the user if the installation may exceed the available amount.
 
@@ -134,7 +138,7 @@ df -h /
 
 ## SP Migration Online
 
-* Supported Scenarios 
+* Supported Scenarios
 
     * SCC, SMT or SUSE Manager
 
@@ -154,3 +158,16 @@ df -h /
 
 ## Hands-on :: SP Migrtation 10
 
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

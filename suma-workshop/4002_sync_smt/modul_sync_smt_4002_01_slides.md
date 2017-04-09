@@ -2,6 +2,10 @@
 % Marc Stulz
 % November 10, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # SUSE Manager 3 - SMT Synchronization
 
 ![](static/suma.png)
@@ -24,7 +28,7 @@
 
 ## Scenario
 
-> If it is not possible to connect SUSE Manager directly or via a proxy to the Internet, a disconnected setup in combination with Subscription Management Tool (SMT) is the recommended solution. 
+> If it is not possible to connect SUSE Manager directly or via a proxy to the Internet, a disconnected setup in combination with Subscription Management Tool (SMT) is the recommended solution.
 
 [SUSE Documentation](https://www.suse.com/documentation/suse-manager-3/singlehtml/book_suma_best_practices/book_suma_best_practices.html#sub.mgr.tool)
 
@@ -64,3 +68,16 @@ mgr-sync add channel "$channel-label"
 
 ## Hands-on :: SMT Sync 02
 
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

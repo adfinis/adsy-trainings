@@ -2,6 +2,10 @@
 % Michael Hofer
 % October 27, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # Ansible Hands-on
 
 Learning by doing
@@ -105,7 +109,7 @@ Create the file webserver.yml with the following content:
       package:
         name: nginx
         state: present
-    
+
     - name: start nginx service
       service:
         name: nginx
@@ -359,3 +363,17 @@ Deploy the website again:
 ## Good work!
 
 You've completed this part of the workshop!
+
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

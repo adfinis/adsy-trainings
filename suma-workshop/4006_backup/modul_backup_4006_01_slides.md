@@ -2,6 +2,10 @@
 % Marc Stulz
 % November 14, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # SUSE Manager 3 - Backup
 
 ![](static/suma.png)
@@ -38,3 +42,16 @@ It's recommended to backup all (local) file systems!
 
 ## Hands-on :: Backup 06
 
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)

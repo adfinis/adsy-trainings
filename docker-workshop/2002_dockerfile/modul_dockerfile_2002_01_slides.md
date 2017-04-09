@@ -2,6 +2,10 @@
 % Lukas Grossar
 % September 30, 2016
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # Dockerfiles
 
 ## What is a Dockerfile?
@@ -232,3 +236,17 @@ exec "$@"
 ## More questions?
 
 See the full documentation at [https://docs.docker.com/engine/reference/builder/](https://docs.docker.com/engine/reference/builder/)
+
+---
+
+## Feel Free to Contact Us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[Tech Blog](https://www.adfinis-sygroup.ch/blog)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)
