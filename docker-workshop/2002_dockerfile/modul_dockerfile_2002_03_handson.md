@@ -20,7 +20,9 @@ Build a Docker image **nginx:demo** with these instructions:
 Dockerfile
 ```dockerfile
 FROM nginx:stable
-MAINTAINER Lukas Grossar <lukas.grossar@adfinis-sygroup.ch>
+LABEL maintainer "lukas.grossar@adfinis-sygroup.ch"
+LABEL maintainer.name "Lukas Grossar"
+LABEL maintainer.email "lukas.grossar@adfinis-sygroup.ch"
 
 COPY index.html /usr/share/nginx/html/
 ```
