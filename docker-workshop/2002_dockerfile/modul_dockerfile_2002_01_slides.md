@@ -66,14 +66,13 @@ FROM centos:7
 
 Add metadata to your Docker image
 
-
 ```dockerfile
 LABEL maintainer "foo.bar@example.com"
 LABEL maintainer.name "Foo Bar"
 LABEL maintainer.email "foo.bar@example.com"
 LABEL version="0.9"
 LABEL desc="Even text spanning \
-multiple lines are possible"
+multiple lines is possible"
 ```
 
 ## MAINTAINER (deprecated)
