@@ -16,7 +16,9 @@ Each command creates a layer in the image
 
 ```dockerfile
 FROM centos:7
-MAINTAINER Foo Bar <foo.bar@example.com>
+LABEL maintainer "foo.bar@example.com"
+LABEL maintainer.name "Foo Bar"
+LABEL maintainer.email "foo.bar@example.com"
 
 RUN yum install -y \
       curl \
@@ -64,13 +66,28 @@ FROM centos:7
 
 **Best Practice:** Always specify a tag!
 
-## MAINTAINER
+## LABEL
+
+Add metadata to your Docker image
+
+```dockerfile
+LABEL maintainer "foo.bar@example.com"
+LABEL maintainer.name "Foo Bar"
+LABEL maintainer.email "foo.bar@example.com"
+LABEL version="0.9"
+LABEL desc="Even text spanning \
+multiple lines is possible"
+```
+
+## MAINTAINER (deprecated)
 
 Add maintainer information to your Docker image
 
 ```dockerfile
 MAINTAINER Foo Bar <foo.bar@example.com>
 ```
+
+**This command has been deprecated in favor of LABEL**
 
 ## RUN
 
