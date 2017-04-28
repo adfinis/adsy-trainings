@@ -1,5 +1,5 @@
 docs:
-  extract_to: /var/www/html/adsy
+  extract_to: /var/www/html/public
   download_delay: 15
   stages:
     - docs
