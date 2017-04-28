@@ -11,7 +11,8 @@ stages:
 docs:
   stage: docs
   script:
-    - pacman -S sed --noconfirm
+    - pacman -S sed openssh-askpass --noconfirm
+    - cat .gitmodules
     - git submodule init
     - git submodule update
     - mkdir build
