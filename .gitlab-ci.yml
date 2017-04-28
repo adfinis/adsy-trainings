@@ -2,8 +2,8 @@ before_script:
   - /usr/bin/Xvfb :99 -screen 0 1024x768x24 -fbdir /var/run -ac &
   - export DISPLAY=:99
 
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
+#variables:
+#  GIT_SUBMODULE_STRATEGY: recursive
 
 stages:
   - docs
@@ -11,6 +11,8 @@ stages:
 docs:
   stage: docs
   script:
+    - ssh-keyscan github.com >> ~/.ssh/known_hosts
+    - git submodule update --init --recursive
     - mkdir build
     - adsy-trainings-common.src/training-builder.py --root=. --commons=adsy-trainings-common.src --build-dir=build
     - mv build trainings
