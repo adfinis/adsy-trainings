@@ -12,7 +12,6 @@ docs:
   stage: docs
   script:
     - pacman -S sed --noconfirm
-    - sed "s/git@github.com:adfinis-sygroup\/adsy-trainings-common.git/https:\/\/github.com\/adfinis-sygroup\/adsy-trainings-common.git/g" -i .gitmodules
     - git submodule init
     - git submodule update
     - mkdir build
