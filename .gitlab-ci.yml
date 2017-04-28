@@ -14,6 +14,7 @@ docs:
     - mkdir -p ~/.ssh/
     - ssh-keyscan github.com >> ~/.ssh/known_hosts
     - git submodule update --init --recursive
+    - pacman -S sed --noconfirm
     - mkdir build
     - adsy-trainings-common.src/training-builder.py --root=. --commons=adsy-trainings-common.src --build-dir=build
     - mv build trainings
