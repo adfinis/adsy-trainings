@@ -11,7 +11,7 @@ stages:
 docs:
   stage: docs
   script:
-    - ssh-keygen -t rsa -N ""
+    - ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
     - mkdir -p ~/.ssh/
     - ssh-keyscan github.com >> ~/.ssh/known_hosts
     - pacman -S sed --noconfirm
