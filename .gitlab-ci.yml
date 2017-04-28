@@ -11,6 +11,7 @@ stages:
 docs:
   stage: docs
   script:
+    - sed "s/git@github.com:adfinis-sygroup\/adsy-trainings-common.git/https:\/\/github.com\/adfinis-sygroup\/adsy-trainings-common.git/g" -i .gitmodules
     - git submodule sync
     - cat .gitmodules
     - cat .git/config
