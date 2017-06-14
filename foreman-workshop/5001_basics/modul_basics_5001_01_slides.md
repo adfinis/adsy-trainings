@@ -1,142 +1,94 @@
-% Ansible Basics
-% Michael Hofer
-% October 27, 2016
+% Foreman Basics
+% Andrea Bettich & Michael Hofer
+% June 12, 2017
 
 ![](static/adfinis_sygroup_logo.png)
 
 Be smart. Think open source.
 
-# Ansible - Basics
+# Foreman - Basics
 
-Simple config management and orchestration
+Lifecycle management of physical and virtual machines made easy
 
-```yaml
-- name: teach ansible basics
-  template:
-    src: good_ideas.j2
-    dest: customers
-    state: present
-```
-
-![](static/ansible_red_icon.png)
+![](static/foreman_icon.png)
 
 ---
 
 ## Agenda
 
-* Config management vs. orchestration
+* Introduction to Foreman
 
-* Introduction to Ansible
+* Architecture
 
-* Basic components
+* Setup
 
-* Variables
+* Provisioning
 
-* Templates
+* Configuration
 
----
+* Monitoring
 
-## Config management vs. orchestration
-
-Learn the difference
-
-## Config management
-
-  > "Define how a system should look like in an abstract way."
-
-* Ensure Apache and MariaDB is installed
-
-* Ensure file /etc/motd contains line XYZ
-
-## Orchestration
-
-  > "Run a set of tasks on a set of servers at once."
-
-* Update and restart exactly 49% of a clustered service to ensure the quorum
-
-* Patch all systems which are vulnerable to the Dirty COW bug
-
-## Goals
-
-* Reproducibility is key
-
-* Consistency
-
-* Save time in the long run*
-
-![](static/xkcd.png)
+* Additional features
 
 ---
 
-## Introduction to Ansible
+## Introduction to Foreman
 
 What's it all about?
 
 ## Facts
 
-* Project started in 2012
+* Project started in 2009
 
 * Licensed under the GPLv3
 
-* Acquired by Red Hat in October 2015
+* Development pushed by Red Hat
 
-* Development pushed by Red Hat and community is growing fast
+* Very active and helpful community
+
+## Overview
+
+* Tool for provisioning of VMs and bare metal
+
+* Provides config management and monitoring integration
+
+* Rails and JavaScript application
+
+* Exposes a web interface, REST API and CLI
 
 ## Ecosystem
 
-* Ansible
+* Foreman
 
-* Ansible Tower
+* foreman-proxy
 
-* Ansible Container (the new face in town)
+* Katello (candlepin + pulp)
 
-* Ansible Galaxy
-
-## Design
-
-* Agentless
-
-* YAML based configuration via SSH
-
-* Written in Python 2
-
-* Template rendering with Jinja2
+* Tons of plugins
 
 ## Strong suite
 
-* Simplicity is key
+* Very flexible
 
-* Easy as pie
+* Offers tons of features
 
-* Zero configuration (almost)
+* Active development and open community
 
-* Works via SSH
-
-## Strong suite
-
-* Idempotence
-
-* Small footprint
+* Modular setup, start small then expand
 
 ## Weak spots
 
-* Does not scale as well as other tools
+* Somewhat steep learning curve
 
-* Certain complex tasks turn ugly
+* Can be quite tricky to debug an issue
 
-## Weak spots
-
-* No Ansible Tower upstream project yet (see [ansible.com/open-tower](http://ansible.com/open-tower))
-
-* Ansible Galaxy (proceed with caution!)
-
-* Contributions are somewhat slowly processed
+* API has room for improvement
 
 ---
 
-## Ansible components
+## Architecture
 
-Basic terminology you need to know
+Overview of the different components
 
 ## Modules
 
@@ -632,5 +584,5 @@ Be smart. Think open source.
 
 ## Attribution / License
 
-* XKCD - The General Problem, by xkcd https://xkcd.com/974/
-  License CC-BY-NC see https://xkcd.com/license.html
+* The Foreman logo by The Foreman project
+  License CC BY-SA 3.0 https://github.com/theforeman/foreman-graphics
