@@ -1,177 +1,124 @@
-% Ansible Basics
-% Michael Hofer
-% October 27, 2016
+% Foreman Basics
+% Andrea Bettich & Michael Hofer
+% June 12, 2017
 
 ![](static/adfinis_sygroup_logo.png)
 
 Be smart. Think open source.
 
-# Ansible Hands-on
+# Foreman Hands-on
 
 Learning by doing
 
-![](static/ansible_blue_icon.png)
+![](static/foreman_icon.png)
 
 ---
 
 ## Hands-on :: Basics 01
 
-Install Ansible and take the first steps
+Discover the basics of Foreman
 
 ---
 
-## Basics 01 - Installation
+## Basics 01 - Web interface
 
-Install Ansible on your machine:
+Log into Foreman and get familiar with the web interface.
 
-* RHEL & CentOS (requires EPEL)
+## Basics 01 - Web interface
 
-```bash
-$ sudo yum install ansible
-```
+* Which Foreman version are you using?
 
-* Debain & Ubuntu
+* Which Foreman plugins are installed?
 
-```bash
-$ sudo apt-get install ansible
-```
+* How many hosts are available?
 
-## Basics 01 - Installation
+* How many of them are still in the build mode?
 
-Check if you have the latest Ansible version:
+## Basics 01 - Web interface
 
-```bash
-$ ansible --version
-$ man ansible
-```
+* What are bookmarks?
 
-## Basics 01 - Installation
+* What are trends?
 
-Add your SSH public key to the authorized\_keys file on the target node:
+* What's the most deployed OS?
 
-```bash
-$ ssh-copy-id root@192.168.122.10
-```
+* Who added the last host?
 
-## Basics 01 - Installation
+## Basics 01 - Web interface
 
-Create a working directory for this workshop:
+* Which services is the smart proxy providing?
 
-```bash
-$ mkdir ~/ansible_workshop
-$ cd ~/ansible_workshop
-```
+* Does a domain support parameters?
 
-## Basics 01 - Inventory
-
-Create the file inventory.txt containing your test node:
-
-```ini
-[test]
-192.168.122.10
-```
-
-## Basics 01 - Ad-hoc commands
-
-Execute your first ad-hoc commands:
-
-```bash
-$ ansible test -i inventory.txt -u root -m ping
-$ ansible test -i inventory.txt -u root -m command -a "df -h"
-$ ansible test -i inventory.txt -u root -m command -a "ls -l /"
-```
+* Does a subnet support parameters?
 
 ---
 
 ## Hands-on :: Basics 02
 
-Create some tasks and the first playbook
+Automating OS deployments is hard you've said?                                  
 
 ---
 
-## Basics 02 - Facts
+## Basics 02 - Architecture
 
-Explore the facts of your test node:
+Create two new architectures `x86_64` & `i386`
 
-```bash
-$ ansible test -i inventory.txt -u root -m setup
+## Basics 02 - Installation media
+
+Add a new mirror with the following parameters:
+```
+Name: My CentOS Mirror
+URL:  http://mirror.centos.org/centos/$version/os/$arch
 ```
 
-## Basics 02 - Playbooks
+## Basics 02 - OS
 
-Create the file webserver.yml with the following content:
-
-```yaml
----
-- hosts: test
-  tasks:
-    - name: install nginx
-      package:
-        name: nginx
-        state: present
-
-    - name: start nginx service
-      service:
-        name: nginx
-        state: started
-```
-
-## Basics 02 - Playbooks
-
-Run the playbook against your test node:
-
-```bash
-$ ansible-playbook webserver.yml -i inventory.txt -u root
-```
-
-Was it successful? Check if the webserver is running in your browser!
-
-## Basics 02 - Playbooks
-
-Get debugging output by adding the verbose flag(s):
-
-```bash
-$ ansible-playbook webserver.yml -i inventory.txt -u root -v
-```
-
-Add more -v parameters to get even more output
-
-## Basics 02 - Roles
-
-Create a new role called "nginx":
-
-```bash
-$ mkdir -p roles/nginx/tasks
-```
-
-Add the previous tasks to the tasks file roles/nginx/tasks/main.yml:
-
-```yml
----
-- name: install nginx
-  package:
-    name: nginx
-    state: present
-
-- name: start nginx service
-  service:
-    name: nginx
-    state: started
+Now lets add a new OS:
 
 ```
+Name:         CentOS
+Major:        7
+Minor:        (empty)
+Description:  My CentOS 7
+Family:       Red Hat
+Hash:         SHA512
+Architecture: x86_64 & i386
 
-## Basics 02 - Roles
-
-Include the new nginx role in the webserver.yml playbook:
-
-```yml
----
-- hosts: test
-  roles:
-    - nginx
+Installation media: My CentOS Mirror
 ```
 
-Execute the playbook again, what happens?
+And press submit. Was ist succesful?
+
+## Basics 02 - Templates
+
+* Create a new provisioning template called "My CentOS Kickstart"
+
+* Get the content from an existing or vanilla template
+
+* Associate it to the OS created previously
+
+What's the idea of this template?
+
+## Basics 02 - Templates
+
+* Create a new provisioning template called "My CentOS Finish"
+
+* Get the content from an existing or vanilla template
+
+* Associate it to the OS created previously
+
+What's the idea of this template?
+
+## Basics 02 - Templates
+
+* Create a new partition table called "My CentOS Table"
+
+* Get the content from an existing or vanilla template
+
+* Associate it to the OS created previously
+
+What's the idea of this template?
 
 ---
 
@@ -184,179 +131,6 @@ Make your playbook more dynamic with variables
 ## Basics 03 - Variables
 
 Create a host\_vars and group\_vars directory in your working dir:
-
-```bash
-$ mkdir host_vars group_vars
-```
-
-Your directory now should look like this:
-
-```bash
-ansible_workshop
-|-- group_vars
-|-- host_vars
-|-- inventory.txt
-|-- roles
-|-- webserver.yml
-```
-
-## Basics 03 - Common role
-
-Create an additional role called "common" including the following directories:
-
-```bash
-common
-|-- defaults
-|-- tasks
-|-- vars
-```
-
-## Basics 03 - Common role
-
-Add the defaults vars listed below:
-
-```yml
----
-common_packages:
-  - ntp
-  - iptables
-```
-
-## Basics 03 - Common role
-
-The new role should take care of installing several packages:
-
-```yaml
----
-- name: install common packages
-  package:
-    name: "{{ item }}"
-    state: present
-  with_items: "{{ common_packages }}"
-```
-
-## Basics 03 - Testing
-
-Include the new role into your playbook and give it a spin:
-
-* What happens?
-
-* What packages were installed?
-
-## Basics 03 - group\_vars
-
-Create the file group\_vars/test with the following variables:
-
-```yaml
----
-common_packages:
-  - ntp
-  - iptables
-  - vim
-  - zsh
-```
-
-## Basics 03 - Testing
-
-Execute the playbook a second time:
-
-* Are there any changes?
-
-* If yes, why?
-
-## Basics 03 - Role vars
-
-Create the file roles/common/vars/main.yml with the following variables:
-
-```yaml
----
-common_packages:
-  - ntp
-  - iptables
-  - vim
-  - zsh
-  - tcpdump
-  - wget
-  - curl
-  - rsync
-```
-
-## Basics 03 - Testing
-
-Execute the playbook a third time:
-
-* Wait, what happened now?
-
-* Please explain to me!
-
----
-
-## Hands-on :: Basics 04
-
-Generate files dynamically with templates
-
----
-
-## Basics 04 - Preparation
-
-Add the missing directories in our nginx role:
-
-* defaults
-* handlers
-* templates
-* vars
-
-## Basics 04 - Defaults
-
-Add the following variable to the defaults vars:
-
-```yaml
----
-nginx_welcome_messages:
-  - "Ansible is cool!"
-  - "It even gets better!"
-  - "My first loop!"
-```
-
-## Basics 04 - Template
-
-Create the new template called `index.html.j2`:
-
-```python
-{% for message in nginx_welcome_messages %}
-<p>{{ message }}</p>
-{% endfor %}
-```
-
-## Basics 04 - Tasks
-
-Which module do we need to render the template and copy it to /usr/share/nginx/www?
-
-* Add a new task which renders the template
-
-* Create a backup of the old index.html file
-
-## Basics 04 - Testing
-
-Execute your modified playbook to deploy the new website:
-
-* Did it work?
-
-* Which messages are displayed?
-
-## Basics 04 - Handlers
-
-Imagine this is a more complex web application:
-
-* Restart the nginx service if the index.html file changed
-
-## Basics 04 - Testing
-
-Deploy the website again:
-
-* Did it work?
-
-* Was the nginx service restarted?
 
 ---
 

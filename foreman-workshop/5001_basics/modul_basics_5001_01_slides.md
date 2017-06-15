@@ -8,7 +8,7 @@ Be smart. Think open source.
 
 # Foreman - Basics
 
-Lifecycle management of physical and virtual machines made easy
+Lifecycle management of physical and virtual machines made easy!
 
 ![](static/foreman_icon.png)
 
@@ -28,7 +28,7 @@ Lifecycle management of physical and virtual machines made easy
 
 * Monitoring
 
-* Additional features
+* Advanced features
 
 ---
 
@@ -44,25 +44,25 @@ What's it all about?
 
 * Development pushed by Red Hat
 
-* Very active and helpful community
+* Very active & helpful community
 
 ## Overview
 
-* Tool for provisioning of VMs and bare metal
+* Tool for provisioning of VMs & bare metal
 
-* Provides config management and monitoring integration
+* Provides config management & monitoring integration
 
-* Rails and JavaScript application
+* Rails & JavaScript application
 
-* Exposes a web interface, REST API and CLI
+* Exposes a web interface, REST API & CLI
 
 ## Ecosystem
 
 * Foreman
 
-* foreman-proxy
+* Smart Proxy (foreman-proxy)
 
-* Katello (candlepin + pulp)
+* Katello
 
 * Tons of plugins
 
@@ -72,9 +72,19 @@ What's it all about?
 
 * Offers tons of features
 
-* Active development and open community
+* Active development & open community
 
 * Modular setup, start small then expand
+
+## Strong suite
+
+* Can serve as a source of thruth (CMDB)
+
+* Can be used as an ENC
+
+* Proper ACL implementation
+
+* Enterprise Support available (Red Hat Satellite 6)
 
 ## Weak spots
 
@@ -84,475 +94,337 @@ What's it all about?
 
 * API has room for improvement
 
+* Offers sometimes too many possible ways to implement a task
+
 ---
 
 ## Architecture
 
 Overview of the different components
 
-## Modules
+## Bird's-eye view
 
-Modules are used to interact with nodes and manage different resources:
+![](static/foreman_architecture.png)
 
-* ping
-* command
-* copy / synchronize
-* lineinfile
-* package
-* mysql_user / mysql_db
+## Foreman
 
-Have a look at the [Ansible Module Index](http://docs.ansible.com/ansible/modules_by_category.html)!
+* Heart of the whole stack
 
-## Modules
+* Stores all resources & information
 
-Modules can be executed ad-hoc:
+* Rails stack, use Passenger + nginx / Apache to run it
 
-```bash
-$ ansible web -i inventory.txt -u root -m ping
-$ ansible web -i inventory.txt -u root -m command -a "df -h"
-```
+* Stores most data in a DB (Sqlite, MySQL or PostgreSQL)
 
-Each module exposes different options that can be customized
+* Local or LDAP users for authentication
 
-## Inventory
+## Smart Proxy
 
-An inventory contains all the target nodes and structures them into groups:
+* Small autonomous HTTP application
 
-```ini
-[adfinis:children]
-bern
-basel
+* Exposes a REST API to provide different services
 
-[bern:children]
-database
+* Allows Foreman to control components in isolated networks
 
-[basel:children]
-web
+* Also called foreman-proxy
 
-[database]
-db[01:03].adfinis-sygroup.ch ansible_user=db_admin
+## Smart Proxy
 
-[web]
-web[01:03].adfinis-sygroup.ch ansible_user=web_admin
-```
+* DHCP
+
+* DNS
+
+* TFTP
+
+* BMC / IPMI
+
+* Puppet / Salt / Chef / Ansible
+
+* Realm / FreeIPA
+
+## Smart Proxy - DHCP
+
+* Takes care of reserving the required IPs
+
+* Provides IP auto-assignment
+
+* Supports ISC DHCP, MS DHCP & libvirt
+
+* More providers can be installed or developed (e.g. InfoBlox)
+
+## Smart Proxy - DNS
+
+* Update and remove DNS records automatically
+
+* Takes care of A, AAAA & PTR records
+
+* Supports Bind, MS DNS & libvirt
+
+* More providers can be installed or developed (e.g. AWS53)
+
+## Smart Proxy - TFTP
+
+* Provide images during PXE boot
+
+* Automagically downloads kernel + initrd (installer)
+
+* Prepares MAC specific config depending on the build state
+
+* Fallback to `default`
+
+## Terminology
+
+* Host
+
+* Installation media
+
+* Partition tables
+
+* Provisioning templates
+
+## Terminology
+
+* Environment
+
+* Compute resources
+
+* Compute profiles
 
 ---
 
 ## Hands-on :: Basics 01
 
-Install Ansible and take the first steps
+Discover the basics of Foreman
 
 ---
 
-## Ansible components 2
+## Foreman Setup
 
-Further down the rabbit hole
+Get Foreman up and running in minutes
 
-## Tasks
+## Requirements
 
-* Tasks are Ansible commands which call a module
+Supported distributions:
 
-* Written in a YAML file
+* RHEL 7, CentOS 7 & Scientific Linux 7
 
-* Executed from top to bottom
+* Fedora 24
 
-```yaml
-- name: install nginx
-  package:
-    name: nginx
-    state: present
+* Debian 8
 
-- name: start nginx service
-  service:
-    name: nginx
-    state: started
-```
+* Ubuntu 14.04 & 16.04
 
-## Handlers
+## Requirements
 
-* Handlers are basically tasks but notified by other tasks
+* Standard VM is sufficient for the start
 
-* Executed only when necessary
+* Additional repositories depending on the distribution
 
-```yaml
-- name: restart nginx
-  service:
-    name: nginx
-    state: restarted
-```
+* Internet access
 
-## Playbooks
+* Firewall ports
 
-Group tasks and handlers together in a playbook and make them reusable
+## Installation paths
 
-```yaml
+* foreman-installer (recommended by the project)
+
+* Install from package
+
+* Install from source
+
+* Alternatives ([Ansible playbook](https://github.com/adfinis-sygroup/foreman-ansible), etc.)
+
+## foreman-installer
+
+Makes use of different Puppet modules to deploy a complete Foreman stack:
+
+* Foreman
+
+* Smart proxy
+
+* Passenger
+
+* TFTP, DNS & DHCP
+
+## foreman-installer
+
+* Customizable with CLI parameters
+
+* Answers file
+
+* Scenarios
+
 ---
-- hosts: web
-  tasks:
-    - name: template nginx.conf
-      template:
-        src: nginx.conf.j2
-        dest: /etc/nginx/nginx.conf
-        backup: yes
-      notify:
-        - restart nginx
-  handlers:
-    - name: restart nginx
-      service:
-        name: nginx
-        state: restarted
-```
 
-## Playbooks
+## Provisioning
 
-Execute the playbook:
+Making deployments as easy as pie
 
-    $ ansible-playbook webserver.yml -i inventory.txt -u root
+![](static/foreman_provisioning.png)
 
-## Roles
-
-Divide and structure a playbook into different roles:
-
-* Each role is responsible for a certain component
-
-* Reuse the same roles in many different projects (playbooks)
-
-```yaml
 ---
-- hosts: web
-  roles:
-    - common
-    - webserver
-    - monitoring
+
+## Introduction
+
+* Provisioning includes all the tasks required to setup a new machine
+
+* Saving time isn't the main goal
+
+* Enforce consistency across all deployments is key
+
+![](static/xkcd.png)
+
+## Workflow
+
+1. Boot the installer
+
+2. Start the installation
+
+3. Get further instructions from Foreman
+
+## Boot the installer
+
+* PXE Boot (TFTP provided by Foreman)
+
+* ISO image
+
+* iPXE image
+
+## Start the installation
+
+* Tell the installer where further instructions are located
+
+* Red Hat Kickstart
+```
+ks=http://foreman.example.com/unattended/provision
 ```
 
-## Roles
-
-A role has a specific directory structure:
-
-```console
-ansible
-|-- webserver.yml
-|-- roles
-    |-- nginx
-        |-- defaults
-        |-- files
-        |-- handlers
-        |-- tasks
-        |-- templates
-        |-- vars
-        |-- meta
+* Debian Preseed
+```
+url=http://foreman.example.com/unattended/provision
 ```
 
-## Facts
+* Defined as kernel parameters when loading the installer
 
-Node specific information stored in variables:
+## Installer instructions
 
-* Hardware resources
+* Foreman provides templating functionality
 
-* Network configuration
+* ERB templates are rendered per host
 
-* Operating system
+* Contain variables, loops, snippets, etc.
 
-* and much much more
+* See `provisioning templates` & `partition tables`
 
-## Facts
+## Templates
 
-Use the `setup` module to gather and display facts:
+* Foreman provides [community templates](https://github.com/theforeman/community-templates)
 
-```bash
-$ ansible web -i inventory.txt -u root -m setup
-```
+* Vanilla templates are locked by default
 
-```yaml
-"ansible_facts": {
-    "ansible_all_ipv4_addresses": [
-        "192.168.122.10"
-    ],
-    "ansible_all_ipv6_addresses": [
-        "fe80::5054:ff:fe5c:593"
-    ],
-    "ansible_architecture": "x86_64",
-    "ansible_bios_date": "04/01/2014",
-    "ansible_bios_version": "1.9.3-20160701_074356-anatol",
-[...]
-```
+* Can be deleted but some are mandatory (e.g. `PXELinux global default`)
+
+## Templates
+
+* Partition tables are used to define the filesystem layout
+
+Different provisioning template types are available:
+
+* Provisioning
+
+* Finish
+
+* etc.
+
+## Requirements
+
+For a complete provisioning workflow we need some resources:
+
+* Architecture
+
+* Installation media (mirror)
+
+* OS
+
+* Templates
+
+## Example
+
+* x86_64
+
+* http://mirror.centos.org/centos/$version/os/$arch
+
+* CentOS 7
+
+* Default FS Layout, Kickstart & Finish script
 
 ---
 
 ## Hands-on :: Basics 02
 
-Create some tasks and the first playbook
+Automating OS deployments is hard you've said?
 
 ---
 
-## Variables
+## Configuration
 
-How to make your playbooks adaptable
+Bring order into your organization
 
----
-
-## General overview
-
-* Ansible allows one to use variables instead of hard coded values
-
-* Variables can be overwritten and included from different places
-
-* Support for different types (strings, numbers, lists, etc.)
-
-* Facts are variables too
-
-## General overview
-
-* Example of several vars:
-
-```yaml
-nginx_packages:
-  - nginx
-
-nginx_conf_dir: /etc/nginx/conf.d
-
-nginx_server_name: "{{ ansible_fqdn }}"
-```
-
-* Variables used within a task:
-
-```yaml
-- name: install nginx
-  package:
-    name="{{ nginx_packages }}"
-    state=present
-```
-
-## Scope
-
-Ansible has 3 different variable scopes:
-
-* Global (config, ENV & commandline)
-
-* Play (vars, include\_vars, role defaults & vars)
-
-* Host (specific to a machine like facts)
-
-## Locations
-
-Variables can be included from many different locations:
-
-* Inventory
-
-* group\_vars
-
-* host\_vars
-
-* Playbook
-
-* Roles defaults
-
-* Roles vars
-
-## group\_vars
-
-Group variables are included based on the node's groups:
-
-```ini
-[adfinis:children]
-bern
-basel
-
-[bern:children]
-database
-
-[basel:children]
-web
-
-[database]
-db[01:03].adfinis-sygroup.ch ansible_user=db_admin
-
-[web]
-web[01:03].adfinis-sygroup.ch ansible_user=web_admin
-```
-
-## host\_vars
-
-Create host specific variables in the directory host\_vars:
-
-* ansible/host\_vars/db01.adfinis-sygroup.ch
-
-* ansible/host\_vars/web01.adfinis-sygroup.ch
-
-## Play vars
-
-It's possible to include vars in your playbooks:
-
-```yml
----
-- hosts: web
-  vars:
-    nginx_package: nginx
-  vars_files:
-    - /vars/external_vars.yml
-  roles:
-    - nginx
-```
-
-## Role variables
-
-To define vars in your role create the following files:
-
-* roles/nginx/defaults/main.yml
-
-* roles/nginx/vars/main.yml
-
-Prefix all variables with the role name to prevent conflicts!
-
-## Variable precedence
-
-Ansible has a tricky variable precedence:
-
-* role defaults
-* inventory
-* playbook
-* host facts
-* play vars
-* registered vars
-* role and include vars
-* extra vars
-
-See the [documentation](http://docs.ansible.com/ansible/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable)!
-
-## How you should use them
-
-Start simple and restrict yourself to the following vars:
-
-* role defaults
-
-* group\_vars
-
-* host\_vars
-
-* role vars
+![](static/foreman_configuration.png)
 
 ---
 
-## Hands-on :: Basics 03
+## Structure
 
-Make your playbook more dynamic with variables
+Foreman provides different resources to organize hosts:
 
----
+* Hostgroup
 
-## Templates
+* Domains
 
-Generate configurations on the fly
+* Environments
 
----
+* Organizations & Locations
 
-## General overview
+## Structure
 
-Ansible supports rendering of templates through Jinja2:
-
-* Use the template module
-
-* Create a file in the role directory "templates" with the suffix .j2
-
-```python
-server {
-    listen       80 default_server;
-    server_name  {{ nginx_server_name }};
-
-    location / {
-        root /var/www;
-    }
-}
+The structure below is recommended:
+```
+Environment
+  -> Domains
+       -> Hostgroup
+            -> Host
 ```
 
-## Loops
+## Config Management
 
-Jinja2 templates also support loops to generate multiple config blocks:
-
-```yml
-nginx_locations:
-  - path: /web
-    alias: /var/www/web
-  - path: /admin
-    alias: /var/www/admin
-```
-
-```python
-{% for item in nginx_locations %}
-    location {{ item.path }} {
-        alias {{ item.alias }};
-        autoindex on;
-    }
-
-{% endfor %}
-```
-
-## Conditions
-
-Use conditions (if, else, etc.) to have even more control:
-
-```python
-{%- if nginx_ssl %}
-server {
-    listen       443 default_server;
-    server_name  {{ nginx_server_name }};
-[...]
-{%- endif %}
-```
-
----
-
-## Hands-on :: Basics 04
-
-Generate files dynamically with templates
-
----
+* Enforce your machine to be in a certain state
 
 ## Field report
 
 What have you learned?
 
-* Ansible basics
-
-* Ansible components
-
-* Variable handling
-
-* Template rendering
-
-## Field report
-
-Can you describe all directories?
-
-```console
-ansible
-|-- group_vars
-|-- host_vars
-|-- webserver.yml
-|-- roles
-    |-- nginx
-        |-- defaults
-        |-- files
-        |-- handlers
-        |-- tasks
-        |-- templates
-        |-- vars
-        |-- meta
-```
+* Architecture                                                                  
+                                                                                
+* Setup                                                                         
+                                                                                
+* Provisioning                                                                  
+                                                                                
+* Configuration                                                                 
+                                                                                
+* Monitoring                                                                    
+                                                                                
+* Advanced features                                                             
 
 ---
 
 ## Quo vadis?
 
-* Ansible Best Practice
+* Foreman Automation
 
-* Ansible Vault
-
-* Multi distribution support
+* External services (password stores, CMDB, etc.)
 
 * Development Workflow (CI & CT)
-
-* Roll out strategy and cluster management
 
 ## Feedback
 
@@ -586,3 +458,20 @@ Be smart. Think open source.
 
 * The Foreman logo by The Foreman project
   License CC BY-SA 3.0 https://github.com/theforeman/foreman-graphics
+
+* Foreman Architecture by The Foreman project
+  License CC BY-SA 3.0 https://theforeman.org/static/images/foreman_architecture.png
+
+* Foreman Provisioning by The Foreman project
+  License CC BY-SA 3.0 https://theforeman.org/static/images/provisioning.png
+
+## Attribution / License
+
+* Foreman Configuration by The Foreman project
+  License CC BY-SA 3.0 https://theforeman.org/static/images/configuration.png
+
+* Foreman Monitoring by The Foreman project
+  License CC BY-SA 3.0 https://theforeman.org/static/images/monitoring.png
+
+* XKCD - The General Problem by xkcd https://xkcd.com/974/
+  License CC-BY-NC https://xkcd.com/license.html
