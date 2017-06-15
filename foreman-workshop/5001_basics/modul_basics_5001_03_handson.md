@@ -124,13 +124,21 @@ What's the idea of this template?
 
 ## Hands-on :: Basics 03
 
-Make your playbook more dynamic with variables
+Looking into the Ansible integration                                            
 
 ---
 
-## Basics 03 - Variables
+## Basics 03 - Ansible
 
-Create a host\_vars and group\_vars directory in your working dir:
+Where can you see the available roles?
+
+## Basics 03 - Ansible
+
+How can you trigger them?
+
+## Basics 03 - Ansible
+
+What could be a possible limitation regarding hostname & IP?
 
 ---
 

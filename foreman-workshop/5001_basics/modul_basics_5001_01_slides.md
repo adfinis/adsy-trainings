@@ -78,7 +78,7 @@ What's it all about?
 
 ## Strong suite
 
-* Can serve as a source of thruth (CMDB)
+* Can serve as a source of truth (CMDB)
 
 * Can be used as an ENC
 
@@ -388,7 +388,7 @@ Foreman provides different resources to organize hosts:
 
 ## Structure
 
-The structure below is recommended:
+Parameter inheritance looks like this:
 ```
 Environment
   -> Domains
@@ -398,7 +398,60 @@ Environment
 
 ## Config Management
 
-* Enforce your machine to be in a certain state
+„Define how a system should look like in an abstract way.“
+
+## Integration
+
+* Foreman provides ENC functionality
+
+* Supports mainly Puppet but extendable with plugins
+
+## Ansible
+
+* Ansible plugin is still the new face in town
+
+* Ansible provides dynamic Foreman inventory script 
+
+* Roles can be assigned to hosts and hostgroups
+
+* Play roles through the GUI
+
+* Import and delete roles through the GUI
+
+---
+
+## Hands-on :: Basics 03
+
+Looking into the Ansible integration
+
+---
+
+## Monitoring
+
+Collect and aggregate everything
+
+![](static/foreman_monitoring.png)
+
+## Facts
+
+* Foreman saves facts for each host
+
+* Collect facts regularly and store them in Foreman
+
+* Leverage them again in your Config Management Tool
+
+## Reports
+* Collect and track config changes
+
+* Mainly supported for Puppet / Salt
+
+## More data
+
+* Audit log keeps track of all changes, very handy
+
+* Trends give an overview of your infrastructure
+
+---
 
 ## Field report
 
