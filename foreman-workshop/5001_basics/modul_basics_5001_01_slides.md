@@ -441,6 +441,7 @@ Collect and aggregate everything
 * Leverage them again in your Config Management Tool
 
 ## Reports
+
 * Collect and track config changes
 
 * Mainly supported for Puppet / Salt
@@ -450,6 +451,36 @@ Collect and aggregate everything
 * Audit log keeps track of all changes, very handy
 
 * Trends give an overview of your infrastructure
+
+---
+
+## Advanced features
+
+Adding even more fancy stuff
+
+---
+
+## Plugins
+
+* Cloud providers (Azure, Digitalocean, etc.)
+
+* Docker
+
+* VMWare & libvirt
+
+* Katello
+
+* OpenSCAP
+
+## Foreman Automation
+
+* Foreman provides REST API
+
+* Can be easily used to automate additional tasks
+
+* Hammer is a CLI tool
+
+* Somewhat limited because internal IDs have to be looked up first
 
 ---
 
