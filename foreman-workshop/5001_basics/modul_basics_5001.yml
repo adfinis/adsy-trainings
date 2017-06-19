@@ -1,0 +1,31 @@
+---
+
+Name: Basics
+
+Area: Foreman
+
+ID: 5001
+
+Sources:
+    - Manual_Page:
+    - External_URLs:
+        - https://theforeman.org/documentation.html
+
+Documents:
+    - Presentation: modul_basics_5001_01_slides.html
+    - Hands_On: module_basics_5001_03_handson.html
+
+Duration: 8h
+
+Description: >
+    Dieses Modul vermittelt einen Einstieg in die Konzepte und Grundlagen von
+    Foreman. Es wird vermittelt, wie Foreman installiert und konfiguriert wird,
+    was die wichtigsten Komponenten (foreman-proxy, TFTP, DHCP, DNS, Plugins,
+    etc.) sind, wie Foreman zur Provisionierung eingesetzt wird und was zu
+    beachten ist. Diese Bereiche werden mit Hands-on Aufgaben und Demos
+    vertieft. Weiterführende Themen zu Best-Practices werden in einem weiteren
+    Modul behandelt.
+
+Requirements:
+    - Linux, Windows oder macOS
+    - Moderner Browser
