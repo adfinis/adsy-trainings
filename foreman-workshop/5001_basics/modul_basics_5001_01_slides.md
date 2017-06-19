@@ -114,7 +114,7 @@ Overview of the different components
 
 * Rails stack, use Passenger + nginx / Apache to run it
 
-* Stores most data in a DB (Sqlite, MySQL or PostgreSQL)
+* Stores most data in a DB (SQLite, MySQL or PostgreSQL)
 
 * Local or LDAP users for authentication
 
@@ -481,6 +481,8 @@ Adding even more fancy stuff
 * Hammer is a CLI tool
 
 * Somewhat limited because internal IDs have to be looked up first
+
+* Other tools ([foreman-yml](https://github.com/adfinis-sygroup/foreman-yml), etc.)
 
 ---
 

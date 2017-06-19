@@ -88,7 +88,7 @@ Architecture: x86_64 & i386
 Installation media: My CentOS Mirror
 ```
 
-And press submit. Was ist succesful?
+And press submit. Was it succesful?
 
 ## Basics 02 - Templates
 
