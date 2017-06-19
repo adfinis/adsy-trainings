@@ -352,7 +352,7 @@ For a complete provisioning workflow we need some resources:
 
 * x86_64
 
-* http://mirror.centos.org/centos/$version/os/$arch
+* http://mirror.centos.org/centos/\$version/os/\$arch
 
 * CentOS 7
 
