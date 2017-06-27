@@ -19,6 +19,7 @@ a.k.a. OS-level virtualization
 * Network isolation
 
 ---
+
 ![Docker Linux Interfaces](static/1000px-Docker-linux-interfaces.svg.png)
 
 ## Goals of containerization
