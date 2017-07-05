@@ -1,0 +1,26 @@
+---
+
+Name: Kubernetes Basics
+
+Area: Kubernetes Workshop
+
+ID: 6001
+
+Sources:
+    - External_URLs:
+        - https://kubernetes.io/docs/home/
+
+Documents:
+    - Presentation: modul_basics_6000_01_slides.html
+
+Duration: 1h
+
+Description: >
+    This workshop will provide you with a basic introduction to Kubernetes and
+    allows you to deepen your knowledge with future workshops.
+
+Requirements:
+    - Linux Distribution
+    - Bash shell
+    - minikube
+    - kubectl
