@@ -145,8 +145,8 @@ Separation of costumers/environments
 ## kubectl
 
 * CLI for **everything**
-* short for kube control
-* [some](https://twitter.com/search?q=kube-cuddle) believe it is pronounced kube-cuddle
+* Short for kube control
+* [Some](https://twitter.com/search?q=kube-cuddle) believe it is pronounced kube-cuddle
 
 ## kubectl create
 
@@ -167,7 +167,7 @@ kubectl create -R -f dir/
 List Kubernetes resources
 
 * Different output formats
-* filtering via labels possible
+* Filtering via labels possible
 
 ```bash
 kubectl get all
