@@ -183,7 +183,7 @@ kubectl get po/nodejs-ex -o yaml
 Edit resource definitions
 
 * Validation in `kubectl` client
-* suitable for debugging
+* Suitable for debugging
 
 ```bash
 kubectl edit dc/nodejs-ex
