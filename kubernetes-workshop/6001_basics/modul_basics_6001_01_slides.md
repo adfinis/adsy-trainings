@@ -6,41 +6,41 @@ Automates the deployment and management of containers
 
 # Why Kubernetes?
 
-- Fastest growing community
-- one of the top GitHub projects
-- Aggregates Googles knowledge of the past years
-- Better design decisions and implementations than competitors
+* Fastest growing community
+* One of the top GitHub projects
+* Aggregates Googles knowledge of the past years
+* Better design decisions and implementations than competitors
 
 **Move fast and ~~break things~~!**
 
 # Why container orchestration?
 
-- Managing applications is hard
-- Packaging applications is even harder
-- Deploying applications is cumbersome
+* Managing applications is hard
+* Packaging applications is even harder
+* Deploying applications is cumbersome
 
-**Automation is the key!**
+**Automation is key!**
 
 ---
 
 ## What does Kubernetes offer?
 
-- Pods based on immutable Docker images
-- Deployments
-- Persistent Storage
-- DNS Resolution for Services
-- Secret Management
-- Config Management
+* Pods based on immutable Docker images
+* Deployments managing application updates
+* Persistent Storage
+* DNS Resolution for Services
+* Secret Management
+* Config Management
 
 **All of this via a "simple" REST API!**
 
 ## What is k8s handling for us?
 
-- Scheduling ✔
-- Networking ✔
-- Storage ✔
-- Rolling Update ✔
-- Autoscaling ✔
+* Scheduling ✔
+* Networking ✔
+* Storage ✔
+* Rolling Update ✔
+* Autoscaling ✔
 
 # Kubernetes Architecture
 
@@ -65,7 +65,7 @@ Pod is the smallest unit in Kubernetes
 Services abstract access to Pods
 
 * Selection of Pods via Labels
-* typically only cluster internal access
+* Typically only cluster internal access
 
 ```yaml
 kind: Service
@@ -108,10 +108,10 @@ spec:
 
 ## Replication Controller
 
-Manages a set of pods
+Manages a set of Pods
 
-* configurable number of Replicas
-* even useful when `replicas=1`
+* Configurable number of Replicas
+* Even useful when `replicas=1`
 
 Will be replaced by Deployments/ReplicaSets
 
@@ -119,23 +119,23 @@ Will be replaced by Deployments/ReplicaSets
 
 De facto standard for deploying applications
 
-* manages multiple iterations of an application
-* based on ReplicaSets
-* allows rollback of deployments
+* Manages multiple iterations of an application
+* Based on ReplicaSets
+* Allows rollback of deployments
 
 ## Persistent Volume Claim
 
 Requests for persistent Storage
 
-- Automatic provisioning in Azure Cloud
-- Different requirements via StorageClass
+* Automatic provisioning in Azure Cloud
+* Different requirements via StorageClass
 
 ## Namespace
 
 Separation of costumers/environments
 
 * Ressource Quotas
-* all resources are attached to a namespace
+* All resources are attached to a namespace
 * RBACᵝ makes sharing of namespaces possible
 
 # Common CLI commands
@@ -144,16 +144,16 @@ Separation of costumers/environments
 
 ## kubectl
 
-- CLI for **everything**
-- short for kube control
-- [some](https://twitter.com/search?q=kube-cuddle) believe it is pronounced kube-cuddle
+* CLI for **everything**
+* short for kube control
+* [some](https://twitter.com/search?q=kube-cuddle) believe it is pronounced kube-cuddle
 
 ## kubectl create
 
 Create resources in Kubernetes
 
 * Definition in YAML or JSON
-* Validation in `kubectl` Client
+* Validation in `kubectl` client
 
 ```bash
 kubectl create -f pod.yaml
@@ -166,7 +166,7 @@ kubectl create -R -f dir/
 
 List Kubernetes resources
 
-* differnt output formats
+* Different output formats
 * filtering via labels possible
 
 ```bash
