@@ -52,6 +52,8 @@ To exclude specific files create a **.dockerignore** file
 README.md
 # exclude *.pyc files
 **/*.pyc
+# exclude .git directory
+.git/
 ```
 
 ## Which commands are available?
