@@ -86,7 +86,7 @@ What's it all about?
 
 * Ansible
 
-* Ansible Tower
+* Ansible AWX / Tower
 
 * Ansible Container (the new face in town)
 
@@ -125,8 +125,6 @@ What's it all about?
 * Certain complex tasks turn ugly
 
 ## Weak spots
-
-* No Ansible Tower upstream project yet (see [ansible.com/open-tower](http://ansible.com/open-tower))
 
 * Ansible Galaxy (proceed with caution!)
 
