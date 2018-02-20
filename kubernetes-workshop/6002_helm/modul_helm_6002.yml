@@ -1,0 +1,24 @@
+---
+
+Name: Helm Basics
+
+Area: Kubernetes Workshop
+
+ID: 6002
+
+Sources:
+    - External_URLs:
+        - https://helm.sh/
+
+Documents:
+    - Presentation: modul_helm_6002_01_slides.html
+
+Duration: 1h
+
+Description: >
+    This workshop will provide you with a basic introduction to the Helm
+    package manager for Kubernetes.
+
+Requirements:
+    - Kubernetes Basics
+    - helm
