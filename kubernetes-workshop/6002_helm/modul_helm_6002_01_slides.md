@@ -25,7 +25,7 @@ Think of it like apt/yum/homebrew for Kubernetes.
 * You can `kubectl edit <resource>`
 * But,  need to implement your own updating and rollback or depend on vendor specific tooling for lifecycle management
 
-**Helm helps with lifecycle managment while letting  define your infrastructure as code**
+**Helm helps with lifecycle managment while allowing you to define your infrastructure as code**
 
 # Helm Basics
 
@@ -167,7 +167,7 @@ echo  '{{ .Values.hello.world }}' > templates/hello.tpl
 ## Default values are in a the charts `values.yaml`
 
 ```yaml
-# values.yml
+# values.yaml
 hello:
   world: Hello!
 ```
@@ -266,7 +266,7 @@ spec:
 ```bash
 # verify that chart follows best practices
 helm lint
-# let server sender tempaltes and return resulting manifest
+# let server sender templates and return resulting manifest
 helm install --dry-run --debug .
 # See what templates are installed on the server
 helm get manifest my-release
