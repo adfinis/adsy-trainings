@@ -56,7 +56,7 @@ Be smart. Think open source.
 
 # Volume Management
 
-* Btrfs kann zusätzliche Disks zu einem bestehenden Btrfs Pool hinzufügespiegelten
+* Btrfs kann zusätzliche Disks zu einem bestehenden Btrfs Pool hinzufügen
 
 * Btrfs kann somit in diversen Szenarien Lösungen wie LVM ersetzen
 
