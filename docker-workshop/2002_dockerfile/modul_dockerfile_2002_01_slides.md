@@ -16,9 +16,10 @@ Each command creates a layer in the image
 
 ```dockerfile
 FROM centos:7
-LABEL maintainer "foo.bar@example.com"
-LABEL maintainer.name "Foo Bar"
-LABEL maintainer.email "foo.bar@example.com"
+LABEL maintainer="foo.bar@example.com"
+LABEL maintainer.name="Foo Bar"
+LABEL maintainer.email="foo.bar@example.com"
+LABEL com.example.version="0.0.2"
 
 RUN yum install -y \
       curl \
@@ -73,10 +74,10 @@ FROM centos:7
 Add metadata to your Docker image
 
 ```dockerfile
-LABEL maintainer "foo.bar@example.com"
-LABEL maintainer.name "Foo Bar"
-LABEL maintainer.email "foo.bar@example.com"
-LABEL version="0.9"
+LABEL maintainer="foo.bar@example.com"
+LABEL maintainer.name="Foo Bar"
+LABEL maintainer.email="foo.bar@example.com"
+LABEL com.example.version="0.9"
 LABEL desc="Even text spanning \
 multiple lines is possible"
 ```
