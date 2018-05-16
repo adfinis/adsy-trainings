@@ -59,6 +59,7 @@ Pod is the smallest unit in Kubernetes
 * Pod can consist of multiple containers
 * All containers of a pod run on the same node
 * Containers in a pod can communicate via localhost
+* Containers in a pod share their kernel namespaces
 
 ## Service
 
@@ -106,19 +107,11 @@ spec:
       secretName: "echo-tls"
 ```
 
-## Replication Controller
+## Deployment
 
 Manages a set of Pods
 
-* Configurable number of Replicas
-* Even useful when `replicas=1`
-
-Will be replaced by Deployments/ReplicaSets
-
-## Deploymentᵝ
-
-De facto standard for deploying applications
-
+* De facto standard for deploying applications
 * Manages multiple iterations of an application
 * Based on ReplicaSets
 * Allows rollback of deployments
@@ -132,11 +125,11 @@ Requests for persistent Storage
 
 ## Namespace
 
-Separation of costumers/environments
+Separation of consumers/environments
 
 * Ressource Quotas
 * All resources are attached to a namespace
-* RBACᵝ makes sharing of namespaces possible
+* RBAC makes sharing of namespaces possible
 
 # Common CLI commands
 
@@ -146,7 +139,7 @@ Separation of costumers/environments
 
 * CLI for **everything**
 * Short for kube control
-* [Some](https://twitter.com/search?q=kube-cuddle) believe it is pronounced kube-cuddle
+* [Some](https://twitter.com/search?q=kube-cuddle) believe it is pronounced kube-~~cuddle~~cuttle
 
 ## kubectl create
 
