@@ -156,7 +156,7 @@ df -h /
 
 ---
 
-## Hands-on :: SP Migrtation 10
+## Hands-on :: SP Migration 10
 
 ---
 
