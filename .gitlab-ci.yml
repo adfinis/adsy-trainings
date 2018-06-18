@@ -5,6 +5,8 @@ before_script:
 #variables:
 #  GIT_SUBMODULE_STRATEGY: recursive
 
+image: eni23/adsy-training-builder:v3
+
 stages:
   - docs
 
