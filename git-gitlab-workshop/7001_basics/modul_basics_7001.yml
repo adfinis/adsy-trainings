@@ -1,0 +1,30 @@
+---
+
+Name: Basics
+
+Area: Git & GitLab
+
+ID: 7001
+
+Sources:
+  - Manual_Page:
+    - man 1 git
+  - External_URLs:
+    - https://git-scm.com/doc
+    - https://docs.gitlab.com/ce
+
+Documents:
+  - Presentation: modul_basics_4001_01_slides.html
+
+Duration: 3h
+
+Description: >
+  Dieses Modul vermittelt einen Einstieg in Git und GitLab. Zur Sprache kommen
+  die einfacheren Git Kommandos auf der Kommandozeile, diese werden danach an
+  praktischen Beispielen geübt, bevor man auf das Thema GitLab kommt. Danach
+  sollten die Teilnehmer in der Lage sein einfache kollaborative Arbeiten mit
+  Git auszuführen und die nützlichen einfachen Features von GitLab kennen.
+
+Requirements:
+  - Git
+  - Web Browser
