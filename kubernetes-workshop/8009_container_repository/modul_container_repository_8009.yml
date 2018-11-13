@@ -1,10 +1,10 @@
 ---
 
-Name: monitoring
+Name: container_repository
 
 Area: kubernetes-workshop
 
-ID: 8006
+ID: 8009
 
 Sources:
     - Manual_Page:
@@ -15,8 +15,8 @@ Sources:
         - http://example.com/trainings/skeleton/bar
 
 Documents:
-    - Presentation: modul_monitoring_8006_01_slides.html
-    - Hands_On: modul_monitoring_8006_02_handson.html
+    - Presentation: modul_container_repository_8009_01_slides.html
+    - Hands_On: modul_container_repository_8009_02_handson.html
 
 Duration: 2h
 

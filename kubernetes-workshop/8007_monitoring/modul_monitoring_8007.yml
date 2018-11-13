@@ -1,6 +1,6 @@
 ---
 
-Name: maintenance
+Name: monitoring
 
 Area: kubernetes-workshop
 
@@ -15,8 +15,8 @@ Sources:
         - http://example.com/trainings/skeleton/bar
 
 Documents:
-    - Presentation: modul_maintenance_8007_01_slides.html
-    - Hands_On: modul_maintenance_8007_02_handson.html
+    - Presentation: modul_monitoring_8007_01_slides.html
+    - Hands_On: modul_monitoring_8007_02_handson.html
 
 Duration: 2h
 
