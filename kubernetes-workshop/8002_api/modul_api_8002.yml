@@ -1,0 +1,31 @@
+---
+
+Name: api
+
+Area: kubernetes-workshop
+
+ID: 8002
+
+Sources:
+    - Manual_Page:
+        - man 1 example
+        - man 1 example
+    - External_URLs:
+        - http://example.com/trainings/skeleton/foo
+        - http://example.com/trainings/skeleton/bar
+
+Documents:
+    - Presentation: modul_api_8002_01_slides.html
+    - Hands_On: modul_api_8002_02_handson.html
+
+Duration: 2h
+
+Description: >
+    This is just an example on how to create new trainings.
+    Here should live an detailed description on this training module. This
+    description will be displayed on builded trainings overview.
+
+Requirements:
+    - Linux Distribution
+    - Bash shell
+    - Wizards
