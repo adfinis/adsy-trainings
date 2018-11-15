@@ -25,3 +25,5 @@ docs:
   artifacts:
     paths:
       - trainings/*
+  only:
+    - master
