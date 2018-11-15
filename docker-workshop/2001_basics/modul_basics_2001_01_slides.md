@@ -53,13 +53,6 @@ a.k.a. OS-level virtualization
 
 [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/)
 
-## Recommendations
-
-Use **btrfs** for **/var/lib/docker**
-```
-/dev/vg00/docker /var/lib/docker btrfs rw 0 2
-```
-
 Add your user to the docker group
 
 ```
