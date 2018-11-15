@@ -44,6 +44,10 @@ a.k.a. OS-level virtualization
 
 # Docker Basics
 
+## Docker Lifecycle
+
+![](static/Docker_Lifecycle.png)
+
 ## Docker Installation
 
 
