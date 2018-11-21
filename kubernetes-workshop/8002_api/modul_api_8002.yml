@@ -1,18 +1,16 @@
 ---
 
-Name: api
+Name: Kubernetes API
 
 Area: kubernetes-workshop
 
 ID: 8002
 
 Sources:
-    - Manual_Page:
-        - man 1 example
-        - man 1 example
     - External_URLs:
-        - http://example.com/trainings/skeleton/foo
-        - http://example.com/trainings/skeleton/bar
+        - https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/
+        - https://kubernetes.io/docs/reference/kubectl/overview/
+        - https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 Documents:
     - Presentation: modul_api_8002_01_slides.html
@@ -21,11 +19,10 @@ Documents:
 Duration: 2h
 
 Description: >
-    This is just an example on how to create new trainings.
-    Here should live an detailed description on this training module. This
-    description will be displayed on builded trainings overview.
+    Introduction to the structure of the Kubernetes API and commonly used
+    objects available. Management of Kubernetes objects using kubectl and
+    common parameters used with kubectl.
 
 Requirements:
-    - Linux Distribution
-    - Bash shell
-    - Wizards
+    - Shell
+    - kubectl

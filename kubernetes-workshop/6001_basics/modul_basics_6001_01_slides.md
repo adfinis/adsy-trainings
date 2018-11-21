@@ -59,7 +59,7 @@ Pod is the smallest unit in Kubernetes
 * Pod can consist of multiple containers
 * All containers of a pod run on the same node
 * Containers in a pod can communicate via localhost
-* Containers in a pod share their kernel namespaces
+* Containers in a pod share a kernel namespace
 
 ## Service
 
@@ -113,8 +113,8 @@ Manages a set of Pods
 
 * De facto standard for deploying applications
 * Manages multiple iterations of an application
-* Based on ReplicaSets
-* Allows rollback of deployments
+* Creates a ReplicaSets for each release
+* Allows rollback to a previous release when desired
 
 ## Persistent Volume Claim
 
