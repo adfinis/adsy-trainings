@@ -8,10 +8,11 @@ before_script:
 image: eni23/adsy-training-builder:v3
 
 stages:
-  - docs
+  - build-docs
+  - publish-docs
 
-docs:
-  stage: docs
+build-docs:
+  stage: build-docs
   script:
     - sed "s/git@github.com:adfinis-sygroup\/adsy-trainings-common.git/https:\/\/github.com\/adfinis-sygroup\/adsy-trainings-common.git/g" -i .gitmodules
     - git submodule sync
@@ -21,7 +22,16 @@ docs:
     - git submodule update
     - mkdir build
     - adsy-trainings-common.src/training-builder.py --root=. --commons=adsy-trainings-common.src --build-dir=build
+  artifacts:
+    paths:
+      - build/*
+
+publish-docs:
+  stage: publish-docs
+  script:
     - mv build trainings
   artifacts:
     paths:
       - trainings/*
+  only:
+    - master
