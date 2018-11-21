@@ -17,11 +17,8 @@ Documents:
 Duration: 1h
 
 Description: >
-    This workshop will provide you with a basic introduction to Kubernetes and
-    allows you to deepen your knowledge with future workshops.
+    A first introduction into the architecture of Kubernetes.
 
 Requirements:
-    - Linux Distribution
-    - Bash shell
-    - minikube
+    - shell
     - kubectl
