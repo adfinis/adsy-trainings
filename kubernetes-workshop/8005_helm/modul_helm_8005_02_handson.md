@@ -1,4 +1,6 @@
-# ![](static/helm_logo_transparent.png)
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
 
 ---
 
