@@ -23,11 +23,13 @@ For SUSE CaaSP Everything is logged to the journal
 ## Master Nodes
 
 `journalctl -a -u kube-apiserver`
+
 `journalctl -a -u etcd`
 
 ## Worker Nodes
 
 `journalctl -a -u kubelet`
+
 `journalctl -a -u kube-proxy`
 
 ## Some possible reasons your nodes are in failed state
@@ -55,15 +57,20 @@ For SUSE CaaSP Everything is logged to the journal
 ## if the pod is running, what is it telling us?
 
 `kubectl logs pod xxxx`
+
 `kubectl logs --previous pod xxxx`
 
 ## Other helpful commands
 
-* `kubectl delete pod xxxx` = basically restart Pod
-* `kubectl get events` 
-* `kubectl get deploy xxxx -o yaml`
-* `kubectl get ingress xxxx -o yaml`
-* `kubectl get endpoints`
+`kubectl delete pod xxxx` = basically restart Pod
+
+`kubectl get events` 
+
+`kubectl get deploy xxxx -o yaml`
+
+`kubectl get ingress xxxx -o yaml`
+
+`kubectl get endpoints`
 
 --- 
 
