@@ -10,6 +10,34 @@ Be smart. Think open source.
 
 --- 
 
+## How to troubleshoot your cluster
+
+List your nodes and see their state
+
+`kubectl get nodes`
+
+## Logfiles of kubernetes components
+
+For SUSE CaaSP Everything is logged to the journal
+
+## Master Nodes
+
+`journalctl -a -u kube-apiserver`
+`journalctl -a -u etcd`
+
+## Worker Nodes
+
+`journalctl -a -u kubelet`
+`journalctl -a -u kube-proxy`
+
+## Some possible reasons your nodes are in failed state
+
+* VM(s) shutdown
+* Network issues
+* Crashes in Kubernetes services
+* Data loss or unavailability of persisten storage
+* Operator error or misconfiguration
+
 ## What to do if a service isn't running as expected?
 
 ## Is the service reachable? 
@@ -27,6 +55,7 @@ Be smart. Think open source.
 ## if the pod is running, what is it telling us?
 
 `kubectl logs pod xxxx`
+`kubectl logs --previous pod xxxx`
 
 ## Other helpful commands
 
@@ -34,6 +63,7 @@ Be smart. Think open source.
 * `kubectl get events` 
 * `kubectl get deploy xxxx -o yaml`
 * `kubectl get ingress xxxx -o yaml`
+* `kubectl get endpoints`
 
 --- 
 
@@ -44,6 +74,12 @@ Be smart. Think open source.
 * Backoff from starting
 * Readiness or Liveness Probe failing (Unhealthy)
 * Scheduling Errors
+
+
+## Other helpful links
+
+* [Kubernetes Docs | Debug Application](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/)
+* [Kubernetes Docs | Debug Cluster](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-cluster/)
 
 ---
 
