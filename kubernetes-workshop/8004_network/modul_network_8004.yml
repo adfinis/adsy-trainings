@@ -1,18 +1,18 @@
 ---
 
-Name: Kubernetes Network
+Name: Kubernetes Networking
 
 Area: Kubernetes Workshop Extended
 
 ID: 8004
 
 Sources:
-    - Manual_Page:
-        - man 1 example
-        - man 1 example
     - External_URLs:
-        - http://example.com/trainings/skeleton/foo
-        - http://example.com/trainings/skeleton/bar
+        - https://github.com/containernetworking/cni
+        - https://github.com/coreos/flannel
+        - https://kubernetes.io/docs/concepts/cluster-administration/networking/
+        - https://kubernetes.io/docs/concepts/services-networking/service/
+        - https://medium.com/google-cloud/understanding-kubernetes-networking-pods-7117dd28727
 
 Documents:
     - Presentation: modul_network_8004_01_slides.html
@@ -21,11 +21,10 @@ Documents:
 Duration: 2h
 
 Description: >
-    This is just an example on how to create new trainings.
-    Here should live an detailed description on this training module. This
-    description will be displayed on builded trainings overview.
+    In Networking we examine the networking concepts in Kubernetes and look at
+    the different network layers that are present in Kubernetes and
+    implementation details specific to them.
 
 Requirements:
-    - Linux Distribution
-    - Bash shell
-    - Wizards
+    - Basic network knowledge
+    - Advanced iptables knowledge
