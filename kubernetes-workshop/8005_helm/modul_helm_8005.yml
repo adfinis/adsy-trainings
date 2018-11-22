@@ -1,18 +1,15 @@
 ---
 
-Name: helm
+Name: Helm
 
 Area: Kubernetes Workshop Extended
 
 ID: 8005
 
 Sources:
-    - Manual_Page:
-        - man 1 example
-        - man 1 example
     - External_URLs:
-        - http://example.com/trainings/skeleton/foo
-        - http://example.com/trainings/skeleton/bar
+        - https://docs.helm.sh/chart_best_practices/#the-chart-best-practices-guide
+        - https://docs.helm.sh/chart_template_guide/#built-in-objects
 
 Documents:
     - Presentation: modul_helm_8005_01_slides.html
@@ -21,11 +18,8 @@ Documents:
 Duration: 2h
 
 Description: >
-    This is just an example on how to create new trainings.
-    Here should live an detailed description on this training module. This
-    description will be displayed on builded trainings overview.
-
+    How to use helm to simplify lifecycle deployment and easily mnanage your applications.
 Requirements:
-    - Linux Distribution
     - Bash shell
-    - Wizards
+    - kubectl
+    - helm

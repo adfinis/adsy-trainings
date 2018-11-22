@@ -1,17 +1,10 @@
 ---
 
-Name: maintenance
+Name: Kubernetes Maintenance
 
 Area: Kubernetes Workshop Extended
 
 ID: 8008
-
-Sources:
-    - Manual_Page:
-        - man 1 example
-    - External_URLs:
-        - http://example.com/trainings/skeleton/foo
-        - http://example.com/trainings/skeleton/bar
 
 Documents:
     - Presentation: modul_maintenance_8008_01_slides.html
@@ -19,11 +12,9 @@ Documents:
 Duration: 1h
 
 Description: >
-    This is just an example on how to create new trainings.
-    Here should live an detailed description on this training module. This
-    description will be displayed on builded trainings overview.
+    How to update your cluster and add or remove nodes from it.
+    As an example we use SUSE CaaSP.
 
 Requirements:
-    - Linux Distribution
-    - Bash shell
-    - Wizards
+    - Browser
+    - Shell
