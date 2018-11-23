@@ -72,7 +72,8 @@ metadata:
   namespace: example
 spec:
   ports:
-  - port: 80
+  - name: http
+    port: 80
     protocol: TCP
     targetPort: 80
   selector:
