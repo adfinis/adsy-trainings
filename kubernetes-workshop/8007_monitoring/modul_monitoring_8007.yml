@@ -7,12 +7,12 @@ Area: Kubernetes Workshop Extended
 ID: 8007
 
 Sources:
-    - Manual_Page:
-        - man 1 example
-        - man 1 example
     - External_URLs:
-        - http://example.com/trainings/skeleton/foo
-        - http://example.com/trainings/skeleton/bar
+        - https://prometheus.io/docs/introduction/overview/
+        - https://prometheus.io/docs/practices/naming/
+        - https://github.com/OpenObservability/OpenMetrics
+        - https://prometheus.io/docs/prometheus/latest/querying/basics/
+        - https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
 
 Documents:
     - Presentation: modul_monitoring_8007_01_slides.html
@@ -21,11 +21,11 @@ Documents:
 Duration: 2h
 
 Description: >
-    This is just an example on how to create new trainings.
-    Here should live an detailed description on this training module. This
-    description will be displayed on builded trainings overview.
+    We explain approaches to monitoring Kubernetes and the applications running
+    on top of it. The focus of this module is on Prometheus, as the de-facto
+    standard for Kubernets. We show how metrics need to be presented by
+    applications to be automatically ingested by Prometheus and how one can
+    query the data using the Prometheus query language.
 
 Requirements:
-    - Linux Distribution
-    - Bash shell
-    - Wizards
+    - Web Browser
