@@ -57,6 +57,77 @@ Introduction to the networking layers in Kubernetes
 
 ---
 
+## External Access
+
+How to enable external access to your services?
+
+## Kubernetes Services
+
+Two types of services allow external access
+
+* NodePort
+* LoadBalancer
+
+## NodePort
+
+* Expose a service on a defined port
+* Port is exposed on **every** node of the cluster
+* Might be used as backend for an external loadbalancer
+
+## LoadBalancer
+
+* Requests an external loadbalancer
+* Mostly relevant for cloud environments
+
+## Ingressᵝ API
+
+* Requires deployment of an Ingress controller
+* API covers functionality of L7 loadbalancer
+* TLS possible via Secrets API
+
+## Ingress examples
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: vhost-ingress
+spec:
+  rules:
+  - host: first.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: service1
+          servicePort: 80
+```
+
+## Ingress examples
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: url-split-example
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: second.example.com
+    http:
+      paths:
+      - path: /api
+        backend:
+          serviceName: service1
+          servicePort: 4200
+      - path: /frontend
+        backend:
+          serviceName: service2
+          servicePort: 8080
+```
+
+---
+
 # Attribution / License
 
 * Kubernetes Networking Graphics by [Mark Betz](https://medium.com/google-cloud/understanding-kubernetes-networking-pods-7117dd28727)
