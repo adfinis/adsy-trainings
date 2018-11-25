@@ -143,6 +143,33 @@ predict_linear(http_requests_total{namespace="default",service="wp-wordpress"}[5
 
 ---
 
+## Alerting
+
+Alerting Rules in Prometheus
+
+## Alert configuration
+
+* Alerts are configured in Prometheus
+* Prometheus sends alerts to Alertmanager
+* Alertmanager triggers notifications
+
+## Alert definition
+
+```yaml
+groups:
+- name: example
+  rules:
+  - alert: HighErrorRate
+    expr: http_requests_total{code=~"5[0-9]{2}"} > 0
+    for: 10m
+    labels:
+      severity: page
+    annotations:
+      summary: "High error rate for {{ $labels.app }}"
+```
+
+---
+
 # Attribution / License
 
 * Slide Skeleton https://de.wikipedia.org/wiki/Skeleton_(Programmierung)
