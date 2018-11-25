@@ -7,23 +7,20 @@ Area: Kubernetes Workshop Extended
 ID: 8006
 
 Sources:
-    - Manual_Page:
-        - man 1 example
-        - man 1 example
     - External_URLs:
-        - http://example.com/trainings/skeleton/foo
-        - http://example.com/trainings/skeleton/bar
+        - https://heptio.github.io/ark/v0.10.0/
+        - https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/
 
 Documents:
     - Presentation: modul_backup_8006_01_slides.html
     - Hands_On: modul_backup_8006_02_handson.html
 
-Duration: 2h
+Duration: 1h
 
 Description: >
-    This is just an example on how to create new trainings.
-    Here should live an detailed description on this training module. This
-    description will be displayed on builded trainings overview.
+    The backup module provides a quick overview over the different possibilities
+    for performing backups in Kubernetes and the benefits and drawbacks of each
+    solution.
 
 Requirements:
     - Linux Distribution
