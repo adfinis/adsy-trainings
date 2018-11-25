@@ -127,7 +127,7 @@ Requests for persistent Storage
 
 Separation of consumers/environments
 
-* Ressource Quotas
+* Resource Quotas
 * All resources are attached to a namespace
 * RBAC makes sharing of namespaces possible
 

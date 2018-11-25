@@ -115,12 +115,24 @@ This command removes all Docker images which are not part of a Docker layer anym
 docker images -q -f dangling=true | xargs -r docker rmi
 ```
 
+Since version 1.25:
+
+```bash
+docker system prune
+```
+
 ## Remove dangling volumes
 
 This command removes all automatically created volumes which are not attached to a container anymore
 
 ```bash
 docker volume ls -q -f dangling=true | xargs -r docker volume rm
+```
+
+Since version 1.25:
+
+```bash
+docker system prune --volumes
 ```
 
 ## Update local Docker images to the newest version
