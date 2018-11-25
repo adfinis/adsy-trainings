@@ -1,0 +1,28 @@
+---
+
+Name: Kubernetes Backup
+
+Area: Kubernetes Workshop Extended
+
+ID: 8006
+
+Sources:
+    - External_URLs:
+        - https://heptio.github.io/ark/v0.10.0/
+        - https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/
+
+Documents:
+    - Presentation: modul_backup_8006_01_slides.html
+    - Hands_On: modul_backup_8006_02_handson.html
+
+Duration: 1h
+
+Description: >
+    The backup module provides a quick overview over the different possibilities
+    for performing backups in Kubernetes and the benefits and drawbacks of each
+    solution.
+
+Requirements:
+    - Linux Distribution
+    - Bash shell
+    - Wizards

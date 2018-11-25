@@ -1,0 +1,26 @@
+---
+
+Name: Kubernetes Troubleshooting
+
+Area: Kubernetes Workshop Extended
+
+ID: 8003
+
+Sources:
+    - External_URLs:
+        - https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/
+        - https://kubernetes.io/docs/tasks/debug-application-cluster/debug-cluster/
+
+Documents:
+    - Presentation: modul_troubleshooting_8003_01_slides.html
+    - Hands_On: modul_troubleshooting_8003_02_handson.html
+
+Duration: 2h
+
+Description: >
+    How to troubleshoot your cluster and pods on Kubernetes.
+
+Requirements:
+    - Shell
+    - SSH
+    - kubectl

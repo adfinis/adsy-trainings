@@ -1,0 +1,25 @@
+---
+
+Name: Helm
+
+Area: Kubernetes Workshop Extended
+
+ID: 8005
+
+Sources:
+    - External_URLs:
+        - https://docs.helm.sh/chart_best_practices/#the-chart-best-practices-guide
+        - https://docs.helm.sh/chart_template_guide/#built-in-objects
+
+Documents:
+    - Presentation: modul_helm_8005_01_slides.html
+    - Hands_On: modul_helm_8005_02_handson.html
+
+Duration: 2h
+
+Description: >
+    How to use helm to simplify lifecycle deployment and easily mnanage your applications.
+Requirements:
+    - Bash shell
+    - kubectl
+    - helm

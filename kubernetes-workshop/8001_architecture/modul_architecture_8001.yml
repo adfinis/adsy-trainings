@@ -1,0 +1,24 @@
+---
+
+Name: Kubernetes Architecture
+
+Area: Kubernetes Workshop Extended
+
+ID: 8001
+
+Sources:
+    - External_URLs:
+        - https://kubernetes.io/docs/home/
+
+Documents:
+    - Presentation: modul_architecture_8001_01_slides.html
+    - HandsOn: modul_architecture_8001_02_handson.html
+
+Duration: 1h
+
+Description: >
+    A first introduction into the architecture of Kubernetes.
+
+Requirements:
+    - shell
+    - kubectl

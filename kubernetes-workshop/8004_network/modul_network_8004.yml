@@ -1,0 +1,31 @@
+---
+
+Name: Kubernetes Networking
+
+Area: Kubernetes Workshop Extended
+
+ID: 8004
+
+Sources:
+    - External_URLs:
+        - https://github.com/containernetworking/cni
+        - https://github.com/coreos/flannel
+        - https://kubernetes.io/docs/concepts/cluster-administration/networking/
+        - https://kubernetes.io/docs/concepts/services-networking/service/
+        - https://kubernetes.io/docs/concepts/services-networking/ingress/
+        - https://medium.com/google-cloud/understanding-kubernetes-networking-pods-7117dd28727
+
+Documents:
+    - Presentation: modul_network_8004_01_slides.html
+    - Hands_On: modul_network_8004_02_handson.html
+
+Duration: 2h
+
+Description: >
+    In Networking we examine the networking concepts in Kubernetes and look at
+    the different network layers that are present in Kubernetes and
+    implementation details specific to them.
+
+Requirements:
+    - Basic network knowledge
+    - Advanced iptables knowledge

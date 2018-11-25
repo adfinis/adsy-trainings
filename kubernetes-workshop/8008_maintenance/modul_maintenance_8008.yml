@@ -1,0 +1,20 @@
+---
+
+Name: Kubernetes Maintenance
+
+Area: Kubernetes Workshop Extended
+
+ID: 8008
+
+Documents:
+    - Presentation: modul_maintenance_8008_01_slides.html
+
+Duration: 1h
+
+Description: >
+    How to update your cluster and add or remove nodes from it.
+    As an example we use SUSE CaaSP.
+
+Requirements:
+    - Browser
+    - Shell

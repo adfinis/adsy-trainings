@@ -1,0 +1,31 @@
+---
+
+Name: Kubernetes Monitoring
+
+Area: Kubernetes Workshop Extended
+
+ID: 8007
+
+Sources:
+    - External_URLs:
+        - https://prometheus.io/docs/introduction/overview/
+        - https://prometheus.io/docs/practices/naming/
+        - https://github.com/OpenObservability/OpenMetrics
+        - https://prometheus.io/docs/prometheus/latest/querying/basics/
+        - https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
+
+Documents:
+    - Presentation: modul_monitoring_8007_01_slides.html
+    - Hands_On: modul_monitoring_8007_02_handson.html
+
+Duration: 2h
+
+Description: >
+    We explain approaches to monitoring Kubernetes and the applications running
+    on top of it. The focus of this module is on Prometheus, as the de-facto
+    standard for Kubernets. We show how metrics need to be presented by
+    applications to be automatically ingested by Prometheus and how one can
+    query the data using the Prometheus query language.
+
+Requirements:
+    - Web Browser

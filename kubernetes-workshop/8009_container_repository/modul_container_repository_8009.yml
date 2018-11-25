@@ -1,0 +1,25 @@
+---
+
+Name: Kubernetes Container Registry
+
+Area: Kubernetes Workshop Extended
+
+ID: 8009
+
+Sources:
+    - External_URLs:
+        - http://example.com/trainings/skeleton/foo
+        - http://example.com/trainings/skeleton/bar
+
+Documents:
+    - Presentation: modul_container_repository_8009_01_slides.html
+    - Hands_On: modul_container_repository_8009_02_handson.html
+
+Duration: 2h
+
+Description: >
+    How to manage your Docker image repository and ensure that it only
+    contains secure images.
+
+Requirements:
+    - Docker Registry

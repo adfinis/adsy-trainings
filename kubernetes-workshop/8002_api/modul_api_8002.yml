@@ -1,0 +1,28 @@
+---
+
+Name: Kubernetes API
+
+Area: Kubernetes Workshop Extended
+
+ID: 8002
+
+Sources:
+    - External_URLs:
+        - https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/
+        - https://kubernetes.io/docs/reference/kubectl/overview/
+        - https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+Documents:
+    - Presentation: modul_api_8002_01_slides.html
+    - Hands_On: modul_api_8002_02_handson.html
+
+Duration: 2h
+
+Description: >
+    Introduction to the structure of the Kubernetes API and commonly used
+    objects available. Management of Kubernetes objects using kubectl and
+    common parameters used with kubectl.
+
+Requirements:
+    - Shell
+    - kubectl
