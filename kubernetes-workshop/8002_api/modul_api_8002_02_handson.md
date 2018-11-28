@@ -162,7 +162,7 @@ persistentvolumeclaim/apache-hello-world created
       }
     }],
   }
-]'
+]
 ```
 
 ## Patch the deployment to include the PVC
