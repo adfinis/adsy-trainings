@@ -279,6 +279,14 @@ The pod will be deleted as soon as you exit the shell
 
 ---
 
+## Kubernetes API Reference
+
+Overview of references for multiple API versions
+
+<https://kubernetes.io/docs/reference/>
+
+---
+
 # Attribution / License
 
 * Slide Skeleton https://de.wikipedia.org/wiki/Skeleton_(Programmierung)
