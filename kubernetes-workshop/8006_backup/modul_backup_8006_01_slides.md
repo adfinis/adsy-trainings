@@ -137,6 +137,88 @@ https://vm-adsy-caasp-master-03:2379 is healthy: successfully committed proposal
 
 ---
 
+## Heptio Ark
+
+Backup tool for Kubernets objects
+
+* Server component in the cluster
+* CLI for controlling backups
+
+## Heptio Ark
+
+Multiple storage backends supported
+
+* AWS S3 (and compatible)
+* Azure Blob Storage
+* Google Cloud Storage
+
+## Cluster Backup
+
+By default ark performs full cluster backups
+
+```shell
+$ ark backup create full-cluster
+Backup request "full-cluster" submitted successfully.
+Run `ark backup describe full-cluster` or `ark backup logs full-cluster` for more details.
+```
+
+## Namespace Backup
+
+Backups can be limited to a namespace
+
+```shell
+$ ark backup create demo --include-namespaces demo
+Backup request "demo" submitted successfully.
+Run `ark backup describe demo` or `ark backup logs demo` for more details.
+```
+
+## Label based Backup
+
+Using a label selector to select the objects
+
+```shell
+$ ark backup create lampp --selector app=lampp
+Backup request "lampp" submitted successfully.
+Run `ark backup describe lampp` or `ark backup logs lampp` for more details.
+```
+
+## Scheduled backups
+
+Scheduled backups are possible
+
+```shell
+$ ark schedule create hourly --schedule="0 * * * *"
+Schedule "hourly" created successfully.
+```
+
+## Restore
+
+Also a restore of the data is possible!
+
+```shell
+$ ark restore create --from-backup demo
+Restore request "demo-20181122133747" submitted successfully.
+Run `ark restore describe demo-20181122133747` or `ark restore logs demo-20181122133747` for more details.
+```
+
+## Restore
+
+* Objects already present are skipped
+* PV/PVC restores might be tricky and require testing
+* Data in storage backend has priority
+  * Data from S3 is synced to Kubernetes Objects
+
+## Download
+
+Backups can be downloaded for manual intervention
+
+```shell
+$ ark backup download demo
+Backup demo has been successfully downloaded to /home/example/demo-data.tar.gz
+```
+
+---
+
 # Attribution / License
 
 * Slide Skeleton https://de.wikipedia.org/wiki/Skeleton_(Programmierung)
