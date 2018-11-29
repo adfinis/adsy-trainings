@@ -34,7 +34,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: apache-hello-world
-  namespace: example
   labels:
     app: hello-world
 spec:
@@ -69,7 +68,6 @@ metadata:
   labels:
     app: hello-world
   name: apache-hello-world
-  namespace: example
 spec:
   ports:
   - name: http
@@ -94,7 +92,6 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: apache-hello-world
-  namespace: example
   labels:
     app: hello-world
 spec:
@@ -123,7 +120,6 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: apache-hello-world
-  namespace: example
   labels:
     app: hello-world
 spec:
