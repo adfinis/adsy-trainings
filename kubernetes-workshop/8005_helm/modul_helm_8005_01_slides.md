@@ -17,9 +17,9 @@ Think of it like apt/yum/homebrew for Kubernetes.
 
 ## Why Helm?
 
-* De-facto standard for templating k8s configs 
+* De-facto standard for templating k8s configs
 * Official Kubernetes project maintained by CNCF
-* Repeatable application installations 
+* Repeatable application installations
 * Painless updates
 * Ships with ready to use charts made by the community
 * best practices are baked into offical charts
@@ -84,7 +84,7 @@ This depends on your organizations structure and what you use the cluster for.
 
 ```bash
 # simulate rollback
-helm rollback --dry-run my-release old-version 
+helm rollback --dry-run my-release old-version
 # actual rollback
 helm rollback my-release old-version
 ```
@@ -167,7 +167,7 @@ hello:
   world: Hello!
 ```
 ```bash
-helm template . -x templates/hello.yaml 
+helm template . -x templates/hello.yaml
 ```
 ```
 ---
@@ -228,7 +228,7 @@ helm install --dry-run --debug .
 
 # Helm SubCharts
 
---- 
+---
 
 ## Composing systems with subcharts
 
