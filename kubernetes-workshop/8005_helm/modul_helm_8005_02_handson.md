@@ -1,3 +1,6 @@
+% Helm Charts Hands-On
+% Toni Tauro
+
 ![](static/adfinis_sygroup_logo.png)
 
 Be smart. Think open source.

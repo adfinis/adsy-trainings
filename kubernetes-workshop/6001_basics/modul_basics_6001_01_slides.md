@@ -1,3 +1,6 @@
+% Kubernetes Basics
+% Lukas Grossar
+
 # What is Kubernetes?
 
 Container Orchestration Solution
