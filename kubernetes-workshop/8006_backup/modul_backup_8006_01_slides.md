@@ -219,6 +219,21 @@ Backup demo has been successfully downloaded to /home/example/demo-data.tar.gz
 
 ---
 
+## Restore PVC to use existing PV
+
+To make a PVC use an existing PV the value for `claimRef.uid` needs to be removed:
+
+```shell
+$ kubectl patch pv example --type json \
+    -p '[{"op": "remove", "path": "/spec/claimRef/uid"}]'
+pv/example patched
+```
+
+The PV will change to status `Available` and can be bound to the PVC defined
+in `claimRef`.
+
+---
+
 # Attribution / License
 
 * Slide Skeleton https://de.wikipedia.org/wiki/Skeleton_(Programmierung)
