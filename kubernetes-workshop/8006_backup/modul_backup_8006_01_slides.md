@@ -141,16 +141,16 @@ https://vm-adsy-caasp-master-03:2379 is healthy: successfully committed proposal
 
 Backup tool for Kubernets objects
 
-* Server component in the cluster
-* CLI for controlling backups
+- Server component in the cluster
+- CLI for controlling backups
 
 ## Heptio Ark
 
 Multiple storage backends supported
 
-* AWS S3 (and compatible)
-* Azure Blob Storage
-* Google Cloud Storage
+- AWS S3 (and compatible)
+- Azure Blob Storage
+- Google Cloud Storage
 
 ## Cluster Backup
 
@@ -203,10 +203,10 @@ Run `ark restore describe demo-20181122133747` or `ark restore logs demo-2018112
 
 ## Restore
 
-* Objects already present are skipped
-* PV/PVC restores might be tricky and require testing
-* Data in storage backend has priority
-  * Data from S3 is synced to Kubernetes Objects
+- Objects already present are skipped
+- PV/PVC restores require special consideration
+- Data in storage backend has priority
+  - Data from S3 is synced to Kubernetes Objects
 
 ## Download
 
