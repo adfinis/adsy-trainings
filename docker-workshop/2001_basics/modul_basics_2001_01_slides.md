@@ -53,11 +53,6 @@ a.k.a. OS-level virtualization
 
 [https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/)
 
-Add your user to the docker group
-
-```
-sudo usermod -aG docker $USER
-```
 
 # First steps
 
