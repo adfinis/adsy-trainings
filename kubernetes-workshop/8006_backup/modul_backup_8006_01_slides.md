@@ -141,16 +141,16 @@ https://vm-adsy-caasp-master-03:2379 is healthy: successfully committed proposal
 
 Backup tool for Kubernets objects
 
-* Server component in the cluster
-* CLI for controlling backups
+- Server component in the cluster
+- CLI for controlling backups
 
 ## Heptio Ark
 
 Multiple storage backends supported
 
-* AWS S3 (and compatible)
-* Azure Blob Storage
-* Google Cloud Storage
+- AWS S3 (and compatible)
+- Azure Blob Storage
+- Google Cloud Storage
 
 ## Cluster Backup
 
@@ -203,10 +203,10 @@ Run `ark restore describe demo-20181122133747` or `ark restore logs demo-2018112
 
 ## Restore
 
-* Objects already present are skipped
-* PV/PVC restores might be tricky and require testing
-* Data in storage backend has priority
-  * Data from S3 is synced to Kubernetes Objects
+- Objects already present are skipped
+- PV/PVC restores require special consideration
+- Data in storage backend has priority
+  - Data from S3 is synced to Kubernetes Objects
 
 ## Download
 
@@ -216,6 +216,21 @@ Backups can be downloaded for manual intervention
 $ ark backup download demo
 Backup demo has been successfully downloaded to /home/example/demo-data.tar.gz
 ```
+
+---
+
+## Restore PVC to use existing PV
+
+To make a PVC use an existing PV the value for `claimRef.uid` needs to be removed:
+
+```shell
+$ kubectl patch pv example --type json \
+    -p '[{"op": "remove", "path": "/spec/claimRef/uid"}]'
+pv/example patched
+```
+
+The PV will change to status `Available` and can be bound to the PVC defined
+in `claimRef`.
 
 ---
 
