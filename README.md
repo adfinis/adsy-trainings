@@ -23,7 +23,7 @@ Each training has three unique parts
 - Name of the module
 - A unique ID
 
-    $ ./adsy-trainings-common.src/new-training.sh <training name> <module name> <id>
+    `$ ./adsy-trainings-common.src/new-training.sh <training name> <module name> <id>`
 
 - Edit `<training-name>/<id>_<module-name>/modul_<module-name>_<id>.yml` to
   your needs. This file is required to build the training.
@@ -39,8 +39,9 @@ Each training has three unique parts
 
 - Check if your training looks like you wish.
 
-    cd <training-name>/<id>_<module-name>/
-    make
+    `cd <training-name>/<id>_<module-name>/`
+
+    `make`
 
 - Add the files to the git repository and push it. After a few minutes, the
   new training should be available at
