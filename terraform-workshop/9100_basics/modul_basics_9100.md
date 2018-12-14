@@ -252,6 +252,9 @@ Defines terraform configuration.
 <small><https://www.terraform.io/docs/configuration/terraform.html></small>
 
 
+# More information
+<https://www.terraform.io/docs>
+
 # Attribution / License
 
 * Slides
