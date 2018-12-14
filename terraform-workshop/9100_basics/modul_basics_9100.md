@@ -19,7 +19,7 @@ Write, Plan, and Create Infrastructure as Code
 * Setup
 * HCL
 * My first Terraform
-* Extended Script
+* Configuration Objects
 
 ---
 
@@ -153,6 +153,104 @@ output "rgname" {
 https://www.terraform.io/docs/providers/index.html
 
 ---
+
+## Configuration Objects
+* resource
+* data
+* provider
+* variable
+* output
+* locals
+* module
+* terraform
+
+
+## resource
+```hcl
+resource "azurerm_resource_group" "main" {
+  name        = "my-resource-group"
+  location    = "West US 2"
+}
+```
+Defines an infrastructure resource
+
+<small><https://www.terraform.io/docs/configuration/resources.html></small>
+
+## data
+```hcl
+data "azurerm_public_ip" "mypubip" {
+  name        = "${azurerm_public_ip.ip-01.name}"
+  resource_group_name   = "${azurerm_virtual_machine.myhost-01.resource_group_name}"
+}
+```
+Defines a data source that can be reused. Must be unique in combination of <TYPE> and <NAME>.
+
+<small><https://www.terraform.io/docs/configuration/data-sources.html></small>
+
+## provider
+```hcl
+provider "azurerm" {
+  version     = "=1.20.0"
+}
+```
+Defines providers to use. Version pinning is recommended.
+
+<small><https://www.terraform.io/docs/configuration/providers.html></small>
+
+## variable
+```hcl
+variable "user_name" {
+  type        = "string"
+  default     = "user"
+  description = "The Username of our new user"
+}
+```
+Defines variables. Can be of different types (string, map, list or boolean)
+
+<small><https://www.terraform.io/docs/configuration/variables.html></small>
+
+## output
+```hcl
+output "address" {
+  value       = "${data.azurerm_public_ip.mypubip.ip_address}"
+  description = "The IP address of our new host"
+}
+```
+Defines data outputs. Used for automation and collecting information.
+
+<small><https://www.terraform.io/docs/configuration/outputs.html></small>
+
+## locals
+```hcl
+locals {
+  user_name   = "user"
+}
+```
+Defines local variables inside a module.
+
+<small><https://www.terraform.io/docs/configuration/locals.html></small>
+
+## module
+```hcl
+module "akscluster" {
+ source       = "azure/aks/defaultcluster"
+ nodes        = 6
+}
+```
+Defines a terraform module. Variables can be passed to the module.
+
+<small><https://www.terraform.io/docs/configuration/modules.html></small>
+
+## terraform
+```hcl
+terraform {
+  required_version = "> 0.7.0"
+}
+```
+Defines terraform configuration.
+
+<small><https://www.terraform.io/docs/configuration/terraform.html></small>
+
 
 # Attribution / License
 
