@@ -250,6 +250,73 @@ Defines terraform configuration.
 
 <small><https://www.terraform.io/docs/configuration/terraform.html></small>
 
+---
+
+## Providers
+A provider connects terraform configuration with a corresponding API
+
+## Different Providers
+
+* Azure
+* AWS
+* Google Cloud
+* Github
+* Kubernetes
+* PowerDNS
+* MySQL
+* much more...
+<small><https://www.terraform.io/docs/providers/index.html></small>
+
+---
+
+## First steps with Github
+
+## main.tf
+```hcl
+provider "github" {
+  token         = "${var.github_token}"
+  organization  = "${var.github_organization}"
+}
+
+resource "github_repository" "tf-example" {
+  name          = "${var.github_repo_name}"
+  description   = "${var.github_repo_desc}"
+}
+```
+
+## variables.tf
+```hcl
+variable "github_token" {
+  default = "abcd"
+}
+
+variable "github_organization" {
+  default = "myorga"
+}
+
+variable "github_repo_name" {
+  default "tf-test"
+}
+
+variable "github_repo_desc" {
+  default "test-repo for terraform"
+}
+```
+
+## myrepo.tfvars
+```bash
+github_token = "w841ce33fcfc1wde71fdb50c4dd852c63108b118"
+github_orga = "adfinis-sygroup"
+github_repo_name = "tf-test"
+github_repo_desc = "testdescription"
+```
+
+## Try it!
+```bash
+terraform init
+terraform plan -var-file=myrepo.tfvars
+terraform apply -var-file=myrepo.tfvars
+```
 
 # More information
 <https://www.terraform.io/docs>
