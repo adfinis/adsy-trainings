@@ -53,30 +53,16 @@ Better, but not much reusability
 ```bash
 .
 ├── env
-│   ├── dev
-│   │   ├── main.tf
-│   │   ├── output.tf
-│   │   └── variables.tf
-│   └── prod
-│   │   ├── main.tf
-│   │   ├── output.tf
-│   │   └── variables.tf
+│   └── production
+│       ├── main.tf
+│       ├── output.tf
+│       └── variables.tf
 ├── modules
 │   ├── webapp
-│   │   ├── db.tf
-│   │   ├── dns.tf
-│   │   ├── instances.tf
 │   │   ├── main.tf
-│   │   ├── network.tf
-│   │   ├── output.tf
-│   │   ├── security_groups.tf
 │   │   └── variables.tf
 │   └── cluster
-│       ├── dns.tf
-│       ├── aks.tf
 │       ├── main.tf
-│       ├── network.tf
-│       ├── output.tf
 │       ├── security_groups.tf
 │       └── variables.tf
 ├── outputs.tf
@@ -84,8 +70,6 @@ Better, but not much reusability
 ```
 
 # Attribution / License
-
-* Slide Skeleton https://de.wikipedia.org/wiki/Skeleton_(Programmierung)
 
 * Slides
 Adfinis SyGroup AG, 2017, Attribution-NonCommercial 2.0
