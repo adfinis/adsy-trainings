@@ -14,8 +14,8 @@ Write, Plan, and Create Infrastructure as Code
 
 ## Agenda
 * Repository
+* Workspaces
 * Modules
-* Secrets
 * State
 
 ---
@@ -118,17 +118,71 @@ Modules in Terraform are self-contained packages of Terraform configurations tha
 
 <small><https://www.terraform.io/docs/modules/index.html></small>
 
+## Use a module
+```hcl
+module "kubernetes" {
+  source  = "coreos/kubernetes/azurerm"
+  version = "1.8.9-tectonic.1"
 
+  # insert the 7 required variables here
+}
+```
 
----
+Uses <https://registry.terraform.io/modules/coreos/kubernetes/azurerm/1.8.9-tectonic.1>
 
-## Secrets
+## Build your own module
+Just put everything that belogs together in a directory, use local variables and...
 
+## Build your own module
+...include it:
+```hcl
+module "my-module" {
+  source  = "./user-with-home-repo"
+  username = "dummy"
+}
+```
 
 ---
 
 ## State
+State is a necessary requirement for Terraform to function. 
 
+Reasons:
+* Map resources in config to real-world objects
+* Store metadata
+* Perform better
+* Syncing
+
+## Backend Types (local)
+```hcl
+terraform {
+  backend "local" {
+    path = "./states/terraform.tfstate"
+  }
+}
+```
+
+## Backend Types (remote, without locking)
+* artifactory
+* etcd
+* swift
+
+## Backend Types (remote, with locking)
+* azurerm
+* consul
+* etcdv3
+* http (locking optional)
+* s3 (locking via DynamoDB)
+* terraform enterprise
+
+## Backend Types (remote)
+```hcl
+backend "etcdv3" {
+  endpoints = ["etcd-1:2379", "etcd-2:2379", "etcd-3:2379"]
+  lock      = true
+  prefix    = "terraform-state/"
+}
+```
 
 # Attribution / License
 
