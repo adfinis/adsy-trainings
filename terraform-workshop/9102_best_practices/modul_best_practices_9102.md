@@ -16,6 +16,7 @@ Write, Plan, and Create Infrastructure as Code
 * Repository
 * Modules
 * Secrets
+* State
 
 ---
 
@@ -49,13 +50,14 @@ Split your files!
 ```
 Better, but not much reusability
 
-## Use modules
+## Use modules, workspaces and other fancy things
 ```bash
 .
 ├── env
 │   └── production
 │       ├── main.tf
 │       ├── output.tf
+│       ├── production.tfvars
 │       └── variables.tf
 ├── modules
 │   ├── webapp
@@ -65,9 +67,68 @@ Better, but not much reusability
 │       ├── main.tf
 │       ├── security_groups.tf
 │       └── variables.tf
-├── outputs.tf
 └── variables.tf
 ```
+
+---
+
+## Workspaces
+Each Terraform configuration has an associated backend that defines how operations are executed and where persistent data such as the Terraform state are stored.
+
+The persistent data stored in the backend belongs to a workspace.
+
+## Use workspaces
+```bash
+terraform workspace new production
+terraform workspace new development
+terraform workspace select development
+terraform workspace list
+```
+
+## How to use it
+
+The current workspace can be accessed with `${terraform.workspace}`
+
+## How to use it
+
+Variables should be restructured:
+```hcl
+variable "token" {
+  type = "map"
+  default = {
+    production  = "abcd1234"
+    development = "1234abcd"
+  }
+}
+```
+
+## How to use it
+
+...and can be accessed with
+```hcl
+provider "github" {
+  token = "${lookup(var.token, terraform_workspace)}"
+}
+```
+
+---
+
+## Modules
+Modules in Terraform are self-contained packages of Terraform configurations that are managed as a group. Modules are used to create reusable components in Terraform as well as for basic code organization.
+
+<small><https://www.terraform.io/docs/modules/index.html></small>
+
+
+
+---
+
+## Secrets
+
+
+---
+
+## State
+
 
 # Attribution / License
 
