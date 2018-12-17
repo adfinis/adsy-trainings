@@ -111,7 +111,6 @@ resource "azurerm_resource_group" "workshoptest-01" {
 ---
 
 ## My first Terraform
-https://github.com/adfinis-sygroup/
 
 ## main.tf
 ```hcl
