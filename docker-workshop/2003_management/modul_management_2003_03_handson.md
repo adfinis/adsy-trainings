@@ -1,6 +1,6 @@
-% Dockerfile Hands-On
-% Lukas Grossar
-% September 30, 2016
+% Docker-Compose Hands-On
+% Antonio Tauro
+% Januar 2, 2019
 
 ![](static/adfinis_sygroup_logo.png)
 

@@ -1,6 +1,6 @@
-% Dockerfile Check
-% Lukas Grossar
-% September 30, 2016
+% Docker Management Check
+% Antonio Tauro
+% Januar 2, 2019
 
 ![](static/adfinis_sygroup_logo.png)
 
