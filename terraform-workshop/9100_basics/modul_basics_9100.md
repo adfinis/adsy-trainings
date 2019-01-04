@@ -40,7 +40,7 @@ Infrastructure as Code
 ---
 
 ## Setup
-https://www.terraform.io/downloads.html
+https://learn.hashicorp.com/terraform/getting-started/install.html
 
 ## Check
 ```bash
@@ -233,10 +233,11 @@ Defines local variables inside a module.
 ```hcl
 module "akscluster" {
  source       = "azure/aks/defaultcluster"
+ version      = "1.1.0"
  nodes        = 6
 }
 ```
-Defines a terraform module. Variables can be passed to the module.
+Defines a terraform module. Variables can be passed to the module. Version pinning is recommended.
 
 <small><https://www.terraform.io/docs/configuration/modules.html></small>
 
