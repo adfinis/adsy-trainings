@@ -1,17 +1,17 @@
 ---
 
-Name: OpenShift Applications
+Name: OpenShift Basics
 
 Area: OpenShift Workshop
 
-ID: 9002
+ID: 7001
 
 Sources:
     - External_URLs:
         - https://kubernetes.io/docs/home/
 
 Documents:
-    - Presentation: modul_basics_9000_02_slides.html
+    - Presentation: modul_basics_9000_01_slides.html
 
 Duration: 1h
 
