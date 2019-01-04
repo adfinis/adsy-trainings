@@ -1,5 +1,5 @@
-% Kubernetes Basics
-% Lukas Grossar
+% OpenShift Basics
+% Lukas Grossar & Cyrill von Wattenwyl
 
 # What is OpenShift?
 
