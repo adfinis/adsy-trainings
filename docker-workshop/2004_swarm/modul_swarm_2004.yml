@@ -1,0 +1,31 @@
+---
+
+Name: Docker Swarm
+
+Area: Docker
+
+ID: 2004
+
+Sources:
+    - External_URLs:
+        - https://docs.docker.com/engine/swarm/
+        - https://kubernetes.io
+
+Documents:
+    - Presentation: modul_swarm_2004_01_slides.html
+    - Hands_On: module_swarm_2004_03_handson.html
+    - Control_Of_Success: modul_swarm_2004_04_check.html
+
+Duration: 2h
+
+Description: >
+    Dieses Modul erklärt was Container Orchestration ist und 
+    vermittelt den Umgang mit Docker Swarm und wie diese genutzt 
+    werden kann. Es bietet einen Überblick zu den wichtigsten 
+    Befehlen in Swarm und beschreibt Best-Practices um Services 
+    zu verwalten.
+
+Requirements:
+    - Linux Distribution mit aktuellem Kernel >= 3.10
+    - Shell Bedienung
+    - CLI Editor Bedienung
