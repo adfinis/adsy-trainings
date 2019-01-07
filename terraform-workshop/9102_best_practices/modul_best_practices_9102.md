@@ -184,6 +184,28 @@ backend "etcdv3" {
 }
 ```
 
+---
+
+## Linting
+`terraform validate` validates the syntax of terraform files.
+
+## Styling
+`terraform fmt` rewrites files in correct style and format.
+
+## Testing
+Terraform provides [unit](https://www.terraform.io/docs/extend/testing/unit-testing.html) and [acceptance](https://www.terraform.io/docs/extend/testing/acceptance-tests/index.html) tests for providers in Go. To test your infrastructure you have to rely on third-party software:
+
+## Integration Testing
+
+* kitchen-terraform (https://github.com/newcontext-oss/kitchen-terraform)
+* Goss (https://github.com/aelsabbahy/goss)
+
+## Unit Testing
+
+* Terratest (https://github.com/gruntwork-io/terratest)
+* Rspec-terraform (https://github.com/bsnape/rspec-terraform)
+
+
 # Attribution / License
 
 * Slides
