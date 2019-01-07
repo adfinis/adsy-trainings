@@ -1,0 +1,24 @@
+---
+
+Name: Basics
+
+Area: Terraform
+
+ID: 9100
+
+Sources:
+    - External_URLs:
+        - https://www.terraform.io/docs/
+
+Documents:
+    - Presentation: modul_basics_9100.html
+
+Duration: 1h
+
+Description: >
+      This workshop shows basic concepts and usage examples of Terraform
+
+Requirements:
+    - Linux Distribution
+    - Bash shell
+    - Terraform
