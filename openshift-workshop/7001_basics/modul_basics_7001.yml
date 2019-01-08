@@ -1,0 +1,26 @@
+---
+
+Name: OpenShift Basics
+
+Area: OpenShift Workshop
+
+ID: 7001
+
+Sources:
+    - External_URLs:
+        - https://kubernetes.io/docs/home/
+
+Documents:
+    - Presentation: modul_basics_9000_01_slides.html
+
+Duration: 1h
+
+Description: >
+    This workshop will provide you with a basic introduction to OpenShift and
+    allows you to deepen your knowledge with future workshops.
+
+Requirements:
+    - Linux Distribution
+    - Bash shell
+    - minikube
+    - kubectl
