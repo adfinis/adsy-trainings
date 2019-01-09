@@ -1,0 +1,29 @@
+---
+
+Name: Automation
+
+Area: Terraform
+
+ID: 9103
+
+Sources:
+    - Manual_Page:
+        - man 1 example
+        - man 1 example
+    - External_URLs:
+        - http://example.com/trainings/skeleton/foo
+        - http://example.com/trainings/skeleton/bar
+
+Documents:
+    - Presentation: modul_automation_9103_01_slides.html
+    - Hands_On: modul_automation_9103_02_handson.html
+
+Duration: 2h
+
+Description: >
+      Automate your terraform scripts. CI/CD, Secrets, testing and state handling
+
+Requirements:
+    - Linux Distribution
+    - Bash shell
+    - Wizards
