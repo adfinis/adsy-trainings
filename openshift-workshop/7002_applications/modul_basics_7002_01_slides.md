@@ -6,6 +6,7 @@
 Container Orchestration and Platform as a Service Solution
 Automates the deployment and management of containers
 
+---
 
 ## oc new-app
 
@@ -28,6 +29,8 @@ Supports different sources
 
 
 # Compare builds
+
+---
 
 ## Source to Image (S2I)
 Image is built from sources
@@ -81,6 +84,8 @@ oc get templates -n openshift
 ```
 
 # Application Management
+
+---
 
 ## Scaling
 Increase in the number of replicas of a Pod
