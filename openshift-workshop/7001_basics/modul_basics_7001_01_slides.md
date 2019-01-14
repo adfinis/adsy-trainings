@@ -138,6 +138,7 @@ Requests for persistent Storage
 Transform input parameters or source code into a runnable image
 
 Possible sources:
+
 * Image, Source, Binary, ...
 * Builds are written in Image Stream
 
