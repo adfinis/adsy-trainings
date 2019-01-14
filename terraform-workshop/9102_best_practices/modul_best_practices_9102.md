@@ -163,6 +163,8 @@ terraform {
 ```
 
 ## Backend Types (remote, without locking)
+NOT RECOMMENDED!
+
 * artifactory
 * etcd
 * swift
@@ -190,7 +192,7 @@ backend "etcdv3" {
 `terraform validate` validates the syntax of terraform files.
 
 ## Styling
-`terraform fmt` rewrites files in correct style and format.
+`terraform fmt` rewrites files in correct style and format. Configure your editor to do it automatically on save!
 
 ## Testing
 Terraform provides [unit](https://www.terraform.io/docs/extend/testing/unit-testing.html) and [acceptance](https://www.terraform.io/docs/extend/testing/acceptance-tests/index.html) tests for providers in Go. To test your infrastructure you have to rely on third-party software:
