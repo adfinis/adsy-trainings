@@ -131,7 +131,7 @@ module "kubernetes" {
 Uses <https://registry.terraform.io/modules/coreos/kubernetes/azurerm/1.8.9-tectonic.1>
 
 ## Build your own module
-Just put everything that belogs together in a directory, use local variables and...
+Just put everything that belongs together in a directory, use local variables and...
 
 ## Build your own module
 ...include it:
@@ -148,6 +148,7 @@ module "my-module" {
 State is a necessary requirement for Terraform to function. 
 
 Reasons:
+
 * Map resources in config to real-world objects
 * Store metadata
 * Perform better
@@ -195,23 +196,23 @@ backend "etcdv3" {
 `terraform fmt` rewrites files in correct style and format. Configure your editor to do it automatically on save!
 
 ## Testing
-Terraform provides [unit](https://www.terraform.io/docs/extend/testing/unit-testing.html) and [acceptance](https://www.terraform.io/docs/extend/testing/acceptance-tests/index.html) tests for providers in Go. To test your infrastructure you have to rely on third-party software:
+Terraform provides [unit](https://www.terraform.io/docs/extend/testing/unit-testing.html) and [acceptance](https://www.terraform.io/docs/extend/testing/acceptance-tests/index.html) tests for providers in Go. To test your infrastructure you have to rely on third-party software.
 
 ## Integration Testing
 
-* kitchen-terraform (https://github.com/newcontext-oss/kitchen-terraform)
-* Goss (https://github.com/aelsabbahy/goss)
+* [kitchen-terraform](https://github.com/newcontext-oss/kitchen-terraform)
+* [Goss](https://github.com/aelsabbahy/goss)
 
 ## Unit Testing
 
-* Terratest (https://github.com/gruntwork-io/terratest)
-* Rspec-terraform (https://github.com/bsnape/rspec-terraform)
+* [Terratest](https://github.com/gruntwork-io/terratest)
+* [Rspec-terraform](https://github.com/bsnape/rspec-terraform)
 
 
 # Attribution / License
 
 * Slides
-Adfinis SyGroup AG, 2017, Attribution-NonCommercial 2.0
+Adfinis SyGroup AG, 2019, Attribution-NonCommercial 2.0
 (CC BY-NC 2.0)
 
 ---
