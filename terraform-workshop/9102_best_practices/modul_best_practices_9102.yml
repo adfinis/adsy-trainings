@@ -1,0 +1,27 @@
+---
+
+Name: Best Practices
+
+Area: Terraform
+
+ID: 9102
+
+Sources:
+    - External_URLs:
+        - https://www.terraform.io/docs
+        - https://www.terraform.io/docs/enterprise/workspaces/repo-structure.html
+        - https://www.terraform-best-practices.com
+
+Documents:
+    - Presentation: modul_best_practices_9102_01_slides.html
+
+Duration: 2h
+
+Description: >
+    This workshop gives more insight on how terraform can and propably should
+    be used. It covers the structure of VCS repositories, usage of modules and
+    other advanced topics.
+
+Requirements:
+    - Bash shell
+    - Terraform
