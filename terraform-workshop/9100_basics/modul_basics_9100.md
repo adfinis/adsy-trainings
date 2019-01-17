@@ -182,7 +182,7 @@ data "azurerm_public_ip" "mypubip" {
   resource_group_name   = "${azurerm_virtual_machine.myhost-01.resource_group_name}"
 }
 ```
-Defines a data source that can be reused. Must be unique in combination of <TYPE> and <NAME>.
+Defines a data source that can be reused. Must be unique in combination of &lt;TYPE&gt; and &lt;NAME&gt;.
 
 <small><https://www.terraform.io/docs/configuration/data-sources.html></small>
 
