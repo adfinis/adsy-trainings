@@ -2,17 +2,53 @@
 
 Be smart. Think open source.
 
-# Module Skeleton
+# Introduction to SUSE CAP 
 
 
+## What is SUSE CAP
 
-# Attribution / License
+* SUSE **C**loud **A**pplication **P**lattform
+* CloudFoundry on SUSE CaasP or native K8s
+* installed and configured via Helm Charts
+* Hosting of cf applications
+* specifically for stateless/12f apps
 
-* Slide Skeleton https://de.wikipedia.org/wiki/Skeleton_(Programmierung)
+## What is not SUSE CAP
 
-* Slides
-Adfinis SyGroup AG, 2017, Attribution-NonCommercial 2.0
-(CC BY-NC 2.0)
+* Kubernetes 
+* Hosting of self built Containers
+* CloudFoundry Standalone on VMs
+* Hosting of databases
+ 
+## For what is it useful?
+
+* Easy deployment of applications for devs
+* Deployment from source code using buildpacks
+* Kinda like Heroku
+
+## How to install it?
+
+* Through Helm Charts created by SUSE
+* Deployment of CloudFoundry and UAA are separate
+* Optional deployment of Stratos UI
+
+## How to interact with it?
+
+* Through Stratos UI
+* Through CloudFoundry CLI 
+
+## Deployment steps
+
+* Doc: https://www.suse.com/documentation
+* edit **scf-config-values.yaml**
+* Chart Repo: kubernetes-charts.suse.com
+* UAA Chart: **suse/uaa**
+* CloudFoundry Chart: **suse/cf**
+* Stratos Chart: **suse/console**
+
+## Demo
+
+Deployment on Azure AKS 
 
 ---
 

@@ -2,18 +2,30 @@
 
 Be smart. Think open source.
 
-# Module Skeleton
+# Components of SUSE CAP 
 
 
+## UAA
 
-# Attribution / License
+* User Account and Authentication Server
+* Database for state
+* Attachment to LDAP optional
+* Checks if user are authenticated and authorized
 
-* Slide Skeleton https://de.wikipedia.org/wiki/Skeleton_(Programmierung)
+## Cloud Controller 
 
-* Slides
-Adfinis SyGroup AG, 2017, Attribution-NonCommercial 2.0
-(CC BY-NC 2.0)
+* Mail component of CloudFoundry
+* Database for state
+* Communicating with Diego for 
 
+## Whole picture
+
+![](static/CloudFoundry.png)
+
+
+## Diego flow
+
+![](static/diego-flow.png)
 ---
 
 ## Feel Free to Contact Us
