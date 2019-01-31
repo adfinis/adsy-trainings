@@ -17,7 +17,7 @@ Be smart. Think open source.
 
 * Kubernetes 
 * Hosting of self built Containers
-* CloudFoundry Standalone on VMs
+* standalone CloudFoundry  on VMs
 * Hosting of databases
  
 ## For what is it useful?
