@@ -13,7 +13,7 @@ Be smart. Think open source.
 * Hosting of cf applications
 * specifically for stateless/12f apps
 
-## What is not SUSE CAP
+## What SUSE CAP is not 
 
 * Kubernetes 
 * Hosting of self built Containers
