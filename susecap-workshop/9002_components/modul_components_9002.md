@@ -9,7 +9,7 @@ Be smart. Think open source.
 
 * User Account and Authentication Server
 * Database for state
-* Attachment to LDAP optional
+* Attachment to LDAP or other IAM solutions optional
 * Checks if user are authenticated and authorized
 
 ## Cloud Controller 
