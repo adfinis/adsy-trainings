@@ -14,7 +14,7 @@ Be smart. Think open source.
 
 ## Cloud Controller 
 
-* Mail component of CloudFoundry
+* Mail component of Cloud Foundry
 * Database for state
 * Communicating with Diego for building/deploying apps
 

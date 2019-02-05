@@ -8,7 +8,7 @@ Be smart. Think open source.
 ## What is SUSE CAP
 
 * SUSE **C**loud **A**pplication **P**lattform
-* CloudFoundry on SUSE CaasP or native K8s
+* Cloud Foundry on SUSE CaasP or native K8s
 * installed and configured via Helm Charts
 * Hosting of cf applications
 * specifically for stateless/12f apps
@@ -17,7 +17,7 @@ Be smart. Think open source.
 
 * Kubernetes 
 * Hosting of self built Containers
-* standalone CloudFoundry on VMs
+* standalone Cloud Foundry on VMs
 * Hosting of databases
  
 ## For what is it useful?
@@ -29,13 +29,13 @@ Be smart. Think open source.
 ## How to install it?
 
 * Using Helm Charts created by SUSE
-* Deployment of CloudFoundry and UAA server are independent charts
+* Deployment of Cloud Foundry and UAA server are independent charts
 * Optional deployment of Stratos UI for Cloud Foundry management
 
 ## How to interact with it?
 
 * Through Stratos UI
-* Through CloudFoundry CLI 
+* Through Cloud Foundry CLI 
 
 ## Deployment steps
 
@@ -43,7 +43,7 @@ Be smart. Think open source.
 * edit **scf-config-values.yaml**
 * Chart Repo: kubernetes-charts.suse.com
 * UAA Chart: **suse/uaa**
-* CloudFoundry Chart: **suse/cf**
+* Cloud Foundry Chart: **suse/cf**
 * Stratos Chart: **suse/console**
 
 ## Demo
