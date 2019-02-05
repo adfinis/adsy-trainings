@@ -30,7 +30,7 @@ Be smart. Think open source.
 
 * Through Helm Charts created by SUSE
 * Deployment of CloudFoundry and UAA server are independent charts
-* Optional deployment of Stratos UI
+* Optional deployment of Stratos UI for Cloud Foundry management
 
 ## How to interact with it?
 
