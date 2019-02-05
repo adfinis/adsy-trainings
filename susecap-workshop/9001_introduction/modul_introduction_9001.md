@@ -28,7 +28,7 @@ Be smart. Think open source.
 
 ## How to install it?
 
-* Through Helm Charts created by SUSE
+* Using Helm Charts created by SUSE
 * Deployment of CloudFoundry and UAA server are independent charts
 * Optional deployment of Stratos UI for Cloud Foundry management
 
