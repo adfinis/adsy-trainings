@@ -16,12 +16,31 @@ Be smart. Think open source.
 
 * Mail component of CloudFoundry
 * Database for state
-* Communicating with Diego for 
+* Communicating with Diego for building/deploying apps
+
+## Blobstore
+
+* Storing of application zip file
+* Stroring of droplets
+
+## Diego
+
+* building apps with Diego cells
+* creation of Diego cells for running applications
+
+## Route Emiter
+
+* Communication between diego cell and GoRouter
+* Telling the Router where to route a specific path/hostname
+
+## Metron / Doppler / Traffic Controller
+
+* Log aggregation
+* async log flow 
 
 ## Whole picture
 
 ![](static/CloudFoundry.png)
-
 
 ## Diego flow
 
