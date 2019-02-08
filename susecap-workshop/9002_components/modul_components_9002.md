@@ -45,6 +45,11 @@ Be smart. Think open source.
 ## Diego flow
 
 ![](static/diego-flow.png)
+
+## Diego flow
+
+![](static/app_push_flow_diagram_diego.png)
+
 ---
 
 ## Feel Free to Contact Us
