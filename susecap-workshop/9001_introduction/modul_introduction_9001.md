@@ -10,7 +10,8 @@ Be smart. Think open source.
 * SUSE **C**loud **A**pplication **P**lattform
 * Cloud Foundry on SUSE CaasP or native K8s
 * installed and configured via Helm Charts
-* Hosting of cf applications
+* PaaS for applications
+* Code deployment
 * specifically for stateless/12f apps
 
 ## What SUSE CAP is not 
