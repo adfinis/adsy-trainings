@@ -19,8 +19,7 @@ build-docs:
     - cat .git/config
     - git submodule init
     - git submodule update
-    - mkdir build
-    - adsy-trainings-common.src/training-builder.py --root=. --commons=adsy-trainings-common.src --build-dir=build --ignore=skeleton
+    - make build
   artifacts:
     paths:
       - build/*
