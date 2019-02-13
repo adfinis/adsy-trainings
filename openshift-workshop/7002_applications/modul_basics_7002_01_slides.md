@@ -1,4 +1,4 @@
-% Kubernetes Basics
+% OpenShift Applications
 % Lukas Grossar & Cyrill von Wattenwyl
 
 # OpenShift Applications
@@ -163,7 +163,8 @@ Only one version of the application in operation!
 ## Lifecycle Hooks
 Rolling and Recreate offer Hooks
 
-rolling
+Rolling
+
 * pre
 * post
 
@@ -175,7 +176,7 @@ Recreate
 
 ## Best practices
 
-configure readinessProbe and livenessProbe
+Configure readinessProbe and livenessProbe
 
 **readinessProbe**
 
