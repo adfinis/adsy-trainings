@@ -218,6 +218,14 @@ Deletion of resources
 oc delete rc/nodejs-ex
 ```
 
+## oc explain
+
+```bash
+# List all types on server
+oc explain
+# Get info on specific type
+oc explain networkpolicies
+```
 
 ## oc adm
 
