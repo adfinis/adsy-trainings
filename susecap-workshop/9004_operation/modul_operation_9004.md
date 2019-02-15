@@ -247,6 +247,62 @@ Can be found inside the container under `/var/vcap/sys/log/$packagename`
 
 ---
 
+## Garden 
+
+--- 
+
+## How to access a single garden instance
+
+```
+$ cf app cf-spring --guid
+2020d982-a170-4cdf-8e1d-1127fc659edf
+```
+
+##  Get into the diego-cell 
+
+```
+$ kubectl exec -it diego-cell-0 /bin/bash
+diego-cell/0:/# su - vcap
+diego-cell/0:~$ 
+```
+
+## Ask BBS for instance_id for App
+ 
+```
+diego-cell/0:~$ cfdot actual-lrp-groups | grep 2020d982-a170-4cdf-8e1d-1127fc659edf  | jq '.instance.instance_guid'
+"1990a00c-42ae-4477-5557-af9f"
+"63c9b0ee-ce2d-45c4-57ab-3934"
+"1ff186b2-c244-41ee-662b-bd13"
+```
+
+## List runc instances with root user
+
+```
+diego-cell/0:/# /var/vcap/packages/runc/bin/runc list
+ID                             PID         STATUS      BUNDLE                                                     CREATED                          OWNER
+06e51ab2-727c-441b-5ad1-1d5b   2322136     running     /var/vcap/data/garden/depot/06e51ab2-727c-441b-5ad1-1d5b   2019-02-14T08:48:11.410755101Z   root
+1990a00c-42ae-4477-5557-af9f   6888        running     /var/vcap/data/garden/depot/1990a00c-42ae-4477-5557-af9f   2019-02-08T15:31:58.350017751Z   root
+1ff186b2-c244-41ee-662b-bd13   2948443     running     /var/vcap/data/garden/depot/1ff186b2-c244-41ee-662b-bd13   2019-02-15T15:01:37.875633518Z   root
+63c9b0ee-ce2d-45c4-57ab-3934   2948438     running     /var/vcap/data/garden/depot/63c9b0ee-ce2d-45c4-57ab-3934   2019-02-15T15:01:37.779775766Z   root
+```
+
+## Access container with runc exec
+
+```
+diego-cell/0:/# /var/vcap/packages/runc/bin/runc exec -t 1ff186b2-c244-41ee-662b-bd13 /bin/bash
+bash-4.3# ps axu
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.0   1032     4 ?        Ss   15:01   0:00 /tmp/garden-init
+vcap           7  0.0  0.0  21576  3172 ?        Ss   15:01   0:00 bash /home/vcap/app/.java-buildpack/spring_boot_cli/bin/spring run -cp /home/vcap/app/.java-buildpack/client_certificate_mapper/client_certificate_mapper-1.3.0_RELEASE.jar app.groovy
+vcap          13  0.0  0.1  13732  8548 ?        Ssl  15:01   0:00 /tmp/lifecycle/diego-sshd --allowedKeyExchanges= --address=0.0.0.0:2222 --allowUnauthenticatedClients=false --inheritDaemonEnv=true --allowedCiphers= --allowedMACs= --logLevel=fatal --debugAddr=
+vcap          42  1.6  3.2 1752220 234536 ?      Sl   15:01   0:17 /home/vcap/app/.java-buildpack/open_jdk_jre/bin/java -agentpath:/home/vcap/app/.java-buildpack/open_jdk_jre/bin/jvmkill-1.11.0_RELEASE=printHeapHistogram=1 -Djava.io.tmpdir=/home/vcap/tmp -Djava.ext.dirs=/ho
+root         480  0.0  0.0  21692  3520 pts/0    Ss   15:19   0:00 /bin/bash
+root         488  0.0  0.0  45184  3716 pts/0    R+   15:19   0:00 ps axu
+```
+
+
+---
+
 ## Feel Free to Contact Us
 
 [www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
