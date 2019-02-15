@@ -2,19 +2,61 @@
 
 Be smart. Think open source.
 
-# Module Skeleton
+# Outlook SUSE CAP
+
+## Project Eirini
+
+![](static/eirini.png)
 
 
+##  What is Eirini
 
-# Attribution / License
+* Eirini is a Kubernetes backend for Cloud Foundry
+* It deploys CF apps to a kube backend, using OCI images and Kube deployments.
 
-* Slide Skeleton https://de.wikipedia.org/wiki/Skeleton_(Programmierung)
+##  Erini flow
 
-* Slides
-Adfinis SyGroup AG, 2017, Attribution-NonCommercial 2.0
-(CC BY-NC 2.0)
+* nice integrated `cf push` flow
+* CF apps are mapped directy to kube `StatefulSet`
+
+--- 
+
+## Components
+
+--- 
+
+## Orchestrator Provider Interface (OPI)
+
+* Abstraction layer for Cloud Foundry's Control Plane
+* Makes Eirini a generic backend for any Scheduler
+* Diego/Kube/Swarm as long as OPI integration is implemented
+
+## Bifrost
+
+* Converting of CC Requests to OPI specific objects
+* Makes Apps run in K8s
+
+## Stager
+
+* Staging by running K8s/OPI one-off tasks
+
 
 ---
+
+
+## Deployment instructions 
+
+* https://github.com/cloudfoundry-incubator/eirini-release 
+* Done with Helm
+* `helm install eirini/uaa`
+* `helm install eirini/cf`
+
+## Further informations
+
+https://github.com/cloudfoundry-incubator/eirini
+
+
+--- 
 
 ## Feel Free to Contact Us
 

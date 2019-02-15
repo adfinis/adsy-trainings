@@ -201,6 +201,63 @@ suse/uaa                      2.14.5  A Helm chart for SUSE UAA
 
 ## Demo
 
+---
+
+# Pods UAA
+
+* uaa
+* mysql
+
+# Pods CF
+
+* adapter
+* api
+* blobstore
+* cc-clock
+* cc-uploader
+* cc-worker
+* cf-usb
+* diego-access
+
+# Pods CF
+
+* diego-api
+* diego-brain
+* diego-cell
+* doppler
+* log-api
+* mysql
+* nats
+
+# Pods CF
+
+* nfs-broker
+* postgres
+* router
+* routing-api
+* syslog-scheduler
+* tcp-router
+
+--- 
+
+# Jobs UAA
+
+* post-deployment-setup
+
+---
+
+# Jobs CF
+
+* post-deployment-setup
+* secret-generation
+
+--- 
+
+# Pods Stratos
+
+* console
+* console-mariadb
+
 
 ---
 
