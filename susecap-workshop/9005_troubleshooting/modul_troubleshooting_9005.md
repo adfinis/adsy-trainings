@@ -2,17 +2,8 @@
 
 Be smart. Think open source.
 
-# Module Skeleton
+# Troubleshooting
 
-
-
-# Attribution / License
-
-* Slide Skeleton https://de.wikipedia.org/wiki/Skeleton_(Programmierung)
-
-* Slides
-Adfinis SyGroup AG, 2017, Attribution-NonCommercial 2.0
-(CC BY-NC 2.0)
 
 ---
 

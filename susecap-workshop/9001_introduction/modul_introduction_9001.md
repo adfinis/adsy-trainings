@@ -47,10 +47,6 @@ Be smart. Think open source.
 * Cloud Foundry Chart: **suse/cf**
 * Stratos Chart: **suse/console**
 
-## Demo
-
-Deployment on Azure AKS 
-
 ---
 
 ## Feel Free to Contact Us

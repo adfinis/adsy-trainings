@@ -19,11 +19,7 @@ Be smart. Think open source.
 * nice integrated `cf push` flow
 * CF apps are mapped directy to kube `StatefulSet`
 
---- 
-
 ## Components
-
---- 
 
 ## Orchestrator Provider Interface (OPI)
 
@@ -39,9 +35,6 @@ Be smart. Think open source.
 ## Stager
 
 * Staging by running K8s/OPI one-off tasks
-
-
----
 
 
 ## Deployment instructions 

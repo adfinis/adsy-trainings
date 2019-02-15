@@ -4,11 +4,9 @@ Be smart. Think open source.
 
 # Installation of SUSE CAP
 
----
 
 ## Preparations
 
----
 
 ## on SUSE CaaSP
 
@@ -45,7 +43,7 @@ Be smart. Think open source.
 * 40GB disk space per dashboard and master nodes
 * 60GB disk space per worker. 
 
-## Installation
+# Installation
 
 ## Storage Class
 
@@ -58,11 +56,8 @@ kubectl patch storageclass myStorageClass \
 * test the storage class by creating PVCs
 * check if a PersistentVolume was created 
 
----
 
-## Configuration
-
----
+# Configuration
 
 ## scf-config-values.yaml
 
@@ -199,16 +194,16 @@ suse/uaa                      2.14.5  A Helm chart for SUSE UAA
 > watch -c 'kubectl get pods --namespace stratos'
 ```
 
-## Demo
+# Demo
 
----
 
-# Pods UAA
+
+## Pods UAA
 
 * uaa
 * mysql
 
-# Pods CF
+## Pods CF
 
 * adapter
 * api
@@ -219,7 +214,7 @@ suse/uaa                      2.14.5  A Helm chart for SUSE UAA
 * cf-usb
 * diego-access
 
-# Pods CF
+## Pods CF
 
 * diego-api
 * diego-brain
@@ -229,7 +224,7 @@ suse/uaa                      2.14.5  A Helm chart for SUSE UAA
 * mysql
 * nats
 
-# Pods CF
+## Pods CF
 
 * nfs-broker
 * postgres
@@ -238,22 +233,17 @@ suse/uaa                      2.14.5  A Helm chart for SUSE UAA
 * syslog-scheduler
 * tcp-router
 
---- 
-
-# Jobs UAA
+## Jobs UAA
 
 * post-deployment-setup
 
----
-
-# Jobs CF
+## Jobs CF
 
 * post-deployment-setup
 * secret-generation
 
---- 
 
-# Pods Stratos
+## Pods Stratos
 
 * console
 * console-mariadb

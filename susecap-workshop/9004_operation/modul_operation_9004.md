@@ -2,11 +2,9 @@
 
 Be smart. Think open source.
 
-# Operations / Administration
+# Operation
 
 ##  Buildpacks
-
---- 
 
 ## Add custom buildpacks
 
@@ -28,7 +26,7 @@ Be smart. Think open source.
 
 `cc.disable_custom_buildpacks = true`
 
----
+## Users
 
 ## Managing Users
 
@@ -52,8 +50,6 @@ $ uaac user add Adam -p newAdminSecretPassword --emails newadmin@example.com
 $ uaac member add cloud_controller.admin Adam
 $ uaac member add uaa.admin Adam
 ```
-
----
 
 ## Quotas
 
@@ -97,8 +93,6 @@ $ cf update-quota small -i 2048M \
 * ` cf create-space-quota`
 * ` cf update-space-quota`
 
----
-
 ##  Application Security Groups
 
 ## View ASG
@@ -134,7 +128,7 @@ $ cf create-security-group my-asg my-asg.json
 $ cf bind-staging-security-group my-asg
 $ cf bind-running-security-group my-asg
 ```
----
+
 ## Feature Flags
 
 ```
@@ -165,11 +159,24 @@ $ cf enable-feature-flag user_org_creation
 $ cf disable-feature-flag user_org_creation
 ```
 
+## Delete Buildpack cache through blobstore API
 
+```
+$ cf curl -X DELETE /v2/blobstores/buildpack_cache
+{
+   "metadata": {
+      "guid": "acdb8e1d-aeaf-4f13-963e-81839532766f",
+      "created_at": "2019-02-15T15:29:16Z",
+      "url": "/v2/jobs/acdb8e1d-aeaf-4f13-963e-81839532766f"
+   },
+   "entity": {
+      "guid": "acdb8e1d-aeaf-4f13-963e-81839532766f",
+      "status": "queued"
+   }
+}
+```
 
 # Kubernetes
-
----
 
 ## Fissile translation
 
@@ -245,11 +252,9 @@ curl -s -u admin:${MONIT_PASSWORD} http://127.0.0.1:${monit_port}/_status | gawk
 
 Can be found inside the container under `/var/vcap/sys/log/$packagename`
 
----
 
-## Garden 
+# Garden 
 
---- 
 
 ## How to access a single garden instance
 

@@ -140,7 +140,6 @@ Be smart. Think open source.
 * Launcher
 * Healthcheck
 
---- 
 
 ## Simple whole picture
 
