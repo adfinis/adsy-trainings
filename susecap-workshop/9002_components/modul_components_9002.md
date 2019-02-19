@@ -24,7 +24,7 @@ Be smart. Think open source.
 
 ## Cloud Controller 
 
-* Mail component of Cloud Foundry
+* Main component of Cloud Foundry
 * Directs deployment of applications
 * Database for state
 * Communicating with Diego for building/deploying apps through CC-Bridge
@@ -49,12 +49,12 @@ Be smart. Think open source.
 
 ## Cell Rep
 
-* Monitors containrees and provieds ActualLRP
+* Monitors containers and provieds ActualLRP
 
 ## Blobstore
 
 * Repository for large binary files
-* Application code packges
+* Application code packages
 * Buildpacks
 * Droplets
 
