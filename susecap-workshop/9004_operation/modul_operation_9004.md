@@ -184,7 +184,7 @@ Because of fissile, CloudFoundry is just "translated" to K8s and not a native ap
 
 ## This means
 
-* Logs of components are note accessible via log stream
+* Logs of components are not accessible via `kubectl logs`
 * A lot of kubectl exec bash
 
 ## Container structure
