@@ -45,7 +45,7 @@ Be smart. Think open source.
 ## BBS
 
 * Monitors DesiredLRP with ActualLRP
-* Launches/Kills instances 
+* Starts/stops instances as required
 
 ## Cell Rep
 
