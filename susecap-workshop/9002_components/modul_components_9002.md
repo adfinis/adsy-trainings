@@ -49,7 +49,8 @@ Be smart. Think open source.
 
 ## Cell Rep
 
-* Monitors containers and provieds ActualLRP
+* Monitors running containers
+* Provides information regarding ActualLRP
 
 ## Blobstore
 
