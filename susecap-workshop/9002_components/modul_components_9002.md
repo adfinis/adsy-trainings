@@ -39,7 +39,7 @@ Be smart. Think open source.
 
 ## nsync
 
-* Rececives messages from CC when app is being scaled
+* Receives notification from CC when app is being scaled
 * Writes DesiredLRP into BBS
 
 ## BBS
