@@ -189,7 +189,7 @@ Because of fissile, CloudFoundry is just "translated" to K8s and not a native ap
 
 ## Container structure
 
-* Entrypoint: dumb-init /opt/fissile/run.sh
+* Entrypoint: `dumb-init /opt/fissile/run.sh`
 * Starts monit
 * MonitRC under /var/vcap/monit/*monitrc
 * Monit starts cf packages according to configuration
