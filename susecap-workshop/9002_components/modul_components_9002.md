@@ -33,7 +33,7 @@ Be smart. Think open source.
 ## nsync, BBS and Cell reps
 
 * Constantly monitors state of applications 
-* Reconciele with expected state if needed
+* Reconciles with expected state if needed
 
 ![](static/app-monitor-sync-diego.png)
 
