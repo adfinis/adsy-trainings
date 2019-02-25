@@ -253,6 +253,89 @@ Defines terraform configuration.
 
 ---
 
+## meta-parameters
+Can be applied to all resource definitions regardless of type
+
+* count (not applicable to modules)
+* depends_on
+* provider
+* lifecycle
+  * create_before_destroy
+  * prevent_destroy
+  * ignore_changes
+
+
+## count (not applicable to modules)
+```hcl
+resource "azurerm_virtual_machine" "main" {
+  count = 3 # creates 3 virtual machines
+  name = "VM-${count.index}"
+}
+```
+
+Creates multiple instances of the resource
+
+## depends_on
+```hcl
+resource "azurerm_virtual_machine" "main" {
+  # forces creation of the network interface before the VM
+  depends_on = [ "${azurerm_network_interface.main}" ]
+}
+```
+
+Creates a dependency when default dependency management fails
+
+## provider
+```hcl
+provider "azurerm" {
+  alias = "us"
+  location = "westus"
+}
+
+resource "azurerm_virtual_machine" "us" {
+  # force usage of the westus-provider
+  provider = "azurerm.us"
+}
+```
+
+Specifies the provider to use. Makes most sense when the same provider is used multiple times (https://www.terraform.io/docs/configuration/resources.html#multiple-provider-instances)
+
+## lifecycle
+Lifecycle behaviour of the resource. Knows 3 attributes:
+
+* create_before_destroy
+* prevent_changes
+* ignore_changes
+
+## create_before_destroy
+```hcl
+resource "azurerm_dns_a_record" "website" {
+  create_before_destroy = true
+}
+```
+
+Force creation of a new resource *before* the old resource is deleted. Useful for example for DNS records.
+
+## prevent_destroy
+```hcl
+resource "azurerm_virtual_machine" "main" {
+  prevent_destroy = true
+}
+```
+
+Any plan that wants to destroy this resource will fail.
+
+## ignore_changes
+```hcl
+resource "azurerm_virtual_machine" "main" {
+  ignore_changes = [ "vm_size" ]
+}
+```
+
+When one of the specified attributes change no action will be taken.
+
+---
+
 ## Providers
 A provider connects terraform configuration with a corresponding API
 
