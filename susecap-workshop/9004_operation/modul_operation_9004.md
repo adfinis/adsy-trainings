@@ -40,7 +40,7 @@ Be smart. Think open source.
 
 ![](static/space-roles.png)
 
-## Using the UUA CLI for addin Admins
+## Using the UUA CLI for adding admins
 
 ```
 $ gem install cf-uaac
