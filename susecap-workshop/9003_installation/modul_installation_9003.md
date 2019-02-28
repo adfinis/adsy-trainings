@@ -18,7 +18,7 @@ Be smart. Think open source.
 
 * API v1.8+
 * swappaccount=1
-* Docker info shows aufs as storage driver
+* `docker info` shows aufs as storage driver
 * StorageClass already deployed
 * kube-dns running
 * ntp / systemd-timesync running
