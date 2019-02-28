@@ -278,8 +278,8 @@ Creates multiple instances of the resource
 ## depends_on (not applicable to modules)
 ```hcl
 resource "azurerm_virtual_machine" "main" {
-  # forces creation of the network interface before the VM
-  depends_on = [ "${azurerm_network_interface.main}" ]
+  # forces creation of module components before this VM
+  depends_on = [ "${module.aks.fqdn}" ]
 }
 ```
 
