@@ -189,7 +189,7 @@ Defines a data source that can be reused. Must be unique in combination of &lt;T
 ## provider
 ```hcl
 provider "azurerm" {
-  version     = "=1.20.0"
+  version     = "=1.23.0"
 }
 ```
 Defines providers to use. Version pinning is recommended.
@@ -257,7 +257,7 @@ Defines terraform configuration.
 Can be applied to all resource definitions regardless of type
 
 * count (not applicable to modules)
-* depends_on
+* depends_on (not applicable to modules)
 * provider
 * lifecycle
   * create_before_destroy
@@ -275,7 +275,7 @@ resource "azurerm_virtual_machine" "main" {
 
 Creates multiple instances of the resource
 
-## depends_on
+## depends_on (not applicable to modules)
 ```hcl
 resource "azurerm_virtual_machine" "main" {
   # forces creation of the network interface before the VM
@@ -290,6 +290,7 @@ Creates a dependency when default dependency management fails
 provider "azurerm" {
   alias = "us"
   location = "westus"
+  version = "~> 1.23.0"
 }
 
 resource "azurerm_virtual_machine" "us" {
@@ -318,7 +319,7 @@ Force creation of a new resource *before* the old resource is deleted. Useful fo
 
 ## prevent_destroy
 ```hcl
-resource "azurerm_virtual_machine" "main" {
+resource "azurerm_kubernetes_cluster" "main" {
   prevent_destroy = true
 }
 ```
@@ -327,7 +328,7 @@ Any plan that wants to destroy this resource will fail.
 
 ## ignore_changes
 ```hcl
-resource "azurerm_virtual_machine" "main" {
+resource "azurerm_kubernetes_cluster" "main" {
   ignore_changes = [ "vm_size" ]
 }
 ```
@@ -360,6 +361,7 @@ A provider connects terraform configuration with a corresponding API
 provider "github" {
   token         = "${var.github_token}"
   organization  = "${var.github_organization}"
+  version       = "~> 1.3"
 }
 
 resource "github_repository" "tf-example" {
