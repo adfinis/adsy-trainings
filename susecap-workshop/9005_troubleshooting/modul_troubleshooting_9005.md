@@ -67,7 +67,7 @@ api/0:/var/vcap/jobs/cloud_controller_ng# tail /var/vcap/sys/log/nginx_cc/nginx.
 If a replicaset is giving problems, try to set the replicas to #1
 
 ```
-$ kubectl edit replicaset/mysql
+$ kubectl scale statefulset/mysql --replicas 1
 ```
 
 troubleshoot on one single replicaset rather than on multiple instances
