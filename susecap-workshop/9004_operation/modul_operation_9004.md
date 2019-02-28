@@ -114,7 +114,7 @@ $ cf update-quota small -i 2048M \
     "destination": "10.0.11.0/24",
     "ports": "80,443",
     "log": true,
-    "description": "Allow http and https traffic from ZoneA"
+    "description": "Allow http and https traffic from any"
   }
 ]
 
