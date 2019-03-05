@@ -189,7 +189,7 @@ Defines a data source that can be reused. Must be unique in combination of &lt;T
 ## provider
 ```hcl
 provider "azurerm" {
-  version     = "=1.20.0"
+  version     = "=1.23.0"
 }
 ```
 Defines providers to use. Version pinning is recommended.
@@ -253,6 +253,90 @@ Defines terraform configuration.
 
 ---
 
+## meta-parameters
+Can be applied to all resource definitions regardless of type
+
+* count (not applicable to modules)
+* depends_on (not applicable to modules)
+* provider
+* lifecycle
+  * create_before_destroy
+  * prevent_destroy
+  * ignore_changes
+
+
+## count (not applicable to modules)
+```hcl
+resource "azurerm_virtual_machine" "main" {
+  count = 3 # creates 3 virtual machines
+  name = "VM-${count.index}"
+}
+```
+
+Creates multiple instances of the resource
+
+## depends_on (not applicable to modules)
+```hcl
+resource "azurerm_virtual_machine" "main" {
+  # forces creation of module components before this VM
+  depends_on = [ "${module.aks.fqdn}" ]
+}
+```
+
+Creates a dependency when default dependency management fails
+
+## provider
+```hcl
+provider "azurerm" {
+  alias = "us"
+  location = "westus"
+  version = "~> 1.23.0"
+}
+
+resource "azurerm_virtual_machine" "us" {
+  # force usage of the westus-provider
+  provider = "azurerm.us"
+}
+```
+
+Specifies the provider to use. Makes most sense when the same provider is used multiple times (https://www.terraform.io/docs/configuration/resources.html#multiple-provider-instances)
+
+## lifecycle
+Lifecycle behaviour of the resource. Knows 3 attributes:
+
+* create_before_destroy
+* prevent_changes
+* ignore_changes
+
+## create_before_destroy
+```hcl
+resource "azurerm_dns_a_record" "website" {
+  create_before_destroy = true
+}
+```
+
+Force creation of a new resource *before* the old resource is deleted. Useful for example for DNS records.
+
+## prevent_destroy
+```hcl
+resource "azurerm_kubernetes_cluster" "main" {
+  prevent_destroy = true
+}
+```
+
+Any plan that wants to destroy this resource will fail.
+
+## ignore_changes
+```hcl
+resource "azurerm_kubernetes_cluster" "main" {
+  ignore_changes = [ "vm_size" ]
+}
+```
+
+When one of the specified attributes change no action will be taken.
+
+---
+
 ## Providers
 A provider connects terraform configuration with a corresponding API
 
@@ -277,6 +361,7 @@ A provider connects terraform configuration with a corresponding API
 provider "github" {
   token         = "${var.github_token}"
   organization  = "${var.github_organization}"
+  version       = "~> 1.3"
 }
 
 resource "github_repository" "tf-example" {
