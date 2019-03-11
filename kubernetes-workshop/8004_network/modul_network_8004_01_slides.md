@@ -35,17 +35,22 @@ Introduction to the networking layers in Kubernetes
 * Used for Pod-Pod communication
 * Split into smaller subnets per host (/23)
 * Every pod receives an IP within the host subnet
+* CNI Network is implemented by the CNI Plugin
+* OpenShift uses OpenvSwitch across all nodes
+* some service mesh tools build on or supply the CNI stack
 
 ##
 
 ![](static/Kubernetes_Networking.svg "Kubernetes Networking Layers")
 
+<small><sup>*</sup>Example Ranges are from SUSE CaaS Platform</small>
+
 ## Service network
 
 * Virtual IP addresses for internal services (ClusterIP)
-* Not attached to any interfaces
 * Managed by `kube-proxy`
 * Visible in `iptables` configuration
+* Not attached to any interfaces, just a redirect chain in iptables
 
 ## Network flow
 
@@ -54,6 +59,13 @@ Introduction to the networking layers in Kubernetes
 ## Network flow for ClusterIP
 
 ![](static/kubernetes_service_network.png "Kubernetes ClusterIP Network Flow")
+
+##
+
+* Traffic from client process lands on pod veth0
+* Gets routed through iptables managed by kube-proxy
+* Target service IP only lives as a forward in iptables
+* iptables forwards service traffic to the target Pod interface
 
 ---
 
@@ -77,9 +89,9 @@ Two types of services allow external access
 ## LoadBalancer
 
 * Requests an external loadbalancer
-* Mostly relevant for cloud environments
+* Mostly relevant for cloud environments and non trivial (ie. production) on-prem deploys
 
-## Ingressᵝ API
+## Ingress API
 
 * Requires deployment of an Ingress controller
 * API covers functionality of L7 loadbalancer

@@ -138,7 +138,13 @@ metric_name{label="value"}[5m]
 [Filters](https://prometheus.io/docs/prometheus/latest/querying/functions/) can be applied to vectors.
 
 ```
-predict_linear(http_requests_total{namespace="default",service="wp-wordpress"}[5m], 24*3600)
+predict_linear(
+  http_requests_total{
+    namespace="default",
+    service="wp-wordpress"
+  }[5m],
+  24*3600
+)
 ```
 
 ---
