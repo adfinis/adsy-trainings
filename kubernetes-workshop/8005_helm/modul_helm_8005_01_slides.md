@@ -159,7 +159,7 @@ Let's see how values get populated with a simple template.
 echo  '{{ .Values.hello.world }}' > templates/hello.tpl
 ```
 
-## Default values are in a the charts `values.yaml`
+## Default values are in the charts `values.yaml`
 
 ```yaml
 # values.yaml

@@ -1,6 +1,10 @@
 % Helm
 % Lucas Bickel
 
+![](static/adfinis_sygroup_logo.png)
+
+Be smart. Think open source.
+
 # ![](static/helm_logo_transparent.png)
 
 ---
@@ -15,9 +19,9 @@ Think of it like apt/yum/homebrew for Kubernetes.
 
 ## Why Helm?
 
-* De-facto standard for templating k8s configs 
+* De-facto standard for templating k8s configs
 * Official Kubernetes project maintained by CNCF
-* Repeatable application installations 
+* Repeatable application installations
 * Painless updates
 * Ships with ready to use charts made by the community
 * best practices are baked into offical charts
@@ -32,8 +36,6 @@ Think of it like apt/yum/homebrew for Kubernetes.
 
 # Helm Basics
 
----
-
 ## Architecture
 
 * helm client
@@ -44,6 +46,9 @@ Think of it like apt/yum/homebrew for Kubernetes.
 ```bash
 # deploy tiller to kube-system namespace
 helm init
+# use the `-c` flag if your cluster admin has already deployed
+# and configured tiller for you, this prepares ~/.helm
+helm init -c
 # Deploy a postgresql instance
 helm install stable/postgresql
 ```
@@ -91,14 +96,14 @@ Prometheus!
 
 ```bash
 # simulate rollback
-helm rollback --dry-run my-release old-version 
+helm rollback --dry-run my-release old-version
 # actual rollback
 helm rollback my-release old-version
 ```
 
 # Writing helm charts
 
-----
+## Intialize empty Chart
 
 ```bash
 helm create my-app
@@ -130,7 +135,7 @@ templates.
 * Dasherize file names
 * Reflect resource kind in names
 
----
+## Naming Examples
 
 | Good | Bad |
 | ---- | --- |
@@ -146,7 +151,7 @@ templates.
 
 A complete list is in the [Helm docs](https://docs.helm.sh/chart_template_guide/#built-in-objects)
 
----
+## Release and Chart Variables
 
 ```
 # Current release
@@ -166,7 +171,7 @@ Let's see how values get populated with a simple template.
 echo  '{{ .Values.hello.world }}' > templates/hello.tpl
 ```
 
-## Default values are in a the charts `values.yaml`
+## Default values are in the charts `values.yaml`
 
 ```yaml
 # values.yaml
@@ -174,7 +179,7 @@ hello:
   world: Hello!
 ```
 ```bash
-helm template . -x templates/hello.yaml 
+helm template . -x templates/hello.yaml
 ```
 ```
 ---
@@ -277,12 +282,12 @@ helm get manifest my-release
 ## Named Templates
 
 * `define` declares a new named template inside of your template
-* `template` imports a named template
+* `include` uses a named template
 * `block` declares a special kind of fillable template area
 
 Templates are usually defined in `templates/_helpers.tpl`
 
----
+## The `name` Template
 
 ```
 {{/*
@@ -293,7 +298,7 @@ Expand the name of the chart.
 {{- end -}}
 ```
 
----
+## The `fullname` Template
 
 ```
 {{/*
@@ -306,13 +311,15 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- end -}}
 ```
 
----
+The `fullname` template is usually used as part of the in-cluster DNS name.
+
+## Using Named Templates
 
 ```
 metadata:
-  name: {{ template "my-chart.fullname" . }}
+  name: {{ include "my-chart.fullname" . }}
   labels:
-    app: {{ template "my-chart.name" . }}
+    app: {{ include "my-chart.name" . }}
 ```
 ```
 metadata:
@@ -321,7 +328,65 @@ metadata:
     app: mychart
 ```
 
-## Demo: Let's write some infra
+## Helm Hooks
+
+* Hook can be used to hook into the install, update and delete lifecycle
+* Hooks are regular templates
+* They are created using annotations
+* You should opt to put them into the `templates/hooks` subdir
+* Availability depends on helm version
+
+## Hook annotations
+
+```yaml
+metadata:
+  annotations:
+    "helm.sh/hook": "<hook-type>"
+```
+
+## Install Hooks
+
+* pre-install
+* post-install
+
+## Upgrade Hooks
+
+* pre-upgrade
+* post-upgrade
+
+## Rollback Hooks
+
+* pre-rollback
+* post-rollback
+
+## Delete Hooks
+
+* pre-delete
+* post-delete
+
+## CRD Hooks
+
+* crd-install
+
+Used on Custom Resource Definitions to ensure that they are
+defined before they are used by other manifests in the chart.
+
+## Test Hooks
+
+* test-success
+
+## Additional Annotations
+
+```yaml
+metadata:
+  annotations:
+    "helm.sh/hook-weight": "<num>"
+    "helm.sh/hook-delete-policy": "before-hook-creation,hook-succeeded"
+```
+
+# Demo: Let's write some infra
+
+---
 
 In this example we will create a chart for glances.
 
@@ -356,9 +421,8 @@ image:
   # path to docker hub container
   repository: nicolargo/glances
 service:
-  # match ports to EXPOSE from image
-  externalPort: 61208
-  internalPort: 61208
+  # match port to EXPOSE from image
+  port: 61208
 ```
 
 ## templates/deployment.yaml
@@ -444,6 +508,18 @@ global:
 
 **Please plan ahead when using globals or don't use them at all. Official charts rarely use them.**
 
+## Using your own Starter
+
+You can supply you own starter for `helm create`.
+
+```bash
+mkdir -p ~/.helm/starters/my-starter/templates
+cd ~/.helm/starters/my-starter
+vim templates/deployment.yaml
+cd ~/git.repos/
+helm create -p my-starter my-chart
+```
+
 ## Managing vendor specific resources
 
 Helm can be used to manage any resources that are available through a k8s
@@ -463,4 +539,19 @@ spec:
 
 More infos are on the [OpenShift blog](https://blog.openshift.com/getting-started-helm-openshift/).
 
+# Thanks
 
+---
+## Slides
+
+These slides may be found on [ad-sy.ch/helm-training](https://ad-sy/helm-training).
+
+## Feel free to Contact us
+
+[www.adfinis-sygroup.ch](https://www.adfinis-sygroup.ch)
+
+[GitHub](https://github.com/adfinis-sygroup)
+
+<info@adfinis-sygroup.ch>
+
+[Twitter](https://twitter.com/adfinissygroup)
