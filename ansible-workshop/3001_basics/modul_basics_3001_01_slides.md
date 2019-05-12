@@ -366,8 +366,8 @@ nginx_server_name: "{{ ansible_fqdn }}"
 ```yaml
 - name: install nginx
   package:
-    name="{{ nginx_packages }}"
-    state=present
+    name: "{{ nginx_packages }}"
+    state: present
 ```
 
 ## Scope

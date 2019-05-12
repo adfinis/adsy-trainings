@@ -30,7 +30,7 @@ Install Ansible on your machine:
 $ sudo yum install ansible
 ```
 
-* Debain & Ubuntu
+* Debian & Ubuntu
 
 ```bash
 $ sudo apt-get install ansible
