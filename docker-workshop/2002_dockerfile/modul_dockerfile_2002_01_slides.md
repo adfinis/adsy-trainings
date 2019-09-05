@@ -253,6 +253,14 @@ fi
 exec "$@"
 ```
 
+## WORKDIR
+
+The `WORKDIR` instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile. 
+
+```dockerfile
+WORKDIR /app
+```
+
 ## More questions?
 
 See the full documentation at [https://docs.docker.com/engine/reference/builder/](https://docs.docker.com/engine/reference/builder/)
