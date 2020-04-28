@@ -491,7 +491,7 @@ git gc
 
 ## GitLab Update Cycle
 
-* Released frequently
+* Released frequently (monthly on the 22nd)
 
 * Update badge in admin area
 
