@@ -237,7 +237,7 @@ git push bare master  # push local master to remote bare
 git branch --set-upstream-to=bare/master  # track remote branch
 git branch --remotes  # branch master is in repository bare too
 git fetch bare        # fetch changes from bare
-git push bare :master # remove branch master remote
+git push bare :master # remove branch master from remote bare
 ```
 
 ---
@@ -491,7 +491,7 @@ git gc
 
 ## GitLab Update Cycle
 
-* Released frequently
+* Released frequently (monthly on the 22nd)
 
 * Update badge in admin area
 
