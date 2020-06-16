@@ -18,7 +18,7 @@ Documents:
 Duration: 2h
 
 Description: >
-    How to use helm to simplify lifecycle deployment and easily mnanage your applications.
+    How to use helm to simplify lifecycle deployment and easily manage your applications.
 Requirements:
     - Bash shell
     - kubectl
