@@ -168,7 +168,7 @@ List Kubernetes resources
 ```bash
 kubectl get all
 kubectl get pods
-kubectl get dc
+kubectl get deploy
 kubectl get pods -o wide
 kubectl get all -l env=production
 kubectl get po/nodejs-ex -o yaml
@@ -182,7 +182,7 @@ Edit resource definitions
 * Suitable for debugging
 
 ```bash
-kubectl edit dc/nodejs-ex
+kubectl edit deploy/nodejs-ex
 ```
 
 ## kubectl delete
@@ -190,5 +190,5 @@ kubectl edit dc/nodejs-ex
 Deletion of resources
 
 ```bash
-kubectl delete rc/nodejs-ex
+kubectl delete deploy/nodejs-ex
 ```
