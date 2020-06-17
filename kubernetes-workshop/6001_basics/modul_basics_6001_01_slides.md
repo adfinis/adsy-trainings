@@ -82,6 +82,7 @@ spec:
     env: "production"
   ports:
     - protocol: "TCP"
+      name: http
       port: 80
       targetPort: 8080
 ```
@@ -103,7 +104,7 @@ metadata:
 spec:
   backend:
     serviceName: "echoheaders"
-    servicePort: 80
+    servicePort: http
   tls:
     - hosts:
       - "echo.example.com"
