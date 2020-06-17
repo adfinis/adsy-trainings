@@ -82,6 +82,7 @@ spec:
     env: "production"
   ports:
     - protocol: "TCP"
+      name: http
       port: 80
       targetPort: 8080
 ```
@@ -96,14 +97,14 @@ Ingress allows external access to Services
 * TCP/UDP support in the future
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: "echo-ingress"
 spec:
   backend:
     serviceName: "echoheaders"
-    servicePort: 80
+    servicePort: http
   tls:
     - hosts:
       - "echo.example.com"
@@ -168,7 +169,7 @@ List Kubernetes resources
 ```bash
 kubectl get all
 kubectl get pods
-kubectl get dc
+kubectl get deploy
 kubectl get pods -o wide
 kubectl get all -l env=production
 kubectl get po/nodejs-ex -o yaml
@@ -182,7 +183,7 @@ Edit resource definitions
 * Suitable for debugging
 
 ```bash
-kubectl edit dc/nodejs-ex
+kubectl edit deploy/nodejs-ex
 ```
 
 ## kubectl delete
@@ -190,5 +191,5 @@ kubectl edit dc/nodejs-ex
 Deletion of resources
 
 ```bash
-kubectl delete rc/nodejs-ex
+kubectl delete deploy/nodejs-ex
 ```
